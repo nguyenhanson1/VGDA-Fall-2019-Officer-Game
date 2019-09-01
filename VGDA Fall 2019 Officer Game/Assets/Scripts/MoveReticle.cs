@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveCrusor : MonoBehaviour
+public class MoveReticle : MonoBehaviour
 {
     [Tooltip("The RectTransform of the Canvas")]
     [SerializeField] private RectTransform canvas = null;
@@ -24,10 +24,18 @@ public class MoveCrusor : MonoBehaviour
 
     private void Update()
     {
-        xCanvas = (Input.GetAxis("Horizontal") > 0) ? Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[1]) : Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[0]);
-        yCanvas = (Input.GetAxis("Vertical") > 0) ? Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[1]) : Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[0]);
+        //Set position to go to the left or right depending on which direction is pressed
+        if (Input.GetAxis("Horizontal") > 0)
+            xCanvas = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[1]);
+        else
+            xCanvas = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[0]);
+        //Set position to go to the up or down depending on which direction is pressed
+        if ((Input.GetAxis("Vertical") > 0))
+            yCanvas = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[1]);
+        else
+            yCanvas = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[0]);
 
-
+        //Sets origin to the middle of the screen, and moves cursor to position needed
         cursor.position = new Vector2(xCanvas + canvas.rect.width / 2f, yCanvas + canvas.rect.height / 2);
     }
 }
