@@ -410,6 +410,7 @@ GameObject:
   - component: {fileID: 2068577860}
   - component: {fileID: 2068577864}
   - component: {fileID: 2068577865}
+  - component: {fileID: 2068577866}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -519,6 +520,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5dc395ebed88c4c8b754814b5976ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  Player: {fileID: 0}
+  isFlying: 0
+  oDrag: 0
+  oADrag: 0
+  flying: 0
+  lastPlayerTransform: {fileID: 0}
+--- !u!114 &2068577866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068577859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7e548b5f3bb58a48bd3c301c2a9c8b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 15
+  damage: 5
+  attackFrequency: 0
   isFlying: 0
 --- !u!1 &2131501694
 GameObject:

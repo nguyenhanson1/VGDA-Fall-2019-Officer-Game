@@ -25,13 +25,15 @@ public class EnemyChicken : Enemy
 
     private void Awake()
     {
-        oDrag = rb.drag;
-        oADrag = rb.angularDrag;
+        
     }
     // Start is called before the first frame update
     void Start()
     {
-        lastPlayerTransform = Player.transform;
+        //lastplayertransform = player.transform;
+        //odrag = rb.drag;
+        //oadrag = rb.angulardrag;
+        initialize();
     }
 
     // Update is called once per frame

@@ -15,14 +15,10 @@ public abstract class Enemy : MonoBehaviour
     protected abstract void attack();
     protected abstract void move();
 
-    private void Awake()
-    {
+    protected virtual void initialize() {
+        Player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-    }
-
-    private void Start() {
-        Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     protected virtual void begoned() {
