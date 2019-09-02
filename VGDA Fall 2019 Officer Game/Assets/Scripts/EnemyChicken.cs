@@ -13,15 +13,26 @@ public class EnemyChicken : Enemy
     private bool flying = false;
     private Transform lastPlayerTransform;
 
-    protected override void move()
-    {
+    private float rotationalDamp = 0.5f
+;
 
+    protected override void Move(){
+        transform.position += transform.forward * Time.deltaTime * moveSpeed;
     }
 
-    protected override void attack()
+    protected void Turn() {
+        Vector3 pos = Player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(pos);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
+    }
+
+    protected override void Attack()
     {
         
+
     }
+
+    
 
     private void Awake()
     {
@@ -33,14 +44,15 @@ public class EnemyChicken : Enemy
         //lastplayertransform = player.transform;
         //odrag = rb.drag;
         //oadrag = rb.angulardrag;
-        initialize();
+        Initialize();
+        isFlying = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Player.transform != lastPlayerTransform)
-            transform.LookAt(Player.transform);
+        /**if (Player.transform != lastPlayerTransform)
+            transform.LookAt(Player.transform);**/
 
         if (isFlying && !flying)
         {
@@ -56,5 +68,8 @@ public class EnemyChicken : Enemy
             rb.angularDrag = oADrag;
             flying = false;
         }
+
+        Turn();
+        Move();
     }
 }
