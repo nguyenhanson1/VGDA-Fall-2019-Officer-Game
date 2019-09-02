@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
+
     [SerializeField] protected float health;
     [SerializeField] protected float damage;
     [SerializeField] protected float attackFrequency;
@@ -29,8 +30,7 @@ public abstract class Enemy : MonoBehaviour
         }
     }
 
-    // Checks if the player is in front so they can be fired at
-    protected virtual bool AimAtPlayer() {
+    protected virtual bool PlayerInFront() {
         Vector3 directionToTarget = transform.position - Player.transform.position;
         float angle = Vector3.Angle(transform.forward, directionToTarget);
 
@@ -40,6 +40,11 @@ public abstract class Enemy : MonoBehaviour
             return true;
         }
         Debug.DrawLine(transform.position, Player.transform.position, Color.yellow);
+        return false;
+    }
+
+    protected virtual bool InLineOfSight() {
+        RaycastHit hit;
         return false;
     }
 }
