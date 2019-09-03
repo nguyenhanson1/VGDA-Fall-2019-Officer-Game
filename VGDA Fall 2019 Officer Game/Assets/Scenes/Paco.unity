@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -120,6 +120,75 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &376798878
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 376798879}
+  - component: {fileID: 376798880}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &376798879
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376798878}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -272.15796, y: 317.95862, z: 224.62805}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &376798880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376798878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90b591b4ee797e741a3d0bc18b93fea2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Music:
+  - name: Title_BGM
+    clip: {fileID: 8300000, guid: 8fa41b07fe6a3c4428961ac86d936bb8, type: 3}
+    volume: 1
+    tempo: 1
+    RandomVolume: 0
+    RandomTempo: 0
+    loop: 0
+    mute: 0
+  Sounds:
+  - name: ButtonPress
+    clip: {fileID: 8300000, guid: adb5f1225132f41459fd483ec3f806a6, type: 3}
+    volume: 0.5
+    tempo: 1
+    RandomVolume: 0.1
+    RandomTempo: 0.25
+    loop: 0
+    mute: 0
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: 85a201e9d51c48c40857a8ecc6edab6a, type: 3}
+    volume: 0.5
+    tempo: 1
+    RandomVolume: 0.1
+    RandomTempo: 0.25
+    loop: 0
+    mute: 0
 --- !u!1 &1135763318
 GameObject:
   m_ObjectHideFlags: 0
