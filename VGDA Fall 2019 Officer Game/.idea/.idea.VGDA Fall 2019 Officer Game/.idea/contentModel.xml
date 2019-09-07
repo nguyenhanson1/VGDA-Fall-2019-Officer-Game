@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Alex and Abby's\.Rider2019.2\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Alex and Abby's\.Rider2019.2\system\resharper-host\local\Transient\ReSharperHost\v192\SolutionCaches\_VGDA Fall 2019 Officer Game.-1280427216.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Alex and Abby's\Documents\GitHub\VGDA-Fall-2019-Officer-Game\VGDA Fall 2019 Officer Game" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Menu" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="Jupiter" t="Include">
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+          <e p="Materials" t="Include">
+            <e p="UI-Default-No-Alpha.shader" t="Include" />
+          </e>
+          <e p="Scripts" t="Include">
+            <e p="ActiveStateToggler.cs" t="Include" />
+            <e p="ApplicationManager.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+            <e p="ChangeColor.cs" t="Include" />
+            <e p="DragMe.cs" t="Include" />
+            <e p="DragPanel.cs" t="Include" />
+            <e p="DropMe.cs" t="Include" />
+            <e p="MoveCursor.cs" t="Include" />
+            <e p="PanelManager.cs" t="Include" />
+            <e p="ResizePanel.cs" t="Include" />
+            <e p="ScrollDetailTexture.cs" t="Include" />
+            <e p="ShowSliderValue.cs" t="Include" />
+            <e p="TiltWindow.cs" t="Include" />
+          </e>
+          <e p="Textures and Sprites" t="Include">
+            <e p="SF UI" t="Include">
+              <e p="Background" t="Include">
+                <e p="LICENSE.txt" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="BeamTest.cs" t="Include" />
+          <e p="Enemy.cs" t="Include" />
+          <e p="EnemyChicken.cs" t="Include" />
+          <e p="Health.cs" t="Include" />
+        </e>
+        <e p="Tests" t="Include">
+          <e p="_health_calculator.cs" t="Include" />
+        </e>
+        <e p="TutorialInfo" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="Editor" t="Include">
+              <e p="ReadmeEditor.cs" t="Include" />
+            </e>
+            <e p="Readme.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="NewAssembly.csproj" t="IncludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Tests.csproj" t="IncludeRecursive" />
+      <e p="VGDA Fall 2019 Officer Game.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
