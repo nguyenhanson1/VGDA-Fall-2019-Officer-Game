@@ -39,6 +39,7 @@
             </e>
           </e>
         </e>
+        <e p="PlayerMovement.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="BeamTest.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />

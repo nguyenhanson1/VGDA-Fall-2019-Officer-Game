@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BeamTest
 {
-    [SerializeField]
     private int damageValue = 50;
 
     public BeamTest()
