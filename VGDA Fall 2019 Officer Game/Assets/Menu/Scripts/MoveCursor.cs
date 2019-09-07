@@ -64,6 +64,6 @@ public class MoveCursor : MonoBehaviour
             //Sets origin to the middle of the screen, and moves cursor to position needed
             cursor.position = newPosition;
         }
-
+        gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, new Vector2(269.5f, 151.5f), 0.2f); 
     }
 }
