@@ -4,27 +4,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-
-    public float xySpeed = 10;
-  
-    // Update is called once per frame
-    void Update()
+    public float movementSpeed = 1.0f;
+    public int invert = -1;
+    private void Update()
     {
-        float YAxis = Input.GetAxis("Mouse Y");
-        float XAxis = Input.GetAxis("Mouse X");
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
 
-        LocalMove(YAxis, XAxis, xySpeed);
-    }
+        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), invert * Input.GetAxis("Vertical"), 0);
+        Vector3 finalDirection = new Vector3(horizontal, invert * vertical, 5.0f);
+        transform.position += direction *movementSpeed * Time.deltaTime;
 
-    void LocalMove(float x, float y, float speed)
-    {
-        transform.localPosition += new Vector3(x, y, 0) * speed * Time.deltaTime;
-    }
-    void StaticPosition()
-    {
-        Vector3 pos = Camera.main.WorldToViewportPoint(transform.position);
-        pos.x = Mathf.Clamp01(pos.x);
-        transform.position = Camera.main.ViewportToWorldPoint(pos);
-        pos.y = Mathf.Clamp01(pos.y);
+        transform.position += direction * movementSpeed * Time.deltaTime;
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * 50.0f);
+        
+        
     }
 }
