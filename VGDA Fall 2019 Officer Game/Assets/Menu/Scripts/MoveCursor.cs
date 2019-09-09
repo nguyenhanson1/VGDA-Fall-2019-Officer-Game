@@ -14,6 +14,7 @@ public class MoveCursor : MonoBehaviour
 
     [Tooltip("Using controller controls? (Uses mouse if false.)")]
     [SerializeField] private bool controllerEnabled = false;
+    [Tooltip("Have cursor stay in the middle of the screen when no input? (Controller Only.)")]
     [SerializeField] private bool keepCursorCentered = false;
 
     [Tooltip("Speed that cursor moves.")]
@@ -41,19 +42,29 @@ public class MoveCursor : MonoBehaviour
         if (controllerEnabled)
         {
             //Create new Vector to easily change reticle position
-            Vector2 newPosition = cursor.position;
+            Vector2 newPosition = Vector2.zero;
 
             if (keepCursorCentered)
             {
-
+                if (Input.GetAxis("Horizontal") > 0)
+                    newPosition.x = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[1]);
+                else
+                    newPosition.x = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[0]);
+                if (Input.GetAxis("Vertical") > 0)
+                    newPosition.y = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[1]);
+                else
+                    newPosition.y = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[0]);
             }
-            newPosition.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-            newPosition.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+            else
+            {
+                newPosition.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+                newPosition.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
-            newPosition.x = Mathf.Clamp(newPosition.x, xBorders[0], canvas.rect.width - xBorders[1]);
-            newPosition.y = Mathf.Clamp(newPosition.y, yBorders[0], canvas.rect.height - yBorders[1]);
+                newPosition.x = Mathf.Clamp(newPosition.x, xBorders[0], canvas.rect.width - xBorders[1]);
+                newPosition.y = Mathf.Clamp(newPosition.y, yBorders[0], canvas.rect.height - yBorders[1]);
+            }
 
-            //Sets origin to the middle of the screen, and moves cursor to position needed
+            //Moves cursor to the calculated position
             cursor.position = newPosition;
         }
         //Mouse Controls
@@ -70,5 +81,10 @@ public class MoveCursor : MonoBehaviour
             //Sets origin to the middle of the screen, and moves cursor to position needed
             cursor.position = newPosition;
         }
+
+        //Recenters Cursor when button is pressed
+        if (Input.GetButtonDown("CenterCursor"))
+            cursor.position = new Vector2(canvas.rect.width / 2, canvas.rect.height / 2);
+
     }
 }
