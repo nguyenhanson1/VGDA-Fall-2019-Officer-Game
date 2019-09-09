@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-
     [SerializeField] protected float health;
     [SerializeField] protected float damage;
     [SerializeField] protected float attackFrequency;
