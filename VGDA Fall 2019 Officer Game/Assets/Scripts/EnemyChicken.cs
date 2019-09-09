@@ -72,4 +72,25 @@ public class EnemyChicken : Enemy
         Turn();
         Move();
     }
+
+    protected virtual bool PlayerInFront()
+    {
+        Vector3 directionToTarget = transform.position - Player.transform.position;
+        float angle = Vector3.Angle(transform.forward, directionToTarget);
+
+        // if in range
+        if (Mathf.Abs(angle) > 90 && Mathf.Abs(angle) < 270)
+        {
+            Debug.DrawLine(transform.position, Player.transform.position, Color.cyan);
+            return true;
+        }
+        Debug.DrawLine(transform.position, Player.transform.position, Color.yellow);
+        return false;
+    }
+
+    protected virtual bool InLineOfSight()
+    {
+        RaycastHit hit;
+        return false;
+    }
 }
