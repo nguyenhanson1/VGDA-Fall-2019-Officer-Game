@@ -7,10 +7,10 @@ public class ObjectPooler : MonoBehaviour
 {
     //Slap this boi onto the empty gameObject to hold the bullets
 
-    public List<GameObject> genericBulletPool = new List<GameObject>();
-    public GameObject genericBulletPrefab = null;
-    public int totalGenericBullets = 50;
+    [SerializeField] private GameObject genericBulletPrefab = null;
+    [SerializeField] private int totalGenericBullets = 50;
 
+    private List<GameObject> genericBulletPool = new List<GameObject>();
     private int instantiatedGenericBullets = 0;
 
     private void Start()

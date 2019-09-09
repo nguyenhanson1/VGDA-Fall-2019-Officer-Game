@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -232,12 +232,12 @@ GameObject:
   - component: {fileID: 664858002}
   - component: {fileID: 664858004}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Cursor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &664858001
 RectTransform:
   m_ObjectHideFlags: 0
@@ -418,27 +418,14 @@ GameObject:
   - component: {fileID: 1215931941}
   - component: {fileID: 1215931940}
   - component: {fileID: 1215931939}
-  - component: {fileID: 1215931938}
+  - component: {fileID: 1215931942}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!65 &1215931938
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215931937}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1215931939
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -499,6 +486,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1215931942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215931937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab0ec78f77810249bbbb40e93a08484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletPool: {fileID: 1824290114}
+  dps: 1
+  spawnAtCursor: 1
+  cursor: {fileID: 664858001}
+  cursorCamera: {fileID: 2131501696}
 --- !u!1 &1824290112
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +512,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1824290113}
+  - component: {fileID: 1824290114}
   m_Layer: 0
   m_Name: Egg_Basket
   m_TagString: Untagged
@@ -529,6 +534,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1824290114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824290112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b2a48b2c33034478dc71d8d49402d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  genericBulletPrefab: {fileID: 704223550888968367, guid: 210bade8caf60874c90bd54c019a6e3e,
+    type: 3}
+  totalGenericBullets: 5
 --- !u!1 &1941151964
 GameObject:
   m_ObjectHideFlags: 0
@@ -671,10 +691,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131501694}
-  m_LocalRotation: {x: 0.24945047, y: 0, z: 0, w: 0.96838754}
-  m_LocalPosition: {x: 0, y: 11.91, z: -10}
+  m_LocalRotation: {x: 0.18395132, y: 0, z: 0, w: 0.9829354}
+  m_LocalPosition: {x: -0.02, y: 2.44, z: -3.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 28.89, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 21.2, y: 0, z: 0}

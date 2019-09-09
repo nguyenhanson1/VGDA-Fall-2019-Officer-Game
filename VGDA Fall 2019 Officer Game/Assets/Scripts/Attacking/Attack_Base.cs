@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract class Attack_Abstract : MonoBehaviour
+public class Attack_Base : MonoBehaviour
 {
-    private ObjectPooler bulletPool;
+    [SerializeField] private ObjectPooler bulletPool = null;
 
     public void Shoot(Vector3? position = null, Quaternion? rotation = null)
     {
