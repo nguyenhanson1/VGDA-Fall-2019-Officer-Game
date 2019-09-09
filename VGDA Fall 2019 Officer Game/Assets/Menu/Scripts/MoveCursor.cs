@@ -12,8 +12,9 @@ public class MoveCursor : MonoBehaviour
     [Tooltip("Size of borders that'll stop the cursor in the x axis. [Bottom, Top]")]
     [SerializeField] private float[] yBorders = new float[2];
 
-    [Tooltip("Using controller controls? (Uses mouse if false.")]
+    [Tooltip("Using controller controls? (Uses mouse if false.)")]
     [SerializeField] private bool controllerEnabled = false;
+    [SerializeField] private bool keepCursorCentered = false;
 
     [Tooltip("Speed that cursor moves.")]
     [SerializeField] private float speed = 700f;
@@ -41,6 +42,11 @@ public class MoveCursor : MonoBehaviour
         {
             //Create new Vector to easily change reticle position
             Vector2 newPosition = cursor.position;
+
+            if (keepCursorCentered)
+            {
+
+            }
             newPosition.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
             newPosition.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
 
@@ -64,6 +70,5 @@ public class MoveCursor : MonoBehaviour
             //Sets origin to the middle of the screen, and moves cursor to position needed
             cursor.position = newPosition;
         }
-        gameObject.transform.position = Vector2.Lerp(gameObject.transform.position, new Vector2(269.5f, 151.5f), 0.2f); 
     }
 }

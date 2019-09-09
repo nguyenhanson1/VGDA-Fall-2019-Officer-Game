@@ -314,7 +314,7 @@ MonoBehaviour:
   yBorders:
   - 0
   - 0
-  controllerEnabled: 1
+  controllerEnabled: 0
   speed: 700
 --- !u!1 &1135763318
 GameObject:
