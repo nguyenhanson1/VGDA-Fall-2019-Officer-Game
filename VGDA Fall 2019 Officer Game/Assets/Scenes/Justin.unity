@@ -314,7 +314,8 @@ MonoBehaviour:
   yBorders:
   - 0
   - 0
-  controllerEnabled: 0
+  controllerEnabled: 1
+  keepCursorCentered: 1
   speed: 700
 --- !u!1 &1135763318
 GameObject:
@@ -665,9 +666,9 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 719
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -691,10 +692,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2131501694}
-  m_LocalRotation: {x: 0.18395132, y: 0, z: 0, w: 0.9829354}
-  m_LocalPosition: {x: -0.02, y: 2.44, z: -3.36}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 21.2, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -26,6 +26,7 @@ public class Bullet : MonoBehaviour
     private IEnumerator trackBullet()
     {
         yield return new WaitForSeconds(despawnTime);
+
         gameObject.SetActive(false);
     }
 }

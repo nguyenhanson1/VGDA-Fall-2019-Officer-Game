@@ -42,27 +42,7 @@ public class MoveCursor : MonoBehaviour
         if (controllerEnabled)
         {
             //Create new Vector to easily change reticle position
-            Vector2 newPosition = Vector2.zero;
-
-            if (keepCursorCentered)
-            {
-                if (Input.GetAxis("Horizontal") > 0)
-                    newPosition.x = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[1]);
-                else
-                    newPosition.x = Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[0]);
-                if (Input.GetAxis("Vertical") > 0)
-                    newPosition.y = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[1]);
-                else
-                    newPosition.y = Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[0]);
-            }
-            else
-            {
-                newPosition.x += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
-                newPosition.y += Input.GetAxis("Vertical") * Time.deltaTime * speed;
-
-                newPosition.x = Mathf.Clamp(newPosition.x, xBorders[0], canvas.rect.width - xBorders[1]);
-                newPosition.y = Mathf.Clamp(newPosition.y, yBorders[0], canvas.rect.height - yBorders[1]);
-            }
+            Vector2 newPosition = new Vector2(GetX_Controller(),GetY_Controller());
 
             //Moves cursor to the calculated position
             cursor.position = newPosition;
@@ -85,6 +65,38 @@ public class MoveCursor : MonoBehaviour
         //Recenters Cursor when button is pressed
         if (Input.GetButtonDown("CenterCursor"))
             cursor.position = new Vector2(canvas.rect.width / 2, canvas.rect.height / 2);
+    }
 
+    private float GetX_Controller()
+    {
+        if (keepCursorCentered)
+        {
+            if (Input.GetAxis("Horizontal") > 0)
+                return (canvas.rect.width / 2) + (Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[1]));
+            else
+                return (canvas.rect.width / 2) + (Input.GetAxis("Horizontal") * ((canvas.rect.width / 2) - xBorders[0]));
+        }
+        else
+        {
+            float xPos = cursor.position.x;
+            xPos += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
+            return Mathf.Clamp(xPos, xBorders[0], canvas.rect.width - xBorders[1]);
+        }
+    }
+    private float GetY_Controller()
+    {
+        if (keepCursorCentered)
+        {
+            if (Input.GetAxis("Vertical") > 0)
+                return (canvas.rect.height / 2) + Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[1]);
+            else
+                return (canvas.rect.height / 2) + Input.GetAxis("Vertical") * ((canvas.rect.height / 2) - yBorders[0]);
+        }
+        else
+        {
+            float yPos = cursor.position.y;
+            yPos += Input.GetAxis("Vertical") * Time.deltaTime * speed;
+            return Mathf.Clamp(yPos, yBorders[0], canvas.rect.height - yBorders[1]);
+        }
     }
 }
