@@ -18,7 +18,7 @@ public class Attack_Player : Attack_Base
             if (spawnAtCursor)
             {
                 Vector3 cursorLocation = cursorCamera.ScreenToWorldPoint(cursor.position);
-                Shoot(cursorLocation);
+                Shoot(cursorLocation, Quaternion.identity);
             }
             else
                 Shoot();
