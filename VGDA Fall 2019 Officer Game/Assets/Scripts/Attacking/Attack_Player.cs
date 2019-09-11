@@ -5,32 +5,38 @@ using UnityEngine;
 public class Attack_Player : Attack_Base
 {
     [SerializeField] private float dps = 1f;
+    private float shotDelay = 0;
     private bool shotDelayed = false;
 
     [SerializeField] private bool spawnAtCursor = false;
     [SerializeField] private RectTransform cursor = null;
     [SerializeField] private Camera cursorCamera = null;
-
+    private void Start()
+    {
+        shotDelay = 1f / dps;
+    }
     private void Update()
     {
-        if (Input.GetButton("Fire1") && !shotDelayed)
+        if (Input.GetButton("Fire1"))
         {
-            if (spawnAtCursor)
+            if (!shotDelayed)
             {
-                Vector3 cursorLocation = cursorCamera.ScreenToWorldPoint(cursor.position);
-                Shoot(cursorLocation, Quaternion.identity);
+                StartCoroutine(DelayShots());
+                if (spawnAtCursor)
+                {
+                    Vector3 cursorLocation = cursorCamera.ScreenToWorldPoint(cursor.position);
+                    Shoot(cursorLocation, Quaternion.identity);
+                }
+                else
+                    Shoot();
             }
-            else
-                Shoot();
-
-            StartCoroutine(DelayShots());
         }
     }
 
     private IEnumerator DelayShots()
     {
         shotDelayed = true;
-        yield return new WaitForSeconds(dps);
+        yield return new WaitForSeconds(shotDelay);
         shotDelayed = false;
     }
 }

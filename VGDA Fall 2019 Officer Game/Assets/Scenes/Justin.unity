@@ -315,7 +315,7 @@ MonoBehaviour:
   - 0
   - 0
   controllerEnabled: 0
-  keepCursorCentered: 1
+  keepCursorCentered: 0
   speed: 700
 --- !u!1 &1135763318
 GameObject:
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 1215931938}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -518,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 1824290114}
-  dps: 1
+  dps: 5
   spawnAtCursor: 1
   cursor: {fileID: 664858001}
   cursorCamera: {fileID: 2131501696}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   genericBulletPrefab: {fileID: 704223550888968367, guid: 210bade8caf60874c90bd54c019a6e3e,
     type: 3}
-  totalGenericBullets: 5
+  totalGenericBullets: 50
 --- !u!1 &1941151964
 GameObject:
   m_ObjectHideFlags: 0
