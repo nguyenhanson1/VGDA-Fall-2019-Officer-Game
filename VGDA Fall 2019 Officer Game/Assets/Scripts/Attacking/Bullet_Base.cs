@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Bullet_Base : MonoBehaviour
 {
-    public float speed = 1f;
-    public int damage = 0;
+    [SerializeField] private float speed = 1f;
+    [SerializeField] protected int damage = 0;
     [SerializeField] private float despawnTime = 5f;
 
     [SerializeField] private Rigidbody rb = null;
