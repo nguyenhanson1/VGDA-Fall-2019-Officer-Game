@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5925313c843f24fbaf434013527eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 20
   damage: 0
-  despawnTime: 5
+  despawnTime: 20
   rb: {fileID: -353503682165753034}
 --- !u!222 &704223550888968366
 CanvasRenderer:
