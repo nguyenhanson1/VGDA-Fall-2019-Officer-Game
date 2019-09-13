@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyChicken : Enemy
 {
+    
+
     // Flying checkers & defaults
     [SerializeField] private bool isFlying = false;
     private float oDrag;
@@ -41,9 +43,9 @@ public class EnemyChicken : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        //lastplayertransform = player.transform;
-        //odrag = rb.drag;
-        //oadrag = rb.angulardrag;
+        lastPlayerTransform = Player.transform;
+        oDrag = rb.drag;
+        oADrag = rb.angularDrag;
         Initialize();
         isFlying = true;
     }
@@ -93,4 +95,6 @@ public class EnemyChicken : Enemy
         RaycastHit hit;
         return false;
     }
+
+    
 }
