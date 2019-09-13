@@ -4,7 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected float health;
+    [SerializeField] protected Health totalHealth;
+    [SerializeField] protected int health;
     [SerializeField] protected float damage;
     [SerializeField] protected float attackFrequency;
     [SerializeField] protected float moveSpeed;
@@ -20,13 +21,7 @@ public abstract class Enemy : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
-    }
-
-    protected virtual void Begoned() {
-        if (health <= 0f) {
-            // Death animation here
-            Destroy(this);
-        }
+        totalHealth.HealthTotal = health;
     }
 }
     

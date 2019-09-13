@@ -15,6 +15,7 @@ public class PanelManager : MonoBehaviour {
 	const string k_OpenTransitionName = "Open";
 	const string k_ClosedStateName = "Closed";
 
+
 	public void OnEnable()
 	{
 		m_OpenParameterId = Animator.StringToHash (k_OpenTransitionName);
