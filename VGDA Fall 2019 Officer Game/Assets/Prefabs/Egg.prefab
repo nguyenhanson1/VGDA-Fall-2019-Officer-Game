@@ -108,7 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  damage: 1
+  damage: 5
   despawnTime: 20
   target: Enemy
   rb: {fileID: -353503682165753034}
