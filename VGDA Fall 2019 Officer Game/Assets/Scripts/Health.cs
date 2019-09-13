@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Health
 {
-    public Action OnDeath = delegate {};
-    //public delegate void _OnDeath(Health dead);
-    //public static event _OnDeath OnDeath;
+    //public Action OnDeath = delegate {};
+    public delegate void _OnDeath(Health dead);
+    public static event _OnDeath OnDeath;
     
     private int _healthTotal = 100;
 
@@ -20,8 +20,8 @@ public class Health
             if(_healthTotal <= 0)
                 if (OnDeath != null)
                 {
-                    OnDeath.Invoke();
-                    //OnDeath.Invoke(this);
+                    //OnDeath.Invoke();
+                    OnDeath.Invoke(this);
                 }
             
         }

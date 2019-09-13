@@ -23,7 +23,7 @@ namespace Tests
         public void _try_to_set_health_to_zero()
         {
             Health playerHealth = new Health();
-            playerHealth.OnDeath += _try_to_invoke_health_event;
+            //playerHealth.OnDeath += _try_to_invoke_health_event;
             //Health.OnDeath += _try_to_invoke_health_event;
             
             BeamTest newBeam = new BeamTest();
@@ -33,7 +33,7 @@ namespace Tests
 
             Assert.AreEqual(0, playerHealth.HealthTotal);
             
-            playerHealth.OnDeath -= _try_to_invoke_health_event;
+            //playerHealth.OnDeath -= _try_to_invoke_health_event;
             //Health.OnDeath += _try_to_invoke_health_event;
 
         }
@@ -42,7 +42,7 @@ namespace Tests
         public void _try_to_set_health_to_50()
         {
             Health playerHealth = new Health();
-            playerHealth.OnDeath += _try_to_invoke_health_event;
+            //playerHealth.OnDeath += _try_to_invoke_health_event;
             //Health.OnDeath += _try_to_invoke_health_event;
             
             BeamTest newBeam = new BeamTest();
@@ -51,7 +51,7 @@ namespace Tests
 
             Assert.AreEqual(50, playerHealth.HealthTotal);
             
-            playerHealth.OnDeath -= _try_to_invoke_health_event;
+            //playerHealth.OnDeath -= _try_to_invoke_health_event;
             //Health.OnDeath += _try_to_invoke_health_event;
 
         }
@@ -60,10 +60,10 @@ namespace Tests
         public void _destroy_the_correct_object()
         {
             Health playerHealth = new Health();
-            playerHealth.OnDeath += _destroy_object_when_dead;
+            //playerHealth.OnDeath += _destroy_object_when_dead;
 
             Health enemy1 = new Health();
-            enemy1.OnDeath += _destroy_object_when_dead;
+            //enemy1.OnDeath += _destroy_object_when_dead;
             
             BeamTest aBeam = new BeamTest(100);
             
@@ -71,7 +71,7 @@ namespace Tests
             
             Assert.AreEqual(0, enemy1.HealthTotal);
             
-            playerHealth.OnDeath -= _destroy_object_when_dead;
+            //playerHealth.OnDeath -= _destroy_object_when_dead;
         }
 
         public void _destroy_object_when_dead()

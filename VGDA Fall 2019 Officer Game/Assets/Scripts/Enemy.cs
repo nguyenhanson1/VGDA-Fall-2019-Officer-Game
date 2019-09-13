@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    [SerializeField] protected Health totalHealth;
-    [SerializeField] protected int health;
+    public Health totalHealth = new Health();
+    [SerializeField] protected int health = 15;
     [SerializeField] protected float damage;
     [SerializeField] protected float attackFrequency;
     [SerializeField] protected float moveSpeed;
@@ -16,11 +16,22 @@ public abstract class Enemy : MonoBehaviour
 
     protected abstract void Attack();
     protected abstract void Move();
+    protected abstract void Begoned(Health h);
+
+    protected virtual void OnEnable()
+    {
+        Health.OnDeath += Begoned;
+    }
+
+    protected virtual void OnDisable()
+    {
+        Health.OnDeath -= Begoned;
+    }
 
     protected virtual void Initialize() {
         Player = GameObject.FindGameObjectWithTag("Player");
-        anim = GetComponent<Animator>();
-        rb = GetComponent<Rigidbody>();
+        anim = this.GetComponent<Animator>();
+        rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = health;
     }
 }

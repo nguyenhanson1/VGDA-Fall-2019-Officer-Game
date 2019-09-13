@@ -5,8 +5,9 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
-    [SerializeField] protected int damage = 0;
+    [SerializeField] protected int damage = 5;
     [SerializeField] private float despawnTime = 5f;
+    [SerializeField] private string target = "Enemy";
 
     [SerializeField] private Rigidbody rb = null;
 
@@ -32,9 +33,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.GetComponent<Health>() != null)
+        if(col.gameObject.tag == target)
         {
-            col.GetComponent<Health>().subtractHealth(damage);
+            col.gameObject.GetComponent<EnemyChicken>().totalHealth.subtractHealth(damage); // change this later to work with everyone
             gameObject.SetActive(false);
         }
     }

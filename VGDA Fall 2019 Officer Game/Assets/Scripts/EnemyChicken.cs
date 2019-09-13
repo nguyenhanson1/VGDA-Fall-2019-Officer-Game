@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class EnemyChicken : Enemy
 {
-    
-
     // Flying checkers & defaults
     [SerializeField] private bool isFlying = false;
     private float oDrag;
@@ -15,8 +13,9 @@ public class EnemyChicken : Enemy
     private bool flying = false;
     private Transform lastPlayerTransform;
 
-    private float rotationalDamp = 0.5f
-;
+    private float rotationalDamp = 0.5f;
+
+
 
     protected override void Move(){
         transform.position += transform.forward * Time.deltaTime * moveSpeed;
@@ -34,7 +33,14 @@ public class EnemyChicken : Enemy
 
     }
 
-    
+    protected override void Begoned(Health h)
+    {
+        if (totalHealth.HealthTotal <= 0){ // totalHealth == h
+            // Play Death Animation
+            Destroy(this);
+        }
+    }
+
 
     private void Awake()
     {
@@ -43,6 +49,7 @@ public class EnemyChicken : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        Initialize();
         lastPlayerTransform = Player.transform;
         oDrag = rb.drag;
         oADrag = rb.angularDrag;

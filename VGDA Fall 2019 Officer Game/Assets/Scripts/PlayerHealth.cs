@@ -16,12 +16,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnEnable()
     {
-        //Health.OnDeath += DestroyShip;
+        Health.OnDeath += DestroyShip;
     }
     private void OnDisable()
     {
-        //Health.OnDeath -= DestroyShip;
+        Health.OnDeath -= DestroyShip;
     }
+
     private void DestroyShip(Health ship)
     {
         if(shipHealth == ship)
