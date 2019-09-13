@@ -516,8 +516,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 664858001}
   cursorCamera: {fileID: 40234081}
-  movementSpeed: 1
   offset: {x: -1, y: -1, z: 0}
+  movementSpeed: 5
   invert: -1
 --- !u!23 &1215931939
 MeshRenderer:
