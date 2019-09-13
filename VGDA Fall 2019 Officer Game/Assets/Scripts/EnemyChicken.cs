@@ -37,7 +37,7 @@ public class EnemyChicken : Enemy
     {
         if (totalHealth.HealthTotal <= 0){ // totalHealth == h
             // Play Death Animation
-            Destroy(this);
+            Destroy(gameObject);
         }
     }
 

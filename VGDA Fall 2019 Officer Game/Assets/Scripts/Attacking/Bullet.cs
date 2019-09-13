@@ -35,6 +35,7 @@ public class Bullet : MonoBehaviour
     {
         if(col.gameObject.tag == target)
         {
+            Debug.Log("Hit");
             col.gameObject.GetComponent<EnemyChicken>().totalHealth.subtractHealth(damage); // change this later to work with everyone
             gameObject.SetActive(false);
         }
