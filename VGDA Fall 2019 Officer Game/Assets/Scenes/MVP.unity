@@ -554,7 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 759153093}
   cursorCamera: {fileID: 1077650536}
-  offset: {x: 0, y: 0, z: 0}
+  offset: {x: -0.5, y: -0.5, z: 0}
   movementSpeed: 5
   invert: -1
 --- !u!114 &1052115803
