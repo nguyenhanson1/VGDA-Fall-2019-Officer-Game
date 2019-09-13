@@ -21,7 +21,9 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 lookAt = cursor.position;
         lookAt.z += 3f;
-        transform.LookAt(cursorCamera.ScreenToWorldPoint(lookAt));
+        lookAt = cursorCamera.ScreenToWorldPoint(lookAt);
+        lookAt += offset;
+        transform.LookAt(lookAt);
         
         
     }
