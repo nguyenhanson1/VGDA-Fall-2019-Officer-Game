@@ -26,6 +26,14 @@ public class Health
             
         }
     }
-    
-    
+
+    public void subtractHealth(int damage)
+    {
+        HealthTotal -= damage;
+    }
+    public void addHealth(int damage)
+    {
+        HealthTotal += damage;
+    }
+
 }

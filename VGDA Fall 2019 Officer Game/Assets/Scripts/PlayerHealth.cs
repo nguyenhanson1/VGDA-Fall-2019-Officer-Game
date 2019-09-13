@@ -29,12 +29,4 @@ public class PlayerHealth : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void subtractHealth(int damage)
-    {
-        shipHealth.HealthTotal -= damage;
-    }
-    private void addHealth(int damage)
-    {
-        shipHealth.HealthTotal += damage;
-    }
 }

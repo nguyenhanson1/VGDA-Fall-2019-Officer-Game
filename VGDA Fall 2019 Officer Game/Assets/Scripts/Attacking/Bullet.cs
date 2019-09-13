@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet_Base : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] private float speed = 1f;
     [SerializeField] protected int damage = 0;
@@ -28,5 +28,14 @@ public class Bullet_Base : MonoBehaviour
         yield return new WaitForSeconds(despawnTime);
 
         gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if(col.GetComponent<Health>() != null)
+        {
+            col.GetComponent<Health>().subtractHealth(damage);
+            gameObject.SetActive(false);
+        }
     }
 }
