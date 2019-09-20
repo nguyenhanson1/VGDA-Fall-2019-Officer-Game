@@ -14,22 +14,11 @@ public class GameManager : MonoBehaviour
 
     //Variables
      /*Public variables*/ 
-    public Canvas pauseMenu;
-    public PanelManager menuManager;
-    public Animator anim;
-
+    
     /*Private variables*/
-    private bool gamePaused = false;
 
-    private void OnEnable()
-    {
-        UpdateOccurred += checkForPause;
-    }
 
-    private void OnDisable()
-    {
-        UpdateOccurred -= checkForPause;
-    }
+    
 
     void Start()
     {
@@ -38,39 +27,13 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if (UpdateOccurred != null)
             UpdateOccurred();
     }
-    void checkForPause()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (gamePaused)
-            {
-                
-                Resume();
-            }
-            else
-            {
-                
-                Pause();
-            }
-        }
-    }
-    public void Resume()
-    {
-        menuManager.CloseCurrent();
-        Time.timeScale = 1f;
-        gamePaused = false;
-    }
-
-    void Pause()
-    {
-        anim.updateMode = AnimatorUpdateMode.UnscaledTime;
-        menuManager.OpenPanel(menuManager.initiallyOpen);
-        Time.timeScale = 0f;
-        gamePaused = true;
-    }
+    
+   
+    
 }
+
