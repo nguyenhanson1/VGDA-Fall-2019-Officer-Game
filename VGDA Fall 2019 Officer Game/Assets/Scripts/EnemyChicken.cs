@@ -18,7 +18,8 @@ public class EnemyChicken : Enemy
 
 
     protected override void Move(){
-        transform.position += transform.forward * Time.deltaTime * moveSpeed;
+        // THIS IS TO FOLLOW THE PLAYER MOVEMENT 
+        //transform.position += transform.forward * Time.deltaTime * moveSpeed;
     }
 
     protected void Turn() {
@@ -102,6 +103,4 @@ public class EnemyChicken : Enemy
         RaycastHit hit;
         return false;
     }
-
-    
 }
