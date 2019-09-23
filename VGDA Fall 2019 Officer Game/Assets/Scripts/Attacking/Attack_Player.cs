@@ -18,8 +18,6 @@ public class Attack_Player : Attack_Base
 
     private void Update()
     {
-        Debug.DrawRay(transform.position, transform.forward * cursorCamera.farClipPlane*2);
-
         if (Input.GetButton("Fire1"))
         {
             if (!shotDelayed)

@@ -13,6 +13,9 @@ public class BoiDies : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        if (other.gameObject.tag == "Projectile")
+        {
+            Destroy(gameObject);
+        }
     }
 }

@@ -774,7 +774,8 @@ MonoBehaviour:
   cursor: {fileID: 759153093}
   cursorCamera: {fileID: 1077650536}
   mainCamera: {fileID: 1268642583}
-  offset: {x: -0.5, y: -0.5, z: 0}
+  bullet: {fileID: -8383447166993168962, guid: 210bade8caf60874c90bd54c019a6e3e, type: 3}
+  offset: {x: 0, y: 0, z: 0}
   movementSpeed: 5
   invert: -1
 --- !u!114 &1052115803

@@ -11,7 +11,20 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private Rigidbody rb = null;
 
-
+    public float Speed
+    {
+        get
+        {
+            return speed;
+        }
+    }
+    public float DespawnTime
+    {
+        get
+        {
+            return despawnTime;
+        }
+    }
 
     private void OnEnable()
     {
