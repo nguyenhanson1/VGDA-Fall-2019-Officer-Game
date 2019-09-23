@@ -186,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &152583053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,6 +554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 759153093}
   cursorCamera: {fileID: 1077650536}
+  mainCamera: {fileID: 1268642583}
   offset: {x: -0.5, y: -0.5, z: 0}
   movementSpeed: 5
   invert: -1
@@ -571,7 +572,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 30661083}
   dps: 5
-  spawnAtCursor: 1
+  spawnAtCursor: 0
   cursor: {fileID: 759153093}
   cursorCamera: {fileID: 1077650536}
 --- !u!23 &1052115804
@@ -776,7 +777,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1268642583}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -818,6 +819,7 @@ GameObject:
   - component: {fileID: 1268642584}
   - component: {fileID: 1268642583}
   - component: {fileID: 1268642582}
+  - component: {fileID: 1268642585}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -890,6 +892,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268642585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268642581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c542e9ee933f9a4d9e9e9c2002f546d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spot: {x: 0.5, y: 0.5}
+  thing: {fileID: 2895118084282900606, guid: f6bf49b137d6f814f9ec5cad061ae407, type: 3}
+  cam: {fileID: 1268642583}
+  cursor: {fileID: 759153093}
 --- !u!1 &1431343381
 GameObject:
   m_ObjectHideFlags: 0

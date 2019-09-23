@@ -15,8 +15,11 @@ public class Attack_Player : Attack_Base
     {
         shotDelay = 1f / dps;
     }
+
     private void Update()
     {
+        Debug.DrawRay(transform.position, transform.forward * cursorCamera.farClipPlane*2);
+
         if (Input.GetButton("Fire1"))
         {
             if (!shotDelayed)
@@ -25,7 +28,7 @@ public class Attack_Player : Attack_Base
                 if (spawnAtCursor)
                 {
                     Vector3 cursorLocation = cursorCamera.ScreenToWorldPoint(cursor.position);
-                    Shoot(cursorLocation, Quaternion.identity);
+                    Shoot(null, Quaternion.identity);
                 }
                 else
                     Shoot();

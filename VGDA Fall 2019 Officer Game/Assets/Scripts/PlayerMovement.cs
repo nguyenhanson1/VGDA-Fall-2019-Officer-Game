@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private RectTransform cursor = null;
     [SerializeField] private Camera cursorCamera = null;
+    [SerializeField] private Camera mainCamera = null; 
 
     [SerializeField] private Vector3 offset = new Vector3(0, 0, 0);
 
@@ -18,11 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
         transform.position = move;
 
-
-        Vector3 lookAt = cursor.position;
-        lookAt.z += 3f;
-        lookAt = cursorCamera.ScreenToWorldPoint(lookAt);
-        lookAt += offset;
+        Vector3 lookAt = mainCamera.ScreenToWorldPoint(new Vector3(cursor.position.x,cursor.position.y,cursorCamera.farClipPlane));
         transform.LookAt(lookAt);
         
         
