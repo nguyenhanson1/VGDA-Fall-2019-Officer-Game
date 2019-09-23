@@ -4,36 +4,33 @@ using UnityEngine;
 
 public class Attack_Player : Attack_Base
 {
+    [Tooltip("How fast the Player shoots (Higher for faster).")]
     [SerializeField] private float dps = 1f;
+    //Seconds between each shot
     private float shotDelay = 0;
+    //Player can only shoo when it's true
     private bool shotDelayed = false;
 
-    [SerializeField] private bool spawnAtCursor = false;
-    [SerializeField] private RectTransform cursor = null;
-    [SerializeField] private Camera cursorCamera = null;
-    private void Start()
+    private void OnEnable()
     {
         shotDelay = 1f / dps;
+        GameManager.UpdateOccurred += checkforShot;
+    }
+    private void OnDisable()
+    {
+        GameManager.UpdateOccurred -= checkforShot;
     }
 
-    private void Update()
+    //Check if Fire button was pressed.
+    private void checkforShot()
     {
         if (Input.GetButton("Fire1"))
-        {
             if (!shotDelayed)
             {
                 StartCoroutine(DelayShots());
-                if (spawnAtCursor)
-                {
-                    Vector3 cursorLocation = cursorCamera.ScreenToWorldPoint(cursor.position);
-                    Shoot(null, Quaternion.identity);
-                }
-                else
-                    Shoot();
+                Shoot();
             }
-        }
     }
-
     private IEnumerator DelayShots()
     {
         shotDelayed = true;

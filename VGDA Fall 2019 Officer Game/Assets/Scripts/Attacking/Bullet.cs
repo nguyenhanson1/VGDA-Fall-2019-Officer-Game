@@ -4,39 +4,41 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Tooltip("Velocity of the Bullet")]
     [SerializeField] private float speed = 1f;
+    [Tooltip("Damage dealt by the Bullet")]
     [SerializeField] protected int damage = 5;
+    [Tooltip("Amount of seconds after firing before the Bullet disappears")]
     [SerializeField] private float despawnTime = 5f;
-    [SerializeField] private string target = "Enemy";
-
+    [Tooltip("Layers that the Bullet can hit.")]
+    [SerializeField] private LayerMask targets = new LayerMask();
+    [Tooltip("Rigidbody of Bullet")]
     [SerializeField] private Rigidbody rb = null;
 
+    //Properties that give access to the following variables
     public float Speed
     {
-        get
-        {
-            return speed;
-        }
+        get => speed;
     }
     public float DespawnTime
     {
-        get
-        {
-            return despawnTime;
-        }
+        get => despawnTime;
     }
 
+    //Set the bullet's speed and direction when it's created, 
     private void OnEnable()
     {
         rb.velocity = speed * transform.forward;
+        //Start timer to deactivate the bullet
         StartCoroutine(trackBullet());
     }
-
+    //Reset the bullet's speed when it's deactivated
     private void OnDisable()
     {
         rb.velocity = Vector3.zero;
     }
 
+    //Deactivate the bullet after a certain time
     private IEnumerator trackBullet()
     {
         yield return new WaitForSeconds(despawnTime);
@@ -46,11 +48,14 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        if(col.gameObject.tag == target)
-        {
-            Debug.Log("Hit");
-            col.gameObject.GetComponent<EnemyChicken>().totalHealth.subtractHealth(damage); // change this later to work with everyone
-            gameObject.SetActive(false);
-        }
+        //Check if the gameObject's layer is in the Bullet's layerMask
+        if (targets == (targets | (1 << col.gameObject.layer)))
+            if (col.gameObject.GetComponent<Health>() != null)
+            {
+                Debug.Log("Hit");
+                //Subtract from the target's Health Script
+                col.gameObject.GetComponent<Health>().subtractHealth(damage);
+                gameObject.SetActive(false);
+            }
     }
 }
