@@ -24,6 +24,10 @@ public class Bullet : MonoBehaviour
     {
         get => despawnTime;
     }
+    public LayerMask Targets
+    {
+        get => targets;
+    }
 
     //Set the bullet's speed and direction when it's created, 
     private void OnEnable()

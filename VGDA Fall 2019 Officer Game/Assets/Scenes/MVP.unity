@@ -640,6 +640,7 @@ MonoBehaviour:
   controllerEnabled: 1
   keepCursorCentered: 0
   speed: 500
+  cursor: {fileID: 0}
 --- !u!114 &759153095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,9 +751,11 @@ GameObject:
   - component: {fileID: 1052115806}
   - component: {fileID: 1052115805}
   - component: {fileID: 1052115804}
+  - component: {fileID: 1052115809}
   - component: {fileID: 1052115803}
   - component: {fileID: 1052115802}
   - component: {fileID: 1052115807}
+  - component: {fileID: 1052115808}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -790,10 +793,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPool: {fileID: 30661083}
+  aimBot: {fileID: 1052115808}
   dps: 5
-  spawnAtCursor: 0
-  cursor: {fileID: 759153093}
-  cursorCamera: {fileID: 1077650536}
 --- !u!23 &1052115804
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -868,7 +869,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: -8383447166993168962, guid: 210bade8caf60874c90bd54c019a6e3e, type: 3}
   cursor: {fileID: 759153093}
-  cursorCam: {fileID: 1268642583}
+  persCam: {fileID: 1268642583}
+--- !u!114 &1052115808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052115801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b8a17f87f485642832652f89c9d76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cursor: {fileID: 759153093}
+  orthCam: {fileID: 1077650536}
+  bullet: {fileID: -8383447166993168962, guid: 210bade8caf60874c90bd54c019a6e3e, type: 3}
+--- !u!114 &1052115809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052115801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585261c599b636247850756f90a3b75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: -8383447166993168962, guid: 210bade8caf60874c90bd54c019a6e3e, type: 3}
+  cursor: {fileID: 759153093}
+  persCam: {fileID: 1268642583}
 --- !u!1 &1077650535
 GameObject:
   m_ObjectHideFlags: 0

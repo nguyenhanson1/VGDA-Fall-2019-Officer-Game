@@ -8,7 +8,7 @@ public class Attack_Base : MonoBehaviour
     [SerializeField] private ObjectPooler bulletPool = null;
 
     //Fire Bullet
-    public void Shoot(Vector3? position = null, Quaternion? rotation = null)
+    public void Shoot(Quaternion? rotation = null, Vector3? position = null)
     {
         //Get bullet from function in ObjectPooler script
         GameObject bullet = bulletPool.GetGenericBullet();

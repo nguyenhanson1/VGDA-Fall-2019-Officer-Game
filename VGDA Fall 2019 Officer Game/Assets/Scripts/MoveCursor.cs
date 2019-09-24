@@ -20,9 +20,6 @@ public class MoveCursor : MonoBehaviour
     [Tooltip("Speed that cursor moves.")]
     [SerializeField] private float speed = 700f;
 
-
-    private RectTransform cursor = null;
-
     private void OnEnable()
     {
         GameManager.UpdateOccurred += FunctionHandler;
@@ -67,7 +64,7 @@ public class MoveCursor : MonoBehaviour
     //Returns the Cursor to center screen.
     private void CenterCursor()
     {
-        cursor.position = new Vector2(canvas.rect.width / 2, canvas.rect.height / 2);
+        transform.position = new Vector2(canvas.rect.width / 2, canvas.rect.height / 2);
     }
     //Set position of Cursor depending on Horizontal and Vertical axis inputs.
     private void ControllerControls()
@@ -75,9 +72,9 @@ public class MoveCursor : MonoBehaviour
         if (controllerEnabled)
         {
             if (keepCursorCentered)
-                cursor.position = new Vector2(GetX_Centered(), GetY_Centered());
+                transform.position = new Vector2(GetX_Centered(), GetY_Centered());
             else
-                cursor.position = new Vector2(GetX_Free(), GetY_Free());
+                transform.position = new Vector2(GetX_Free(), GetY_Free());
         }
     }
     //Centered Functions return the cursor to center screen if there's no input
@@ -104,7 +101,7 @@ public class MoveCursor : MonoBehaviour
     //Free Functions let's Cursor travel around screen
     private float GetX_Free()
     {
-        float xPos = cursor.position.x;
+        float xPos = transform.position.x;
         //Move Cursor position
         xPos += Input.GetAxis("Horizontal") * Time.deltaTime * speed;
         //Clamp max position to screen borders
@@ -113,7 +110,7 @@ public class MoveCursor : MonoBehaviour
     }
     private float GetY_Free()
     {
-        float yPos = cursor.position.y;
+        float yPos = transform.position.y;
         //Move Cursor position
         yPos += Input.GetAxis("Vertical") * Time.deltaTime * speed;
         //Clamp max position to screen borders
@@ -124,7 +121,7 @@ public class MoveCursor : MonoBehaviour
     private void MouseControls()
     {
         //Create new Vector to easily change reticle position
-        Vector2 newPosition = cursor.position;
+        Vector2 newPosition = transform.position;
         newPosition.x += Input.GetAxis("Mouse X") * Time.deltaTime * speed;
         newPosition.y += Input.GetAxis("Mouse Y") * Time.deltaTime * speed;
 
@@ -133,6 +130,6 @@ public class MoveCursor : MonoBehaviour
         newPosition.y = Mathf.Clamp(newPosition.y, yBorders[0], canvas.rect.height - yBorders[1]);
 
         //Sets origin to the middle of the screen, and moves cursor to position needed
-        cursor.position = newPosition;
+        transform.position = newPosition;
     }
 }

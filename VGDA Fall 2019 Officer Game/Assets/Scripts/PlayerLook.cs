@@ -6,10 +6,10 @@ public class PlayerLook : MonoBehaviour
 {
     [Tooltip("Script of Bullet Prefab being shot.")]
     [SerializeField] private Bullet bullet;
-    [Tooltip("Reticle of the game.")]
+    [Tooltip("Transform of reticle of the game.")]
     [SerializeField] private RectTransform cursor = null;
     [Tooltip("Perspective Camera being used by Player.")]
-    [SerializeField] private Camera cursorCam = null;
+    [SerializeField] private Camera persCam = null;
 
     private void OnEnable()
     {
@@ -26,8 +26,7 @@ public class PlayerLook : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * (bullet.Speed * bullet.DespawnTime + 20f), Color.red);
 
         //Have Player look at the point where the cursor is pointing at the depth of how far it can shoot
-        Vector3 lookAt = cursorCam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, (bullet.Speed * bullet.DespawnTime) + 20f));
+        Vector3 lookAt = persCam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, (bullet.Speed * bullet.DespawnTime) + 20f));
         transform.LookAt(lookAt);
     }
-
 }
