@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoiDies : MonoBehaviour
+public class Test_BoiDies : MonoBehaviour
 {
     private void OnCollisionEnter(Collision collision)
     {

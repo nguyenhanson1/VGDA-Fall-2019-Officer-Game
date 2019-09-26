@@ -54,11 +54,13 @@ public class Bullet : MonoBehaviour
     {
         //Check if the gameObject's layer is in the Bullet's layerMask
         if (targets == (targets | (1 << col.gameObject.layer)))
-            if (col.gameObject.GetComponent<Health>() != null)
+            if (col.gameObject/*.GetComponent<Health>()*/ != null)
             {
+                /*
                 Debug.Log("Hit");
                 //Subtract from the target's Health Script
                 col.gameObject.GetComponent<Health>().subtractHealth(damage);
+                */
                 gameObject.SetActive(false);
             }
     }

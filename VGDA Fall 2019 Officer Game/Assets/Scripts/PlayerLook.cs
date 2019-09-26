@@ -22,8 +22,6 @@ public class PlayerLook : MonoBehaviour
 
     private void RotatePlayer()
     {
-        //Bugtest to see where the bullets are going to fly to
-        Debug.DrawRay(transform.position, transform.forward * (bullet.Speed * bullet.DespawnTime + 20f), Color.red);
 
         //Have Player look at the point where the cursor is pointing at the depth of how far it can shoot
         Vector3 lookAt = persCam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, (bullet.Speed * bullet.DespawnTime) + 20f));

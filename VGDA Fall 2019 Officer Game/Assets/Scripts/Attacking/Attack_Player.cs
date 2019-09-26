@@ -32,14 +32,19 @@ public class Attack_Player : Attack_Base
             {
                 //Shoot Raycast to find if target in line of sight
                 GameObject target = aimBot.getHitPosition();
-                if(target != null)
+
+                if (target != null)
                 {
                     //Get direction to get rotation to look at enemy target (if any)
                     Vector3 direction = target.transform.position - transform.position;
+
                     Shoot(Quaternion.LookRotation(direction, transform.up));
+                    Debug.Log("Gottem!");
                 }
                 else
+                {
                     Shoot();
+                }
                 StartCoroutine(DelayShots());
             }
     }
