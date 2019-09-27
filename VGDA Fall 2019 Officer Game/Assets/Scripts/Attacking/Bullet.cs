@@ -50,18 +50,13 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
-        //Check if the gameObject's layer is in the Bullet's layerMask
-        if (targets == (targets | (1 << col.gameObject.layer)))
-            if (col.gameObject.GetComponent<IDamagable>() != null)
+        //Check if the gameObject's layer is in the Owner's Faction
+        if (col.gameObject.GetComponent<IDamagable>() != null)
+            if (col.gameObject.GetComponent<IDamagable>().health.myFaction == Factions.Faction.Evil)
             {
                 Debug.Log("Hit");
-                
-
-                if(col.gameObject.GetComponent<IDamagable>().health.myFaction == Factions.Faction.Evil)
-                {
-                    col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
-                    gameObject.SetActive(false);
-                }
+                col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
+                //gameObject.SetActive(false);
             }
     }
 }
