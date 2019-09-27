@@ -16,21 +16,6 @@
           <e p="Materials" t="Include">
             <e p="UI-Default-No-Alpha.shader" t="Include" />
           </e>
-          <e p="Scripts" t="Include">
-            <e p="ActiveStateToggler.cs" t="Include" />
-            <e p="ApplicationManager.cs" t="Include" />
-            <e p="AudioManager.cs" t="Include" />
-            <e p="ChangeColor.cs" t="Include" />
-            <e p="DragMe.cs" t="Include" />
-            <e p="DragPanel.cs" t="Include" />
-            <e p="DropMe.cs" t="Include" />
-            <e p="MoveCursor.cs" t="Include" />
-            <e p="PanelManager.cs" t="Include" />
-            <e p="ResizePanel.cs" t="Include" />
-            <e p="ScrollDetailTexture.cs" t="Include" />
-            <e p="ShowSliderValue.cs" t="Include" />
-            <e p="TiltWindow.cs" t="Include" />
-          </e>
           <e p="Textures and Sprites" t="Include">
             <e p="SF UI" t="Include">
               <e p="Background" t="Include">
@@ -39,15 +24,73 @@
             </e>
           </e>
         </e>
-        <e p="PlayerMovement.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="Attacking" t="Include">
+            <e p="AimBot.cs" t="Include" />
+            <e p="Attack_Base.cs" t="Include" />
+            <e p="Attack_Player.cs" t="Include" />
+            <e p="Bullet.cs" t="Include" />
+            <e p="ObjectPooler.cs" t="Include" />
+          </e>
           <e p="BeamTest.cs" t="Include" />
           <e p="Enemy.cs" t="Include" />
           <e p="EnemyChicken.cs" t="Include" />
+          <e p="Factions.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
           <e p="Health.cs" t="Include" />
+          <e p="IDamagable.cs" t="Include" />
+          <e p="Menu Scripts" t="Include">
+            <e p="ActiveStateToggler.cs" t="Include" />
+            <e p="ApplicationManager.cs" t="Include" />
+            <e p="AudioManager.cs" t="Include" />
+            <e p="ChangeColor.cs" t="Include" />
+            <e p="DragMe.cs" t="Include" />
+            <e p="DragPanel.cs" t="Include" />
+            <e p="DropMe.cs" t="Include" />
+            <e p="PanelManager.cs" t="Include" />
+            <e p="ResizePanel.cs" t="Include" />
+            <e p="ScrollDetailTexture.cs" t="Include" />
+            <e p="ShowSliderValue.cs" t="Include" />
+            <e p="TiltWindow.cs" t="Include" />
+          </e>
+          <e p="MoveCursor.cs" t="Include" />
+          <e p="PauseMenuManager.cs" t="Include" />
+          <e p="PlayerHealth.cs" t="Include" />
+          <e p="PlayerLook.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="Test_BoiDies.cs" t="Include" />
         </e>
         <e p="Tests" t="Include">
           <e p="_health_calculator.cs" t="Include" />
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
         </e>
         <e p="TutorialInfo" t="Include">
           <e p="Scripts" t="Include">

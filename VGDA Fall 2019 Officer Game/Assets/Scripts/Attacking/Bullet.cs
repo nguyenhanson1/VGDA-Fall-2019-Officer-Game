@@ -54,7 +54,7 @@ public class Bullet : MonoBehaviour
     {
         //Check if the gameObject's layer is in the Bullet's layerMask
         if (targets == (targets | (1 << col.gameObject.layer)))
-            if (col.gameObject.GetComponent<Enemy>() != null)
+            if (col.gameObject.GetComponent<IDamagable>() != null)
             {
                 Debug.Log("Hit");
 

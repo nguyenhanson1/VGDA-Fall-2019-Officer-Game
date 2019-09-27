@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health
+public class Health : IDamagable
 {
     //public Action OnDeath = delegate {};
     public delegate void _OnDeath(Health dead);
@@ -34,6 +34,14 @@ public class Health
     public void addHealth(int damage)
     {
         HealthTotal += damage;
+    }
+    
+    private Factions.Faction _myFaction;
+
+    public Factions.Faction myFaction
+    {
+        get { return _myFaction; }
+        set { _myFaction = value; }
     }
 
 }

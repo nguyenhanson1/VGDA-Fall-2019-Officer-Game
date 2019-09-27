@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,12 +29,20 @@ public abstract class Enemy : MonoBehaviour
         Health.OnDeath -= Begoned;
     }
 
+    protected void Awake()
+    {
+        totalHealth.myFaction = Factions.Faction.Evil;
+    }
+
     protected virtual void Initialize() {
         Player = GameObject.FindGameObjectWithTag("Player");
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = health;
     }
+
+
+
 }
     
 
