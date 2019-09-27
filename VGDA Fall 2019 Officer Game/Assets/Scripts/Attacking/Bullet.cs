@@ -10,8 +10,6 @@ public class Bullet : MonoBehaviour
     [SerializeField] protected int damage = 5;
     [Tooltip("Amount of seconds after firing before the Bullet disappears")]
     [SerializeField] private float despawnTime = 5f;
-    [Tooltip("Layers that the Bullet can hit.")]
-    [SerializeField] private LayerMask targets = new LayerMask();
     [Tooltip("Rigidbody of Bullet")]
     [SerializeField] private Rigidbody rb = null;
 
@@ -57,10 +55,13 @@ public class Bullet : MonoBehaviour
             if (col.gameObject.GetComponent<IDamagable>() != null)
             {
                 Debug.Log("Hit");
-
-                col.gameObject.GetComponent<Enemy>().totalHealth.subtractHealth(damage);
                 
-                gameObject.SetActive(false);
+
+                if(col.gameObject.GetComponent<IDamagable>().health.myFaction == Factions.Faction.Evil)
+                {
+                    col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
+                    gameObject.SetActive(false);
+                }
             }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Health : IDamagable
+public class Health
 {
     //public Action OnDeath = delegate {};
     public delegate void _OnDeath(Health dead);

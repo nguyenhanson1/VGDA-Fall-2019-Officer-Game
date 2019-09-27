@@ -7,8 +7,7 @@ public interface IDamagable
     Factions.Faction myFaction
     {
         get;
-        set;
     }
-    
-    //void onTakeDamage();
+
+    Health health { get; }
 }
