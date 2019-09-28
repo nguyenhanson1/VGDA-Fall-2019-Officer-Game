@@ -35,5 +35,13 @@ public class Health
     {
         HealthTotal += damage;
     }
+    
+    private Factions.Faction _myFaction;
+
+    public Factions.Faction myFaction
+    {
+        get { return _myFaction; }
+        set { _myFaction = value; }
+    }
 
 }
