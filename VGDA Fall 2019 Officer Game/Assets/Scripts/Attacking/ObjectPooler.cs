@@ -62,7 +62,7 @@ public class ObjectPooler : MonoBehaviour
         //Add to the new bullet counter
         instantiatedGenericBullets++;
         //Return the newly made bullet
-        return genericBulletPool[totalGenericBullets - 1];
+        return GetGenericBullet();
     }
 
     private void OnApplicationQuit()

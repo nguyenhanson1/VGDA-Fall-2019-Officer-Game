@@ -199,7 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e548b5f3bb58a48bd3c301c2a9c8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  maxHealth: 15
   damage: 5
   attackFrequency: 0
   moveSpeed: 0
@@ -826,7 +826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7e548b5f3bb58a48bd3c301c2a9c8b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 15
+  maxHealth: 15
   damage: 0
   attackFrequency: 0
   moveSpeed: 0
@@ -899,9 +899,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab0ec78f77810249bbbb40e93a08484, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPool: {fileID: 30661083}
   aimBot: {fileID: 1052115808}
   dps: 5
+  bulletPool: {fileID: 30661083}
 --- !u!23 &1052115804
 MeshRenderer:
   m_ObjectHideFlags: 0
