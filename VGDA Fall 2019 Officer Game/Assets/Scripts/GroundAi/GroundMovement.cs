@@ -12,19 +12,11 @@ public class GroundMovement : MonoBehaviour
     }
     void Update()
     {
-        if (Vector3.Distance(agent.destination,transform.position) <= 1f)
+        if (Vector3.Distance(agent.destination, transform.position) <= 1f)
         {
             int target = Random.Range(0, waypoints.Length);
             agent.SetDestination(waypoints[target].transform.position);
         }
-        
 
-    }
-    void LookAround()
-    {
-        for(float timer = 5; timer > 0; timer -= Time.deltaTime)
-        {
-              
-        }
     }
 }
