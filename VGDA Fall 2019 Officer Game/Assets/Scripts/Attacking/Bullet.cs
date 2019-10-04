@@ -13,6 +13,9 @@ public class Bullet : MonoBehaviour
     [Tooltip("Rigidbody of Bullet")]
     [SerializeField] private Rigidbody rb = null;
 
+    [Tooltip("Debug Testing")]
+    public bool lockOn = false;
+
     //Properties that give access to the following variables
     public float Speed
     {

@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Attack_Player : Attack_Base
+public class Attack_Player : MonoBehaviour
 {
     [Tooltip("AimBot script used to get target.")]
     [SerializeField] private AimBot aimBot = null;
     [Tooltip("How fast the Player shoots (Higher for faster).")]
     [SerializeField] private float dps = 1f;
+    [Tooltip("Script where object will get their bullets from.")]
+    [SerializeField] private ObjectPooler bulletPool = null;
 
     //Seconds between each shot
     private float shotDelay = 0;
     //Player can only shoo when it's true
     private bool shotDelayed = false;
-
+    private Attack attack = new Attack();
     private void OnEnable()
     {
         shotDelay = 1f / dps;
@@ -37,13 +39,12 @@ public class Attack_Player : Attack_Base
                 {
                     //Get direction to get rotation to look at enemy target (if any)
                     Vector3 direction = target.transform.position - transform.position;
-
-                    Shoot(Quaternion.LookRotation(direction, transform.up));
+                    attack.Shoot(gameObject, bulletPool, Quaternion.LookRotation(direction, transform.up));
                     Debug.Log("Gottem!");
                 }
                 else
                 {
-                    Shoot();
+                    attack.Shoot(gameObject, bulletPool);
                 }
                 StartCoroutine(DelayShots());
             }

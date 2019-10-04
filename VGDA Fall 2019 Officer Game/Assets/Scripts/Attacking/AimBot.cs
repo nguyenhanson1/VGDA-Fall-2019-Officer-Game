@@ -26,7 +26,8 @@ public class AimBot : MonoBehaviour
         float distance = bullet.Speed * bullet.DespawnTime + 20f;
         //Shoot raycast and return gameObject if hit something with wanted layer
         if (Physics.Raycast(cursorSight, out RaycastHit hit, distance, ~0, QueryTriggerInteraction.Collide))
-            return hit.transform.gameObject;
+            if(hit.transform.gameObject.GetComponent<IDamagable>() != null)
+                return hit.transform.gameObject;
         return null;
     }
 }
