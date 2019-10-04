@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float movementSpeed = 1.0f;
     public int invert = -1;
+
+ 
     private void Update()
     {
         Vector3 move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursor.position) + offset, Time.deltaTime * movementSpeed);
