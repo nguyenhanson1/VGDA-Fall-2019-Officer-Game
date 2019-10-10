@@ -4,16 +4,25 @@ using UnityEngine;
 
 public class Addforce : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float thrust;
-    public Rigidbody rb;
+    [SerializeField] private RectTransform cursor = null;
+    [SerializeField] private Camera cursorCamera = null;
+    [SerializeField] private Vector3 offset = new Vector3(0, 0, 0);
+    [SerializeField] public GameObject Player;
 
-    private void Start()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    public float movementSpeed = 1.0f;
+    public int invert = -1;
+
+
     private void Update()
     {
-        rb.AddForce(transform.forward * thrust);
+        Vector3 move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursor.position) + offset, Time.deltaTime * movementSpeed);
+        move.z = cursorCamera.transform.position.z + 1f;
+
+        transform.position = move;
+        if(cursor.position.x == Screen.width || cursor.position.y == Screen.height )
+        {
+            //Rotate Towards that direction
+        }
+
     }
 }
