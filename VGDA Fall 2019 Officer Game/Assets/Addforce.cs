@@ -21,7 +21,9 @@ public class Addforce : MonoBehaviour
         transform.position = move;
         if(cursor.position.x == Screen.width || cursor.position.y == Screen.height )
         {
-            //Rotate Towards that direction
+            Vector3 PlayerRotate = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursor.position) + offset, Time.deltaTime * movementSpeed);
+            PlayerRotate.x = Player.transform.position.x* movementSpeed;
+            PlayerRotate.y = Player.transform.position.y * movementSpeed;
         }
 
     }
