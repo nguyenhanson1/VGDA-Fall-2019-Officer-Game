@@ -5302,10 +5302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 1787481685}
   cursorCamera: {fileID: 1782236218}
-  offset: {x: 0, y: 0, z: 0}
-  Player: {fileID: 446502008}
-  movementSpeed: 1
-  invert: -1
+  rotSpeed: 3
+  newOffset: {x: 10, y: 10, z: 0}
 --- !u!1 &455795835
 GameObject:
   m_ObjectHideFlags: 0
