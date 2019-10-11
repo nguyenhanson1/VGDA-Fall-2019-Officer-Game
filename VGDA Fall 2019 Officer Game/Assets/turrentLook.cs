@@ -7,8 +7,10 @@ public class turrentLook : MonoBehaviour
     public Transform target;
     public float rotSpeed = 2f;
     public ObjectPooler pool;
+    public float accuracy;
     private bool attacking = true;
     private Attack attack = new Attack();
+
     [SerializeField] private Vector3 offset = new Vector3();
     private void OnCollisionEnter(Collision collision)
     {
@@ -41,7 +43,10 @@ public class turrentLook : MonoBehaviour
 
         if (attacking)
         {
-            GameObject bullet = attack.Shoot(gameObject, pool);
+            GameObject bullet = attack.Shoot(gameObject, pool,new Quaternion(Random.Range(gameObject.transform.rotation.x - accuracy, gameObject.transform.rotation.x + accuracy),
+                                                                             Random.Range(gameObject.transform.rotation.y - accuracy, gameObject.transform.rotation.y + accuracy),
+                                                                             Random.Range(gameObject.transform.rotation.z - accuracy, gameObject.transform.rotation.z + accuracy),
+                                                                             gameObject.transform.rotation.w));
             bullet.transform.rotation = Quaternion.Euler(offset.x + transform.rotation.x, offset.y + transform.rotation.y, offset.z + transform.rotation.z);
         }
     }
