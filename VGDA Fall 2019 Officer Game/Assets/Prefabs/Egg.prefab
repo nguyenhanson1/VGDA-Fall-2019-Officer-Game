@@ -133,6 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   damage: 5
-  despawnTime: 20
+  distance: 50
   rb: {fileID: -353503682165753034}
   lockOn: 0

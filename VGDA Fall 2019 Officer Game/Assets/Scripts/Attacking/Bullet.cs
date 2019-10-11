@@ -8,8 +8,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed = 1f;
     [Tooltip("Damage dealt by the Bullet")]
     [SerializeField] protected int damage = 5;
-    [Tooltip("Amount of seconds after firing before the Bullet disappears")]
-    [SerializeField] private float despawnTime = 5f;
+    [Tooltip("How many units Bullet travels before disappearing")]
+    [SerializeField] private float distance = 5f;
     [Tooltip("Rigidbody of Bullet")]
     [SerializeField] private Rigidbody rb = null;
 
@@ -21,9 +21,13 @@ public class Bullet : MonoBehaviour
     {
         get => speed;
     }
+    public float Distance
+    {
+        get => distance;
+    }
     public float DespawnTime
     {
-        get => despawnTime;
+        get => distance/speed;
     }
 
     //Set the bullet's speed and direction when it's created, 
@@ -42,7 +46,7 @@ public class Bullet : MonoBehaviour
     //Deactivate the bullet after a certain time
     private IEnumerator trackBullet()
     {
-        yield return new WaitForSeconds(despawnTime);
+        yield return new WaitForSeconds(distance/speed);
 
         gameObject.SetActive(false);
     }

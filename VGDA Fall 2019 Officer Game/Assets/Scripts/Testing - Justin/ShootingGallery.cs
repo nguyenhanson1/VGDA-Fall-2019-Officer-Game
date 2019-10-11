@@ -36,7 +36,6 @@ public class ShootingGallery : MonoBehaviour
         GameObject obj = Instantiate(targetPrefab);
 
         //Put block on the row
-        Debug.Log((iteration / (amtTargets)));
         float percentage = (iteration / amtTargets);
         Vector3 translation = (endPoint.position - transform.position) * percentage;
         Vector3 xyz = transform.position + translation;
