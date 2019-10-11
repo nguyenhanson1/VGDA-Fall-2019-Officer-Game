@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack
 {
     //Fire Bullet
-    public void Shoot(GameObject parent, ObjectPooler bulletPool, Quaternion? rotation = null, Vector3? position = null)
+    public GameObject Shoot(GameObject parent, ObjectPooler bulletPool, Quaternion? rotation = null, Vector3? position = null)
     {
         //Get bullet from function in ObjectPooler script
         GameObject bullet = bulletPool.GetGenericBullet();
@@ -20,6 +20,8 @@ public class Attack
             bullet.transform.rotation = rotation.HasValue ? rotation.Value : parent.transform.rotation;
             //Activate the bullet
             bullet.SetActive(true);
+            
         }
+        return bullet;
     }
 }

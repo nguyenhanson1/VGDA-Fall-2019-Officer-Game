@@ -6,6 +6,10 @@ public class turrentLook : MonoBehaviour
 {
     public Transform target;
     public float rotSpeed = 2f;
+    public ObjectPooler pool;
+    private bool attacking = true;
+    private Attack attack = new Attack();
+    [SerializeField] private Vector3 offset = new Vector3();
     private void OnCollisionEnter(Collision collision)
     {
         
@@ -34,5 +38,11 @@ public class turrentLook : MonoBehaviour
                                                 Time.deltaTime * rotSpeed);
         }
         Debug.DrawLine(transform.position, target.transform.position, Color.red);
+
+        if (attacking)
+        {
+            GameObject bullet = attack.Shoot(gameObject, pool);
+            bullet.transform.rotation = Quaternion.Euler(offset.x + transform.rotation.x, offset.y + transform.rotation.y, offset.z + transform.rotation.z);
+        }
     }
 }
