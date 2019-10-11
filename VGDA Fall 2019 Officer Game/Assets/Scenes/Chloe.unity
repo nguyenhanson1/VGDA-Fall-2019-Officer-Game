@@ -5262,7 +5262,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446502008}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aacdc4245d0e2dc4db352eb4c963546a, type: 3}
   m_Name: 
@@ -5270,7 +5270,7 @@ MonoBehaviour:
   cursor: {fileID: 1787481685}
   cursorCamera: {fileID: 1782236218}
   offset: {x: 0, y: 0, z: 0}
-  movementSpeed: 0
+  movementSpeed: 1
   invert: -1
 --- !u!54 &446502010
 Rigidbody:
@@ -5302,10 +5302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cursor: {fileID: 1787481685}
   cursorCamera: {fileID: 1782236218}
-  offset: {x: 0, y: 0, z: 0}
-  Player: {fileID: 446502008}
-  movementSpeed: 1
-  invert: -1
+  Player: {fileID: 2124428920}
+  rotSpeed: 1
 --- !u!1 &455795835
 GameObject:
   m_ObjectHideFlags: 0
@@ -27685,6 +27683,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2113177278}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2124428920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6538571144145798328, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1680823212}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2130456509
 GameObject:
   m_ObjectHideFlags: 0
