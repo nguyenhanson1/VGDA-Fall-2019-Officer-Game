@@ -6,35 +6,23 @@ public class Addforce : MonoBehaviour
 {
     [SerializeField] private RectTransform cursor = null;
     [SerializeField] private Camera cursorCamera = null;
-
+    public GameObject Player;
 
     public float rotSpeed = 1.0f;
-    public float movementSpeed = 1.0f;
+
 
     private void Update()
     {
 
-        Vector3 move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursor.position), Time.deltaTime * movementSpeed);
-        move.z = cursorCamera.transform.position.z + 1f;
 
-        transform.position = move;
-        if (cursor.position.y == Screen.height )
+        if(cursor.position.x == Screen.width || cursor.position.y == Screen.height )
         {
-            Debug.Log("We on da Top");
-            Vector3 direction = cursorCamera.ScreenToWorldPoint(cursor.position );
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.left);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, rotSpeed * Time.deltaTime);
-
-
-        }
-        if(cursor.position.x == Screen.width)
-        {
-            Debug.Log("We on da Sides");
-            Vector3 direction = cursorCamera.ScreenToWorldPoint(cursor.position);
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.up);
-            transform.rotation = Quaternion.Slerp(transform.rotation, q, rotSpeed * Time.deltaTime);
+            Debug.Log("We on da Edge");
+            Vector3 direction = cursor.position - transform.position;
+      
+            Quaternion q = Quaternion.LookRotation(direction);
+            Player.transform.rotation = Quaternion.Lerp(transform.rotation, q, rotSpeed * Time.deltaTime);
+           
         }
 
     }
