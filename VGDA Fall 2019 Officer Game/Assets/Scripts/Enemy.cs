@@ -19,6 +19,11 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     [HideInInspector] protected GameObject Player;
     [HideInInspector] protected Animator anim;
     [HideInInspector] protected Rigidbody rb;
+
+    [SerializeField] protected Vector3 standbySpawn;
+    [SerializeField] protected Vector3 gameSpawnPoint;
+    protected bool inited = false;
+
     protected abstract void Attack();
     protected abstract void Move();
     protected virtual void Begoned(Health h) {
@@ -27,6 +32,11 @@ public abstract class Enemy : MonoBehaviour, IDamagable
             // Play Death Animation
             Destroy(gameObject);
         }
+    }
+    protected virtual void SpawnEnemyInGame()
+    {
+        transform.position = gameSpawnPoint;
+        inited = true;
     }
     protected virtual void OnEnable()
     {
@@ -47,10 +57,8 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = maxHealth;
+        transform.position = standbySpawn;
     }
-
-
-
 }
     
 
