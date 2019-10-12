@@ -21,7 +21,13 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     [HideInInspector] protected Rigidbody rb;
     protected abstract void Attack();
     protected abstract void Move();
-    protected abstract void Begoned(Health h);
+    protected virtual void Begoned(Health h) {
+        if (totalHealth.HealthTotal <= 0)
+        { // totalHealth == h
+            // Play Death Animation
+            Destroy(gameObject);
+        }
+    }
     protected virtual void OnEnable()
     {
         Health.OnDeath += Begoned;

@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyChicken : Enemy
 {
+    // Movement Array
+    private Pathing[] paths;
+    private Pathing path;
+
     // Flying checkers & defaults
     [SerializeField] private bool isFlying = false;
     private float oDrag;
@@ -15,7 +19,11 @@ public class EnemyChicken : Enemy
 
     private float rotationalDamp = 0.5f;
 
-
+    protected virtual void Initialize()
+    {
+        base.Initialize();
+        
+    }
 
     protected override void Move(){
         // THIS IS TO FOLLOW THE PLAYER MOVEMENT 
@@ -34,19 +42,6 @@ public class EnemyChicken : Enemy
 
     }
 
-    protected override void Begoned(Health h)
-    {
-        if (totalHealth.HealthTotal <= 0){ // totalHealth == h
-            // Play Death Animation
-            Destroy(gameObject);
-        }
-    }
-
-
-    private void Awake()
-    {
-        
-    }
     // Start is called before the first frame update
     void Start()
     {
@@ -102,5 +97,9 @@ public class EnemyChicken : Enemy
     {
         RaycastHit hit;
         return false;
+    }
+
+    protected Pathing[] InitializePathOptions() {
+        return paths;
     }
 }
