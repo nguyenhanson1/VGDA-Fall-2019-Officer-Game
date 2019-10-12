@@ -38,15 +38,28 @@ public class EnemyFlying : Enemy
 
     protected override void Move()
     {
-
         pathOptionBackForth();
     }
 
     protected void pathOptionBackForth() {
-        if (!backForthTurned) {
-            float travelled = (Time.time - startTime) * moveSpeed;
-            float fractionTravelled = travelled / backForthJourneyLength;
-            transform.position = Vector3.Lerp(gameSpawnPoint, backForthEdge,fractionTravelled);
+        float travelled = (Time.time - startTime) * moveSpeed;
+        float fractionTravelled = travelled / backForthJourneyLength;
+        if (!backForthTurned)
+        {
+            transform.position = Vector3.Lerp(gameSpawnPoint, backForthEdge, fractionTravelled);
+            if (transform.position.Equals(backForthEdge))
+            {
+                startTime = Time.time;
+                backForthTurned = true;
+            }
+        }
+        else {
+            transform.position = Vector3.Lerp(backForthEdge, gameSpawnPoint, fractionTravelled);
+            if (transform.position.Equals(gameSpawnPoint))
+            {
+                startTime = Time.time;
+                backForthTurned = false;
+            }
         }
     }
 
@@ -56,7 +69,7 @@ public class EnemyFlying : Enemy
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = maxHealth;
-        transform.position = standbySpawn;
+        transform.position = gameSpawnPoint;
         backForthEdge = new Vector3(gameSpawnPoint.x + xDistanceFromOrigin, gameSpawnPoint.y, gameSpawnPoint.z);
         startTime = Time.time;
         backForthJourneyLength = Vector3.Distance(gameSpawnPoint, backForthEdge);
