@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -6435830320730602779}
   - component: {fileID: -2061248629664176100}
   m_Layer: 0
-  m_Name: SlowBulllet
+  m_Name: TurrentBulllet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -106,9 +106,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5925313c843f24fbaf434013527eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 50
   damage: 5
-  distance: 30
+  distance: 50
   rb: {fileID: -2061248629664176100}
   lockOn: 0
 --- !u!54 &-2061248629664176100

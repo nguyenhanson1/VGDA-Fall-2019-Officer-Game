@@ -12,6 +12,7 @@ public class GroundMovement : MonoBehaviour
     }
     void Update()
     {
+
         if (Vector3.Distance(agent.destination, transform.position) <= 1f)
         {
             int target = Random.Range(0, waypoints.Length);

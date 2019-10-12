@@ -401,7 +401,7 @@ GameObject:
   - component: {fileID: 797080252}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -473,7 +473,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 797080251}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.79, y: 10.19, z: -3.52}
+  m_LocalPosition: {x: 3.63, y: 13.4, z: -3.98}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,7 +490,6 @@ GameObject:
   - component: {fileID: 1149317880}
   - component: {fileID: 1149317879}
   - component: {fileID: 1149317878}
-  - component: {fileID: 1149317877}
   m_Layer: 0
   m_Name: Capsule
   m_TagString: Untagged
@@ -498,20 +497,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &1149317877
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1149317876}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1149317878
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -627,8 +612,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1677748331}
-  - component: {fileID: 1677748330}
   - component: {fileID: 1677748329}
+  - component: {fileID: 1677748330}
   m_Layer: 0
   m_Name: Turrent
   m_TagString: Untagged
@@ -649,12 +634,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 797080255}
-  rotSpeed: 2
+  rotSpeed: 20
   pool: {fileID: 1184607685}
-  accuracy: 0.1
+  accuracy: 0.15
+  timeDelay: 0.25
+  playerInsideCollider: 0
   offset: {x: 0, y: 0, z: 0}
---- !u!136 &1677748330
-CapsuleCollider:
+--- !u!135 &1677748330
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -663,10 +650,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 53.559177
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 25.8504}
+  serializedVersion: 2
+  m_Radius: 40
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1677748331
 Transform:
   m_ObjectHideFlags: 0
