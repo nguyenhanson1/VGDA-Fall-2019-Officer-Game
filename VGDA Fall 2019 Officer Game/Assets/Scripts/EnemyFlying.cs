@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class EnemyFlying : Enemy
 {
-    [SerializeField] protected enum pathOptions {
+    protected enum PathOptions {
         BackForth,
         Circular,
         Random,
         FollowPlayer
     }
 
-    [Tooltip("The furthest distance the enemy flies (BackForth) or the radius of the path (Circular)")]
+    [SerializeField]protected PathOptions Path;
+
+    [Tooltip("The furthest distance the enemy flies (Linear) or the radius of the path (Circular)")]
     [SerializeField] protected float xDistanceFromOrigin = 10f;
     private bool backForthTurned = false;
     private Vector3 backForthEdge;
     private float backForthJourneyLength;
     private float startTime;
+    private Transform reference;
 
     protected virtual void OnEnable()
     {
@@ -46,6 +49,7 @@ public class EnemyFlying : Enemy
         float fractionTravelled = travelled / backForthJourneyLength;
         if (!backForthTurned)
         {
+            smoothLookAt(backForthEdge);
             transform.position = Vector3.Lerp(gameSpawnPoint, backForthEdge, fractionTravelled);
             if (transform.position.Equals(backForthEdge))
             {
@@ -54,6 +58,7 @@ public class EnemyFlying : Enemy
             }
         }
         else {
+            smoothLookAt(gameSpawnPoint);
             transform.position = Vector3.Lerp(backForthEdge, gameSpawnPoint, fractionTravelled);
             if (transform.position.Equals(gameSpawnPoint))
             {
@@ -70,8 +75,20 @@ public class EnemyFlying : Enemy
         rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = maxHealth;
         transform.position = gameSpawnPoint;
-        backForthEdge = new Vector3(gameSpawnPoint.x + xDistanceFromOrigin, gameSpawnPoint.y, gameSpawnPoint.z);
-        startTime = Time.time;
-        backForthJourneyLength = Vector3.Distance(gameSpawnPoint, backForthEdge);
+
+        if (Path == PathOptions.BackForth)
+        {
+            backForthEdge = new Vector3(gameSpawnPoint.x + xDistanceFromOrigin, gameSpawnPoint.y, gameSpawnPoint.z);
+            transform.LookAt(backForthEdge);
+            startTime = Time.time;
+            backForthJourneyLength = Vector3.Distance(gameSpawnPoint, backForthEdge);
+        }
+        else if (Path == PathOptions.Circular) {
+        }
+    }
+
+    protected void smoothLookAt(Vector3 target) {
+        Quaternion tRotation = Quaternion.LookRotation(target - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, tRotation, moveSpeed * Time.deltaTime/3);
     }
 }

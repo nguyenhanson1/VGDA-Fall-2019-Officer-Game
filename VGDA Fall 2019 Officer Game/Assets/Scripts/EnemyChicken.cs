@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class EnemyChicken : Enemy
 {
-    // Movement Array
-    private Pathing[] paths;
-    private Pathing path;
-
     // Flying checkers & defaults
     [SerializeField] private bool isFlying = false;
     private float oDrag;
@@ -97,9 +93,5 @@ public class EnemyChicken : Enemy
     {
         RaycastHit hit;
         return false;
-    }
-
-    protected Pathing[] InitializePathOptions() {
-        return paths;
     }
 }

@@ -2456,7 +2456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &497522959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2466,16 +2466,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 497522958}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e548b5f3bb58a48bd3c301c2a9c8b0, type: 3}
+  m_Script: {fileID: 11500000, guid: 89bb5fc5de8d1a84a9b9d87256686849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 15
-  damage: 5
+  damage: 0
   attackFrequency: 0
   moveSpeed: 0
   standbySpawn: {x: 0, y: 0, z: 0}
-  gameSpawnPoint: {x: 0, y: 0, z: 0}
-  isFlying: 1
+  gameSpawnPoint: {x: 0.4, y: 8.2, z: 17.15}
+  xDistanceFromOrigin: 10
 --- !u!54 &497522960
 Rigidbody:
   m_ObjectHideFlags: 0
