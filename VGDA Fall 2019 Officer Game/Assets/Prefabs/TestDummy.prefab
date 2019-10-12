@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 1183996126254935213}
   - component: {fileID: 8687334294825289660}
   - component: {fileID: 933548298}
-  - component: {fileID: 396505593929126884}
   - component: {fileID: -5513754623189816834}
   - component: {fileID: 1560859342927416114}
   - component: {fileID: 9061622351813898781}
+  - component: {fileID: 7465877416237077689}
   m_Layer: 0
   m_Name: TestDummy
   m_TagString: Untagged
@@ -100,23 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &396505593929126884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2895118084282900606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7e548b5f3bb58a48bd3c301c2a9c8b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 3
-  damage: 0
-  attackFrequency: 0
-  moveSpeed: 0
-  isFlying: 1
 --- !u!114 &-5513754623189816834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +138,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7465877416237077689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2895118084282900606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bb5fc5de8d1a84a9b9d87256686849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 15
+  damage: 0
+  attackFrequency: 0
+  moveSpeed: 0
+  standbySpawn: {x: 0, y: 0, z: 0}
+  gameSpawnPoint: {x: 0, y: 0, z: 0}
+  xDistanceFromOrigin: 10
 --- !u!1 &5141619550882421506
 GameObject:
   m_ObjectHideFlags: 0
