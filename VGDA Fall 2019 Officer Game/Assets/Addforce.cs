@@ -5,24 +5,25 @@ using UnityEngine;
 public class Addforce : MonoBehaviour
 {
     [SerializeField] private RectTransform cursor = null;
-    [SerializeField] private Camera cursorCamera = null;
-    public GameObject Player;
+    public Transform target;
 
-    public float rotSpeed = 1.0f;
+    public float speed = 1.0f;
 
 
     private void Update()
     {
-
-
+        
         if(cursor.position.x == Screen.width || cursor.position.y == Screen.height )
         {
             Debug.Log("We on da Edge");
             Vector3 direction = cursor.position - transform.position;
-      
-            Quaternion q = Quaternion.LookRotation(direction);
-            Player.transform.rotation = Quaternion.Lerp(transform.rotation, q, rotSpeed * Time.deltaTime);
-           
+            float step = speed * Time.deltaTime;
+            Vector3 targetDir = target.position - transform.position;
+            Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0f);
+            transform.rotation = Quaternion.LookRotation(newDir);
+            PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+            playerMovement.move = playerMovement.move * -1;
+
         }
 
     }
