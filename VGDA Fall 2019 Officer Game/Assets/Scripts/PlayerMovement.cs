@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     public float movementSpeed = 1.0f;
     public int invert = -1;
 
+
  
     private void Update()
     {
@@ -18,6 +19,6 @@ public class PlayerMovement : MonoBehaviour
         move.z = cursorCamera.transform.position.z + 1f;
 
         transform.position = move;
-        
+       
     }
 }
