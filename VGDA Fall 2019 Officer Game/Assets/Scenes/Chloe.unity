@@ -5302,8 +5302,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 1787481685}
+  canvas: {fileID: 1023195266}
+  Player: {fileID: 830462656}
   target: {fileID: 1787481685}
   speed: 1
+  xBorders:
+  - 0
+  - 0
+  yBorders:
+  - 0
+  - 0
 --- !u!1 &455795835
 GameObject:
   m_ObjectHideFlags: 0
@@ -10532,8 +10540,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cursor: {fileID: 1787481685}
+  canvas: {fileID: 0}
+  Player: {fileID: 0}
   target: {fileID: 1787481685}
   speed: 1
+  xBorders:
+  - 0
+  - 0
+  yBorders:
+  - 0
+  - 0
 --- !u!1 &831130996
 GameObject:
   m_ObjectHideFlags: 0
@@ -12980,6 +12996,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017487835}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!224 &1023195266 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 982864449006078517, guid: 4c60bc362cfae244ea5cf25f092150b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2010329230}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1026792289
 GameObject:
   m_ObjectHideFlags: 0
@@ -21463,6 +21485,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Henicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 6538571145535681780, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571145806556612, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -21518,11 +21545,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6538571145535681780, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798272, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: cursor
@@ -21547,6 +21569,11 @@ PrefabInstance:
         type: 3}
       propertyPath: movementSpeed
       value: 3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538571144145798331, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798334, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
