@@ -26,12 +26,10 @@ public class Addforce : MonoBehaviour
         {
             Debug.Log("We on da Rite");
 
-            //transform.Rotate(0, 90, 0);
-            StartCoroutine(Rotate());
-            StopCoroutine(Rotate());
+            Rotate();
 
             // stops infinite loop of turning
-            cursor.transform.position = new Vector3(cursor.position.x - 100, cursor.position.y, cursor.position.z);
+            //cursor.transform.position = new Vector3(cursor.position.x - 100, cursor.position.y, cursor.position.z);
 
         }
         //check if cursor on left
@@ -39,11 +37,11 @@ public class Addforce : MonoBehaviour
         {
             Debug.Log("We on da Leff");
             //transform.Rotate(0, -90, 0);
-            StartCoroutine(Rotate());
-            StopCoroutine(Rotate());
-            //transform.LookAt(lookAt);
+
+            Rotate();
+
             // stops infinite loop of turning
-            cursor.transform.position = new Vector3(cursor.position.x + 100, cursor.position.y, cursor.position.z);
+            //cursor.transform.position = new Vector3(cursor.position.x + 100, cursor.position.y, cursor.position.z);
 
 
         }
@@ -52,11 +50,11 @@ public class Addforce : MonoBehaviour
         {
             Debug.Log("We on da Top");
             //transform.Rotate(90, 0, 0);
-            StartCoroutine(Rotate());
-            StopCoroutine(Rotate());
-            //transform.LookAt(lookAt);
+            Rotate();
+
+
             // stops infinite loop of turning
-            cursor.transform.position = new Vector3(cursor.position.x , cursor.position.y - 100, -cursor.position.z);
+            //cursor.transform.position = new Vector3(cursor.position.x , cursor.position.y - 100, -cursor.position.z);
 
 
         }
@@ -65,24 +63,24 @@ public class Addforce : MonoBehaviour
         {
             Debug.Log("We on da Bottom");
             //transform.Rotate(-90, 0, 0);
-            StartCoroutine(Rotate());
-            StopCoroutine(Rotate());
+            Rotate();
             //transform.LookAt(lookAt);
+
             // stops infinite loop of turning
-            cursor.transform.position = new Vector3(cursor.position.x, cursor.position.y + 100, cursor.position.z);
-
-
+            //cursor.transform.position = new Vector3(cursor.position.x, cursor.position.y + 100, cursor.position.z);
         }
 
-
-
     }
-    IEnumerator Rotate()
+    void Rotate()
     {
-        Vector3 relativePos = cursor.position - transform.position;
-        Quaternion toRotation = Quaternion.LookRotation(relativePos);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 5 * Time.deltaTime);
-        yield return new WaitForSeconds(2);
-        
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 direction = new Vector3(horizontal, 1 * vertical, 0);
+        Vector3 FinalD = new Vector3(horizontal, 1 * vertical, 1.0f);
+        transform.position += direction * speed * Time.deltaTime;
+
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(FinalD), Mathf.Deg2Rad * 50.0f);
     }
+
 }
