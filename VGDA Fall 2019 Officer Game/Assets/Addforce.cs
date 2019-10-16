@@ -21,31 +21,33 @@ public class Addforce : MonoBehaviour
         //If the cursor is on the edge of screen, rotate towards it
         if (cursor.position.x  == Screen.width )
         {
-            Debug.Log("We on da Leff/ Rite");
+            Debug.Log("We on da Rite");
 
             Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
             transform.LookAt(lookAt);
+            cursor.transform.position = new Vector3(cursor.position.x -100, cursor.position.y, cursor.position.z);
             // Move our position closer to the target.
             //Quaternion rotation = Quaternion.LookRotation(screenPos);
             //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
-           cursor.transform.position = new Vector3(cursor.position.x -100, cursor.position.y, cursor.position.z);
+           
 
         }
-        if (cursor.position.x == Screen.width/2)
+        if (cursor.position.x == 0)
         {
-            Debug.Log("We on da Leff/ Rite");
+            Debug.Log("We on da Leff");
 
             Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
             transform.LookAt(lookAt);
+            cursor.transform.position = new Vector3(cursor.position.x + 100, cursor.position.y, cursor.position.z);
             // Move our position closer to the target.
             //Quaternion rotation = Quaternion.LookRotation(screenPos);
             //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
-            cursor.transform.position = new Vector3(cursor.position.x + 100, cursor.position.y, cursor.position.z);
+
 
         }
         if (cursor.position.y == Screen.height)
         {
-            Debug.Log("We on da Top/ Bottom");
+            Debug.Log("We on da Top");
 
             Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
             transform.LookAt(lookAt);
@@ -57,9 +59,9 @@ public class Addforce : MonoBehaviour
 
         }
 
-        if (cursor.position.y == Screen.height/2)
+        if (cursor.position.y == 0)
         {
-            Debug.Log("We on da Top/ Bottom");
+            Debug.Log("We on da Bottom");
 
             Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
             transform.LookAt(lookAt);
