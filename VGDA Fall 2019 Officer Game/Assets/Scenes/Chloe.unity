@@ -5289,7 +5289,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &446502012
+--- !u!114 &446502011
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5297,6 +5297,21 @@ MonoBehaviour:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446502008}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585261c599b636247850756f90a3b75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 0}
+  cursor: {fileID: 1787481685}
+  persCam: {fileID: 830462660}
+--- !u!114 &446502012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 446502008}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b177c83e84f04614fa8e72bc0cd04a75, type: 3}
   m_Name: 
@@ -10515,29 +10530,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 825013739}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &830462656 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6538571145535681780, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-    type: 3}
-  m_PrefabInstance: {fileID: 1680823212}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &830462657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 830462656}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b177c83e84f04614fa8e72bc0cd04a75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursor: {fileID: 1787481685}
-  canvas: {fileID: 0}
-  cam: {fileID: 0}
-  speed: 1
-  perscam: {fileID: 0}
 --- !u!20 &830462660 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6538571145535681782, guid: 881dd39b4627b1445aa7296cdabc3ed8,
@@ -21544,6 +21536,11 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 1787481685}
+    - target: {fileID: 6538571144145798272, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798331, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: cursor

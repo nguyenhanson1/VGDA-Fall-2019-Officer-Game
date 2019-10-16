@@ -16,64 +16,73 @@ public class Addforce : MonoBehaviour
     private void Update()
     {
         //Gets position of cursor to world
-        Vector3 screenPos = cam.WorldToScreenPoint(cursor.position);
+       // Vector3 screenPos = cam.WorldToScreenPoint(cursor.position);
 
+       // Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
         //If the cursor is on the edge of screen, rotate towards it
+
+        // check is cursor on right
         if (cursor.position.x  == Screen.width )
         {
             Debug.Log("We on da Rite");
 
-            Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
-            transform.LookAt(lookAt);
-            cursor.transform.position = new Vector3(cursor.position.x -100, cursor.position.y, cursor.position.z);
-            // Move our position closer to the target.
-            //Quaternion rotation = Quaternion.LookRotation(screenPos);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
-           
+            //transform.Rotate(0, 90, 0);
+            StartCoroutine(Rotate());
+            StopCoroutine(Rotate());
+
+            // stops infinite loop of turning
+            cursor.transform.position = new Vector3(cursor.position.x - 100, cursor.position.y, cursor.position.z);
 
         }
+        //check if cursor on left
         if (cursor.position.x == 0)
         {
             Debug.Log("We on da Leff");
-
-            Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
-            transform.LookAt(lookAt);
+            //transform.Rotate(0, -90, 0);
+            StartCoroutine(Rotate());
+            StopCoroutine(Rotate());
+            //transform.LookAt(lookAt);
+            // stops infinite loop of turning
             cursor.transform.position = new Vector3(cursor.position.x + 100, cursor.position.y, cursor.position.z);
-            // Move our position closer to the target.
-            //Quaternion rotation = Quaternion.LookRotation(screenPos);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
 
 
         }
+        //Check for pos at top of screen
         if (cursor.position.y == Screen.height)
         {
             Debug.Log("We on da Top");
-
-            Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
-            transform.LookAt(lookAt);
-            cursor.transform.position = new Vector3(cursor.position.x , cursor.position.y - 100, cursor.position.z);
-            // Move our position closer to the target.
-            //Quaternion rotation = Quaternion.LookRotation(screenPos);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
+            //transform.Rotate(90, 0, 0);
+            StartCoroutine(Rotate());
+            StopCoroutine(Rotate());
+            //transform.LookAt(lookAt);
+            // stops infinite loop of turning
+            cursor.transform.position = new Vector3(cursor.position.x , cursor.position.y - 100, -cursor.position.z);
 
 
         }
-
+        //Check position for bottom
         if (cursor.position.y == 0)
         {
             Debug.Log("We on da Bottom");
-
-            Vector3 lookAt = perscam.ScreenToWorldPoint(new Vector3(cursor.position.x, cursor.position.y, 0));
-            transform.LookAt(lookAt);
+            //transform.Rotate(-90, 0, 0);
+            StartCoroutine(Rotate());
+            StopCoroutine(Rotate());
+            //transform.LookAt(lookAt);
+            // stops infinite loop of turning
             cursor.transform.position = new Vector3(cursor.position.x, cursor.position.y + 100, cursor.position.z);
-            // Move our position closer to the target.
-            //Quaternion rotation = Quaternion.LookRotation(screenPos);
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotation, speed * Time.deltaTime);
 
 
         }
 
 
 
+    }
+    IEnumerator Rotate()
+    {
+        Vector3 relativePos = cursor.position - transform.position;
+        Quaternion toRotation = Quaternion.LookRotation(relativePos);
+        transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, 5 * Time.deltaTime);
+        yield return new WaitForSeconds(2);
+        
     }
 }
