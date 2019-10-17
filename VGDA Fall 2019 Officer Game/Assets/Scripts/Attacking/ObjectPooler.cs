@@ -12,6 +12,11 @@ public class ObjectPooler : MonoBehaviour
     [Tooltip("Number of Bullets wanted to be instantiated at start of scene.")]
     [SerializeField] private int totalGenericBullets = 50;
 
+    public Bullet bullet
+    {
+        get => genericBulletPrefab.GetComponent<Bullet>();
+    }
+
     //List that's going to hold all the bullets
     private List<GameObject> genericBulletPool = new List<GameObject>();
     //Number of bullets made after the start of the game

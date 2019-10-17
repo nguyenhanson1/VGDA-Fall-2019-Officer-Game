@@ -131,8 +131,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5925313c843f24fbaf434013527eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lerp: 1
   speed: 20
   damage: 5
-  distance: 50
+  distance: 100
   rb: {fileID: -353503682165753034}
   lockOn: 0
