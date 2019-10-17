@@ -46,4 +46,9 @@ public class PauseMenuManager : MonoBehaviour
         gamePaused = true;
 
     }
+    public void Restart()
+    {
+        Application.LoadLevel(Application.loadedLevel);
+        Time.timeScale = 1f;
+    }
 }
