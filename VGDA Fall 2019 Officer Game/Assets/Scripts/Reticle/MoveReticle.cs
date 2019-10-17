@@ -19,6 +19,18 @@ public class MoveReticle : MonoBehaviour
     [Tooltip("Speed that cursor moves.")]
     [SerializeField] private float speed = 700f;
 
+    [SerializeField] public Vector2 CursorPosition
+    {
+        get
+        {
+            Vector2 scale = persCam.ScreenToViewportPoint(rectTrans.position);
+            scale.x -= 0.5f;
+            scale.y -= 0.5f;
+
+            return scale * 2;
+        }
+    }
+
     private void OnEnable()
     {
         GameManager.StartOccurred += BootUp;

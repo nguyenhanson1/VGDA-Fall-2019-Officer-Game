@@ -15,7 +15,9 @@ public class PlayerMovement : MonoBehaviour
  
     private void Update()
     {
-        move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursor.position) + offset, Time.deltaTime * movementSpeed);
+        Vector3 cursorPos = cursor.position;
+
+        move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursorPos) + offset, Time.deltaTime * movementSpeed);
         move.z = cursorCamera.transform.position.z;
 
         transform.position = move;

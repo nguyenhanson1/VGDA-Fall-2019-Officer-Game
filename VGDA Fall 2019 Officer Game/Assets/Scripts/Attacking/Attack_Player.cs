@@ -8,8 +8,6 @@ public class Attack_Player : MonoBehaviour
     [SerializeField] private AimBot aimBot = null;
     [Tooltip("Script where object will get their bullets from.")]
     [SerializeField] private ObjectPooler bulletPool = null;
-    [Tooltip("Transform of the Bullet Reticle")]
-    [SerializeField] private RectTransform reticle = null;
     [Tooltip("Main Camera of the Game")]
     [SerializeField] private Camera persCam = null;
 
@@ -37,12 +35,7 @@ public class Attack_Player : MonoBehaviour
         if (Input.GetButton("Fire1"))
             if (!shotDelayed)
             {
-                Vector3 reticlePos = reticle.position;
-                reticlePos = persCam.ScreenToWorldPoint(reticlePos);
-
-                Vector3 target = persCam.ScreenToWorldPoint(new Vector3(reticle.position.x, reticle.position.y, (bulletPool.bullet.Speed * bulletPool.bullet.DespawnTime) / 2));
-
-                StartCoroutine(attack.LerpFire(reticlePos, gameObject, bulletPool, target));
+                attack.Shoot(gameObject, bulletPool);
 
 
                 /*

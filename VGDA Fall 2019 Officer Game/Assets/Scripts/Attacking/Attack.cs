@@ -24,6 +24,7 @@ public class Attack
         }
         return bullet;
     }
+    /*
     public IEnumerator LerpFire(Vector3 travel, GameObject parent, ObjectPooler bulletPool, Vector3? lookAt = null, Vector3? position = null)
     {
         //Get bullet from function in ObjectPooler script
@@ -53,4 +54,5 @@ public class Attack
 
         }
     }
+    */
 }

@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerp: 1
-  speed: 20
+  speed: 200
   damage: 5
   distance: 100
   rb: {fileID: -353503682165753034}
