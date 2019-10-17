@@ -36596,13 +36596,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864462984}
-  m_LocalRotation: {x: -0.119940124, y: -0.48129267, z: 0.54283345, w: -0.6777195}
+  m_LocalRotation: {x: -0.1838363, y: -0.5367456, z: 0.5186546, w: -0.6396138}
   m_LocalPosition: {x: -34.9, y: 73.5, z: 66.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
-  m_LocalEulerAnglesHint: {x: 43.243004, y: 405.79, z: 661.618}
+  m_LocalEulerAnglesHint: {x: 52.367004, y: 414.311, z: 670.235}
 --- !u!4 &864471682 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5349959102617316776, guid: 9eea405f336a5034e85450bd813c3852,
@@ -86659,11 +86659,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 982864449006078516, guid: 4c60bc362cfae244ea5cf25f092150b9,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1268642583}
     - target: {fileID: 982864448363612252, guid: 4c60bc362cfae244ea5cf25f092150b9,
         type: 3}
       propertyPath: persCam
@@ -86677,8 +86672,13 @@ PrefabInstance:
     - target: {fileID: 982864448363612252, guid: 4c60bc362cfae244ea5cf25f092150b9,
         type: 3}
       propertyPath: speed
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
+    - target: {fileID: 982864449006078516, guid: 4c60bc362cfae244ea5cf25f092150b9,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1268642583}
     - target: {fileID: 982864449006078519, guid: 4c60bc362cfae244ea5cf25f092150b9,
         type: 3}
       propertyPath: m_UiScaleMode
@@ -96067,11 +96067,6 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 759153093}
-    - target: {fileID: 6538571144145798334, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: cursor
-      value: 
-      objectReference: {fileID: 759153093}
     - target: {fileID: 6538571144145798273, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: cursor
@@ -96082,6 +96077,22 @@ PrefabInstance:
       propertyPath: persCam
       value: 
       objectReference: {fileID: 6538571144656062434}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: cursor
+      value: 
+      objectReference: {fileID: 759153093}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: padding
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: movementSpeed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: turnSpeed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798335, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -96097,7 +96108,8 @@ PrefabInstance:
       propertyPath: persCam
       value: 
       objectReference: {fileID: 6538571144656062434}
-    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+    - target: {fileID: 6538571144145798334, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
       propertyPath: cursor
       value: 
       objectReference: {fileID: 759153093}

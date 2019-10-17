@@ -13,7 +13,11 @@ public class Addforce : MonoBehaviour
     //turning speed
     public float turnSpeed = 3.0f;
     public Rigidbody rigid;
+
+    //padding for where cursor location is to turn
+    public float padding;
     //turn percentage of Horrizontal and Vertical force
+    [SerializeField]
     private float turnPercentH = 0;
     private float turnPercentV = 0;
     //Turn force of Horizontal and Verical Direction (Y and X perspectively)
@@ -28,39 +32,44 @@ public class Addforce : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         //transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
-        transform.Translate(new Vector3(horizontal,vertical,1f), Space.Self);
+        transform.Translate((new Vector3(horizontal,vertical,1f)) * Time.deltaTime * movementSpeed, Space.Self);
         //If the cursor is on the edge of screen, rotate towards it
 
 
         //Check cursor on right
-        if (cursor.position.x  == Screen.width )
+        if (cursor.position.x  <= Screen.width && cursor.position.x >= Screen.width - padding)
         {
+            turnPercentH = Mathf.Clamp(turnPercentH + 0.1f, 0, 1);
+            turnForceY = turnSpeed * turnPercentH;
             Debug.Log("We on da Rite");
-
-            RotateHorrizontal();
         }
         //check if cursor on left
-        if (cursor.position.x == 0)
+        else if (cursor.position.x >= 0 && cursor.position.x <= padding)
         {
+            turnPercentH = Mathf.Clamp(turnPercentH + 0.1f, 0, 1);
             Debug.Log("We on da Leff");
-
-            RotateHorrizontal();
-            
+            turnForceY = -turnSpeed * turnPercentH;
         }
+        else
+        {
+            turnForceY = 0;
+            turnPercentH = Mathf.Clamp(turnPercentH - 0.05f, 0, 1);
+        }
+        rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, turnForceY, 0f);
         //Check for pos at top of screen
         //if (cursor.position.y == Screen.height)
         //{
         //    Debug.Log("We on da Top");
-            
+
         //    RotateVertical();
         //}
         ////Check position for bottom
         //if (cursor.position.y == 0)
         //{
         //    Debug.Log("We on da Bottom");
-            
+
         //    RotateVertical();
-            
+
         //}
         // changes the forward momentum of the Player to what ever direction it's facing
     }
@@ -69,36 +78,36 @@ public class Addforce : MonoBehaviour
         //Gets input from cursor movement
         float horizontal = Input.GetAxis("Horizontal");
 
-        if (horizontal > 0)
-        {
-            if (turnPercentH < 1)
-            {
-                turnPercentH += 0.01f;
-            }
-            turnForceY = horizontal * turnSpeed * turnPercentH;
-        }
-        else if (horizontal < 0)
-        {
-            if (turnPercentH < 1)
-            {
-                turnPercentH += 0.01f;
-            }
-            turnForceY = horizontal * turnSpeed * turnPercentH;
-        }
-        else
-        {
-            turnPercentH = 0;
-            turnForceY = 0;
-        }
+        //if (horizontal > 0)
+        //{
+        //    if (turnPercentH < 1)
+        //    {
+        //        turnPercentH += 0.01f;
+        //    }
+        //    turnForceY = horizontal * turnSpeed * turnPercentH;
+        //}
+        //else if (horizontal < 0)
+        //{
+        //    if (turnPercentH < 1)
+        //    {
+        //        turnPercentH += 0.01f;
+        //    }
+        //    turnForceY = turnSpeed * turnPercentH;
+        //}
+        //else
+        //{
+        //    turnPercentH = 0;
+        //    turnForceY = 0;
+        //}
 
-        if (turnForceY != 0)
-        {
-            rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, turnForceY, 0f);
-        }
-        else
-        {
-            rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, 0f, 0f);
-        }
+        //if (turnForceY != 0)
+        //{
+           
+        //}
+        //else
+        //{
+        //    rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, 0f, 0f);
+        //}
     }
     
     void RotateVertical()
@@ -129,7 +138,7 @@ public class Addforce : MonoBehaviour
 
         if (turnForceX != 0)
         {
-            rigid.angularVelocity = new Vector3(-turnForceX, rigid.angularVelocity.y, 0f);
+            rigid.angularVelocity = new Vector3(-turnSpeed *Time.deltaTime, rigid.angularVelocity.y, 0f);
         }
         else
         {
