@@ -25,7 +25,10 @@ public class Addforce : MonoBehaviour
     }
     private void Update()
     {
-        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        //transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
+        transform.Translate(new Vector3(horizontal,vertical,1f), Space.Self);
         //If the cursor is on the edge of screen, rotate towards it
 
 
