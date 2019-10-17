@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Tooltip("Checks if bulllet is moving forward")]
+    [SerializeField] private bool lerp = true;
     [Tooltip("Velocity of the Bullet")]
     [SerializeField] private float speed = 1f;
     [Tooltip("Damage dealt by the Bullet")]
@@ -15,6 +17,8 @@ public class Bullet : MonoBehaviour
 
     [Tooltip("Debug Testing")]
     public bool lockOn = false;
+
+    private Vector3 lerpDestination;
 
     //Properties that give access to the following variables
     public float Speed
@@ -29,6 +33,27 @@ public class Bullet : MonoBehaviour
     {
         get => distance/speed;
     }
+    public bool Lerping(bool? input = null, Vector3? destination = null)
+    {
+        if(input.HasValue)
+        {
+            lerp = input.Value;
+            if (lerp == true)
+            {
+                GameManager.UpdateOccurred += LerpMove;
+                lerpDestination = destination.Value;
+            }
+            else
+            {
+                Debug.Log("Stopped'em");
+                GameManager.UpdateOccurred -= LerpMove;
+                rb.velocity = speed * transform.forward;
+            } 
+            
+        }
+
+        return lerp;
+    }
 
     //Set the bullet's speed and direction when it's created, 
     private void OnEnable()
@@ -36,11 +61,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = speed * transform.forward;
         //Start timer to deactivate the bullet
         StartCoroutine(trackBullet());
+        
     }
     //Reset the bullet's speed when it's deactivated
     private void OnDisable()
     {
         rb.velocity = Vector3.zero;
+        GameManager.UpdateOccurred -= LerpMove;
     }
 
     //Deactivate the bullet after a certain time
@@ -49,6 +76,19 @@ public class Bullet : MonoBehaviour
         yield return new WaitForSeconds(distance/speed);
 
         gameObject.SetActive(false);
+    }
+
+    private void LerpMove()
+    {
+        rb.velocity = Vector3.zero;
+        Vector3 travel = Vector3.Lerp(transform.position, lerpDestination, speed * Time.deltaTime);
+        transform.position = travel;
+        Debug.Log(Vector3.Distance(lerpDestination, transform.position));
+
+        if (Vector3.Distance(lerpDestination, transform.position) <= 0.1f)
+        {
+            Lerping(false);
+        }
     }
 
     private void OnTriggerEnter(Collider col)

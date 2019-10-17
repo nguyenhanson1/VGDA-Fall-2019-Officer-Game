@@ -41,9 +41,9 @@ public class EnemyFlying : Enemy
 
     protected override void Move()
     {
-        pathOptionBackForth();
+        //pathOptionBackForth();
     }
-
+    /*
     protected void pathOptionBackForth() {
         float travelled = (Time.time - startTime) * moveSpeed;
         float fractionTravelled = travelled / backForthJourneyLength;
@@ -66,8 +66,9 @@ public class EnemyFlying : Enemy
                 backForthTurned = false;
             }
         }
+        
     }
-
+    */
     protected override void Initialize()
     {
         Player = GameObject.FindGameObjectWithTag("Player");

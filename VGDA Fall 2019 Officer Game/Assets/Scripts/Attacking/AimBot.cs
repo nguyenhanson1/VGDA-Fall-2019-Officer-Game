@@ -13,16 +13,18 @@ public class AimBot : MonoBehaviour
 
     private void LaserPointer()
     {
-        Debug.DrawRay(transform.position, transform.forward* (bullet.Distance), Color.red);
+        Debug.DrawRay(transform.position, transform.forward * (bullet.Distance), Color.red);
     }
     //Shoot Raycast from Cursor to check for targets
     public GameObject getHitPosition()
     {
         //Get raycast origin, direction, and distance
-        //Debug.Log("Cursor: " + cursor.position + "Pers: " + persCam.ScreenToWorldPoint(cursor.position) + "Orth: " + orthCam.ScreenToWorldPoint(cursor.position));
-
-        Vector3 origin = persCam.ScreenToWorldPoint(cursor.position);
         Vector3 direction = transform.forward;
+
+        Vector3 origin = cursor.position;
+        origin.z = direction.z * bullet.Distance;
+        origin = persCam.ScreenToWorldPoint(origin);
+
         Ray cursorSight = new Ray(origin, direction);
 
         //Shoot raycast and return gameObject if hit something with wanted layer
