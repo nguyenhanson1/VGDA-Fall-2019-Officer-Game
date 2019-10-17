@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Camera cursorCamera = null;
     [SerializeField] private Vector3 offset = new Vector3(0, 0, 0);
     public Vector3 move;
-    public float movementSpeed = 1.0f;
+    public float movementSpeed = 3.25f;
     public int invert = -1;
 
 
@@ -19,6 +19,6 @@ public class PlayerMovement : MonoBehaviour
         move.z = cursorCamera.transform.position.z + 1f;
 
         transform.position = move;
-       
+        move += transform.forward * Time.deltaTime * movementSpeed;
     }
 }
