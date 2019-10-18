@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Attack_Player : MonoBehaviour
 {
-    [Tooltip("AimBot script used to get target.")]
-    [SerializeField] private AimBot aimBot = null;
     [Tooltip("Script where object will get their bullets from.")]
     [SerializeField] private ObjectPooler bulletPool = null;
     [Tooltip("Main Camera of the Game")]
