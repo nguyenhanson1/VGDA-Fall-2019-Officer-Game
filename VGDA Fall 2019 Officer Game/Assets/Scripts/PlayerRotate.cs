@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     [SerializeField] private float rotateStability = 2f;
-    [SerializeField] private MoveReticle cursor;
+    [SerializeField] private MoveCursor cursor;
  
     private void OnEnable()
     {

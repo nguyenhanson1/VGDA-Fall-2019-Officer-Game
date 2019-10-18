@@ -6403,6 +6403,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: 0.4, y: 8.2, z: 17.15}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &152583054
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8856,6 +8857,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: 64.7, y: 65.5, z: -126.5}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &217169210
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -14405,6 +14407,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: 0.4, y: 48.9, z: 17.15}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &331805686
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -21634,6 +21637,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: 26.74, y: 8.2, z: 17.15}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &481637151
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -28470,6 +28474,9 @@ MonoBehaviour:
   - 0
   controllerEnabled: 1
   speed: 700
+  centerSpeed: 1
+  delayTime: 1
+  timer: 0
 --- !u!1001 &650150620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49569,6 +49576,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: -55, y: 8.2, z: 17.15}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &1180659300
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -66481,6 +66489,7 @@ MonoBehaviour:
   gameSpawnPoint: {x: -75, y: 142, z: 9.04}
   Path: 0
   xDistanceFromOrigin: 10
+  hp: 0
 --- !u!54 &1629733707
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -96702,5 +96711,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f91892e2877c8547a436f5a43f113fa, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5412115675076907789, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}

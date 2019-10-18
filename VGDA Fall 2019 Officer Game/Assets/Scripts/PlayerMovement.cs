@@ -16,9 +16,12 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Vector3 cursorPos = cursor.position;
+        cursorPos.x = Screen.width / 2;
 
         move = Vector3.Lerp(transform.position, cursorCamera.ScreenToWorldPoint(cursorPos) + offset, Time.deltaTime * movementSpeed);
         move.z = cursorCamera.transform.position.z;
+
+
 
         transform.position = move;
         move += transform.forward * Time.deltaTime * movementSpeed;
