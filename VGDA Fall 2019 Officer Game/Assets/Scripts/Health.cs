@@ -11,6 +11,7 @@ public class Health
     
     private int _healthTotal = 100;
 
+
     public int HealthTotal
     {
         get => _healthTotal;

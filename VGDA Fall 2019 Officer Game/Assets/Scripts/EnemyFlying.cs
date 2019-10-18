@@ -21,6 +21,8 @@ public class EnemyFlying : Enemy
     private float startTime;
     private Transform reference;
 
+    [SerializeField] private float hp;
+
     protected virtual void OnEnable()
     {
         Health.OnDeath += Begoned;
@@ -41,9 +43,10 @@ public class EnemyFlying : Enemy
 
     protected override void Move()
     {
-        //pathOptionBackForth();
+        hp = totalHealth.HealthTotal;
+        pathOptionBackForth();
     }
-    /*
+    
     protected void pathOptionBackForth() {
         float travelled = (Time.time - startTime) * moveSpeed;
         float fractionTravelled = travelled / backForthJourneyLength;
@@ -68,7 +71,7 @@ public class EnemyFlying : Enemy
         }
         
     }
-    */
+    
     protected override void Initialize()
     {
         Player = GameObject.FindGameObjectWithTag("Player");
