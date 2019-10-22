@@ -32,6 +32,11 @@ public class PauseMenuManager : MonoBehaviour
             }
         }
     }
+
+    public void Quit()
+    {
+        Application.Quit();
+    }
     public void Resume()
     {
         Time.timeScale = 1f;
