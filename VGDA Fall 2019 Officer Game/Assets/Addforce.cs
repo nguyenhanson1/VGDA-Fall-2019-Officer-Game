@@ -11,7 +11,7 @@ public class Addforce : MonoBehaviour
     // Foward movement speed
     public float movementSpeed = 3.0f;
     //turning speed
-    public float turnSpeed = 3.0f;
+    public float turnSpeed = 2.0f;
     public Rigidbody rigid;
 
     //padding for where cursor location is to turn
@@ -34,25 +34,32 @@ public class Addforce : MonoBehaviour
         //transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
         transform.Translate((new Vector3(horizontal,vertical,1f)) * Time.deltaTime * movementSpeed, Space.Self);
         //If the cursor is on the edge of screen, rotate towards it
-
+        float ratio = (cursor.position.x + 0.001f) / Screen.width;
 
         //Check cursor on right
-        if (cursor.position.x  <= Screen.width && cursor.position.x >= Screen.width - padding)
+        if (cursor.position.x  <= Screen.width && cursor.position.x > (Screen.width/2))
         {
-            turnPercentH = Mathf.Clamp(turnPercentH + 0.1f, 0, 1);
-            turnForceY = turnSpeed * turnPercentH;
+            turnPercentH = Mathf.Clamp(turnPercentH + 0.5f, 0, 1);
             Debug.Log("We on da Rite");
+            if (cursor.position.x > (Screen.width * 5/8))
+                turnForceY = turnSpeed * ratio * turnPercentH;
+            else
+                turnForceY = 0; 
         }
         //check if cursor on left
-        else if (cursor.position.x >= 0 && cursor.position.x <= padding)
+        else if (cursor.position.x >= 0 && cursor.position.x < (Screen.width/2))
         {
-            turnPercentH = Mathf.Clamp(turnPercentH + 0.1f, 0, 1);
+            turnPercentH = Mathf.Clamp(turnPercentH + 0.05f, 0, 1);
             Debug.Log("We on da Leff");
-            turnForceY = -turnSpeed * turnPercentH;
-        }
+            if (cursor.position.x < (Screen.width*3/8))
+                turnForceY = -turnSpeed* (1 - ratio) * turnPercentH;
+            else            
+                turnForceY = 0;
+        }  
         else
         {
             turnForceY = 0;
+            turnPercentH = 0;
             turnPercentH = Mathf.Clamp(turnPercentH - 0.05f, 0, 1);
         }
         rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, turnForceY, 0f);
