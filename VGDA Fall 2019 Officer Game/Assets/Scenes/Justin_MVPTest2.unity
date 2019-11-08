@@ -96668,6 +96668,14 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 649337872}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: turnSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: movementSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5412115675076907789, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: cursor
