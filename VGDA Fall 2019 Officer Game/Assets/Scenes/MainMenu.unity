@@ -61442,23 +61442,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -18.398642, y: 89.70073, z: 0.5112837}
---- !u!111 &1543953014
-Animation:
+  m_LocalEulerAnglesHint: {x: 0.12900001, y: 90.07201, z: 0.177}
+--- !u!95 &1543953014
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543953010}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: c696079ed059aeb4a9a321f0dded1940, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: c696079ed059aeb4a9a321f0dded1940, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 512ab9b7b8578bc4d90e051432de5b0d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1546505700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -66871,6 +66874,7 @@ GameObject:
   - component: {fileID: 1659741403}
   - component: {fileID: 1659741402}
   - component: {fileID: 1659741401}
+  - component: {fileID: 1659741405}
   m_Layer: 5
   m_Name: MenuCanvas
   m_TagString: Untagged
@@ -66961,6 +66965,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1659741405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659741400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af127035d5b5b0e4583b3588b8c37e71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Main_Menu: {fileID: 1659741400}
+  Cam: {fileID: 1543953010}
 --- !u!1001 &1659773783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82541,7 +82559,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2053952356}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11500000, guid: af127035d5b5b0e4583b3588b8c37e71, type: 3}
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2053952356
