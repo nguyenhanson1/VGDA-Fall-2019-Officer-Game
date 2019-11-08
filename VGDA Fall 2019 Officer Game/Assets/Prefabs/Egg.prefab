@@ -119,9 +119,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerp: 1
-  speed: 200
+  speed: 600
   damage: 5
-  distance: 100
+  distance: 500
   rb: {fileID: -353503682165753034}
   lockOn: 0
 --- !u!65 &-1913343610418907131
