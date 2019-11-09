@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 704223550888968362}
   - component: {fileID: 704223550888968363}
   - component: {fileID: 704223550888968364}
-  - component: {fileID: 704223550888968365}
   - component: {fileID: 704223550888968366}
   - component: {fileID: -353503682165753034}
   - component: {fileID: -8383447166993168962}
+  - component: {fileID: -1913343610418907131}
   m_Layer: 0
-  m_Name: Egg
+  m_Name: Lactation Pellets
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 704223550888968367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &704223550888968365
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 704223550888968367}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!222 &704223550888968366
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -131,8 +118,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5925313c843f24fbaf434013527eba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  lerp: 1
+  speed: 200
   damage: 5
-  distance: 50
+  distance: 500
   rb: {fileID: -353503682165753034}
   lockOn: 0
+--- !u!65 &-1913343610418907131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704223550888968367}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
