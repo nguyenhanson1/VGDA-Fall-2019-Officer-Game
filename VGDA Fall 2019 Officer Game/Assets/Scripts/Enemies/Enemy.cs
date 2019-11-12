@@ -30,6 +30,7 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         if (totalHealth.HealthTotal <= 0)
         { // totalHealth == h
             // Play Death Animation
+            Score.score = Score.score + 1;
             Destroy(gameObject);
         }
     }
