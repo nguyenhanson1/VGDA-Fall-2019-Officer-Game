@@ -14,6 +14,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float distance = 5f;
     [Tooltip("Rigidbody of Bullet")]
     [SerializeField] private Rigidbody rb = null;
+    [SerializeField] private Factions.Faction factionTarget;
 
     [Tooltip("Debug Testing")]
     public bool lockOn = false;
@@ -95,11 +96,11 @@ public class Bullet : MonoBehaviour
     {
         //Check if the gameObject's layer is in the Owner's Faction
         if (col.gameObject.GetComponent<IDamagable>() != null)
-            if (col.gameObject.GetComponent<IDamagable>().health.myFaction == Factions.Faction.Evil)
+            if (col.gameObject.GetComponent<IDamagable>().myFaction == factionTarget)
             {
                 Debug.Log("Hit");
                 col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
-                //gameObject.SetActive(false);
+                gameObject.SetActive(false);
             }
     }
 }

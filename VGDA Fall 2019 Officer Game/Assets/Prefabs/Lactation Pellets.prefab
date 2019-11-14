@@ -119,10 +119,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lerp: 1
-  speed: 200
+  speed: 400
   damage: 5
-  distance: 500
+  distance: 300
   rb: {fileID: -353503682165753034}
+  factionTarget: 1
   lockOn: 0
 --- !u!65 &-1913343610418907131
 BoxCollider:
