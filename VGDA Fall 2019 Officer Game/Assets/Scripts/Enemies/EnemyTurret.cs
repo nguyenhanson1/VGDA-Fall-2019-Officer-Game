@@ -9,9 +9,14 @@ public class EnemyTurret : Enemy
     [SerializeField] private Addforce addForce;
     [SerializeField] private float rotateSpeed = 50f;
     [SerializeField] private float time = 0.1f;
+    [SerializeField] private float offSpeed = 0f;
     public int health;
-
     private Attack attack = new Attack();
+
+    [Header("Position and Velocity Test")]
+    [SerializeField] private Vector3 prevPos;
+    [SerializeField] private Vector3 currentPos;
+    [SerializeField] private Vector3 calcVel;
 
     private void Update()
     {
@@ -47,8 +52,12 @@ public class EnemyTurret : Enemy
 
     protected override void Move()
     {
-        Vector3 playerVelocity = player.transform.forward * (addForce.speed / Time.deltaTime);
-        Vector3 playerFuturePos = leadShotPos(bulletPool.bullet.Speed, player.transform.position, playerVelocity);
+        prevPos = currentPos;
+        currentPos = player.transform.position;
+        calcVel = (currentPos - prevPos) / Time.deltaTime;
+
+        Vector3 playerVelocity = player.transform.forward * ((addForce.speed- offSpeed) / Time.deltaTime);
+        Vector3 playerFuturePos = leadShotPos(bulletPool.bullet.Speed, player.transform.position, calcVel);
         transform.LookAt(playerFuturePos);
     }
 

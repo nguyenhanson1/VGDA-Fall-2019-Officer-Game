@@ -42496,12 +42496,16 @@ MonoBehaviour:
   moveSpeed: 0
   standbySpawn: {x: 407, y: 23.2, z: 448}
   gameSpawnPoint: {x: 407, y: 23.2, z: 448}
-  player: {fileID: 290891789}
+  player: {fileID: 1800283953}
   bulletPool: {fileID: 54234860}
   addForce: {fileID: 1144445002}
   rotateSpeed: 50
   time: 0.5
+  offSpeed: 0
   health: 0
+  prevPos: {x: 0, y: 0, z: 0}
+  currentPos: {x: 0, y: 0, z: 0}
+  calcVel: {x: 0, y: 0, z: 0}
 --- !u!65 &991641956
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -74076,6 +74080,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9eea405f336a5034e85450bd813c3852, type: 3}
+--- !u!1 &1800283953 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7800176996077190227, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1800384081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5349959102617316776, guid: 9eea405f336a5034e85450bd813c3852,
@@ -96913,6 +96923,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f91892e2877c8547a436f5a43f113fa, type: 2}
+    - target: {fileID: 6538571144145798335, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 7.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: maxHealth
