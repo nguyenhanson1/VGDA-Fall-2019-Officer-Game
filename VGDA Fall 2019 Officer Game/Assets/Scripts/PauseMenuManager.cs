@@ -42,6 +42,8 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 1f;
         anim.SetBool("Open", false);
         gamePaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     void Pause()
@@ -49,7 +51,8 @@ public class PauseMenuManager : MonoBehaviour
         Time.timeScale = 0f;
         anim.SetBool("Open", true);
         gamePaused = true;
-
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
     public void Restart()
     {
