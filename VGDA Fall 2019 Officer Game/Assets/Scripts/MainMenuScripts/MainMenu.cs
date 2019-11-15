@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject Cam;
     private void Start()
     {
-        Cam = GameObject.Find("Main Camera");
+        Cam = GameObject.Find("Camera");
         Camera = Cam.GetComponent<Animator>();
     }
     public void Play()
