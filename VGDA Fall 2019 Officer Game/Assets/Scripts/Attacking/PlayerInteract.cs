@@ -14,6 +14,7 @@ public class PlayerInteract : MonoBehaviour, IDamagable
     [SerializeField] private int maxHealth = 5;
 
     [Header("Attacking")]
+    [SerializeField] private PauseMenuManager pause;
     [Tooltip("Script where object will get their bullets from.")]
     [SerializeField] private ObjectPooler bulletPool = null;
     [Tooltip("Main Camera of the Game")]
@@ -68,7 +69,7 @@ public class PlayerInteract : MonoBehaviour, IDamagable
     //Check if Fire button was pressed.
     private void checkforShot()
     {
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && !pause.gamePaused)
             if (!shotDelayed)
             {
                 attack.Shoot(gameObject, bulletPool);

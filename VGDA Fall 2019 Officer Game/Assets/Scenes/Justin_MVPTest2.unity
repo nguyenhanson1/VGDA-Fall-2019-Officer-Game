@@ -96928,11 +96928,26 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 7.8
       objectReference: {fileID: 0}
+    - target: {fileID: 6538571145535681785, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538571145535681785, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: maxHealth
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 1753232125}
     m_RemovedComponents:
     - {fileID: 5412115675076907789, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
