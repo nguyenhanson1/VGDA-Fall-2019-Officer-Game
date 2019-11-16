@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class MainMenu : MonoBehaviour
 {
-    //public static bool PlayerSelect = false;
-  
+   
     public GameObject Main_Menu;
     public static bool MainM = true;
     private Animator Camera;
     public GameObject Cam;
     private void Start()
     {
-        Cam = GameObject.Find("Camera");
+        
         Camera = Cam.GetComponent<Animator>();
     }
     public void Play()
     {
-        Camera.Play("Camera_Pan");
+        Camera.SetBool("Static", false);
+        Camera.SetBool("Cam_Scroll", true);
+        Main_Menu.GetComponent<Canvas>().enabled = false;
         StartCoroutine(ChangeMenu());
-        Main_Menu.SetActive(false);
-
         StopCoroutine(ChangeMenu());
 
     }
@@ -28,8 +27,8 @@ public class MainMenu : MonoBehaviour
     IEnumerator ChangeMenu()
     {
 
-        yield return new WaitForSeconds(3);
-  
+        yield return new WaitForSeconds(4);
+        Debug.Log("Changing Menu");
 
     }
 }
