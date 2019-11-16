@@ -306,6 +306,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6538571144656062433}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &7194018 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 446502010, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8299489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5349959102617316776, guid: 9eea405f336a5034e85450bd813c3852,
@@ -32862,6 +32868,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 749589937}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &750278567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6538571144145798328, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &752851047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36736,7 +36748,7 @@ GameObject:
   - component: {fileID: 859160220}
   - component: {fileID: 859160219}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BackGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36774,7 +36786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.72156864}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -82639,7 +82651,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6415094, g: 0.04636395, b: 0, a: 1}
+  m_Color: {r: 0.6415094, g: 0.04636395, b: 0, a: 0.73333335}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -87813,6 +87825,21 @@ PrefabInstance:
       propertyPath: cursor
       value: 
       objectReference: {fileID: 649337872}
+    - target: {fileID: 6538571144145798331, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: movementSpeed
+      value: 3.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538571144145798331, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538571144145798331, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: rigid
+      value: 
+      objectReference: {fileID: 7194018}
     - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
       propertyPath: cursor
       value: 
@@ -87820,6 +87847,18 @@ PrefabInstance:
     - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
       propertyPath: padding
       value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: chickenLook
+      value: 
+      objectReference: {fileID: 750278567}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: turnSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 446502012, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: activePadding
+      value: 0.125
       objectReference: {fileID: 0}
     - target: {fileID: 5412115675076907789, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}

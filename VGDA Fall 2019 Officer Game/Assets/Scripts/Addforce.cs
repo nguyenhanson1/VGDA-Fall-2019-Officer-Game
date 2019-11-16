@@ -13,9 +13,11 @@ public class Addforce : MonoBehaviour
     //turning speed
     public float turnSpeed = 2.0f;
     public Rigidbody rigid;
+    public GameObject chickenLook;
 
     //padding for where cursor location is to turn
     public float padding;
+    public float activePadding;
     //turn percentage of Horrizontal and Vertical force
     [SerializeField]
     private float turnPercentH = 0;
@@ -31,9 +33,21 @@ public class Addforce : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        //transform.position += Vector3.forward * movementSpeed * Time.deltaTime;
-        transform.Translate((new Vector3(horizontal,vertical,1f)) * Time.deltaTime * movementSpeed, Space.Self);
-        //If the cursor is on the edge of screen, rotate towards it
+        float turn = turnSpeed;
+        float padding;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rigid.velocity = chickenLook.transform.forward * movementSpeed /2;
+            turn = turnSpeed * 2;
+            padding =  0;
+        }
+        else
+        {
+            rigid.velocity = chickenLook.transform.forward * movementSpeed;
+            turn = turnSpeed;
+            padding = activePadding;
+        }
+        
         float ratio = (cursor.position.x + 0.001f) / Screen.width;
 
         //Check cursor on right
@@ -41,8 +55,8 @@ public class Addforce : MonoBehaviour
         {
             turnPercentH = Mathf.Clamp(turnPercentH + 0.5f, 0, 1);
             Debug.Log("We on da Rite");
-            if (cursor.position.x > (Screen.width * 7/8))
-                turnForceY = turnSpeed * ratio * turnPercentH;
+            if (cursor.position.x >= (Screen.width * (1 - padding)))
+                turnForceY = turn * ratio * turnPercentH;
             else
                 turnForceY = 0; 
         }
@@ -51,8 +65,8 @@ public class Addforce : MonoBehaviour
         {
             turnPercentH = Mathf.Clamp(turnPercentH + 0.05f, 0, 1);
             Debug.Log("We on da Leff");
-            if (cursor.position.x < (Screen.width*1/8))
-                turnForceY = -turnSpeed* (1 - ratio) * turnPercentH;
+            if (cursor.position.x <= (Screen.width*padding) +0.01f)
+                turnForceY = -turn* (1 - ratio) * turnPercentH;
             else            
                 turnForceY = 0;
         }  

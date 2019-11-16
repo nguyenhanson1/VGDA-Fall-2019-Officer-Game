@@ -15,10 +15,6 @@ public class PlayerHealth : MonoBehaviour
 
     void updateHealthBar()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            shipHealth.subtractHealth(5);
-        }
         healthBar.fillAmount = (float)shipHealth.HealthTotal/healthToSet;
     }
     private void Awake()
