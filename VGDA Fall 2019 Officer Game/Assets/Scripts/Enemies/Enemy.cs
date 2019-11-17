@@ -24,7 +24,7 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     [SerializeField] protected Vector3 gameSpawnPoint;
     protected bool inited = false;
 
-    protected abstract void Attack();
+    protected abstract void EnemyAttack();
     protected abstract void Move();
     protected virtual void Begoned(Health h) {
         if (totalHealth.HealthTotal <= 0)
@@ -42,11 +42,13 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     protected virtual void OnEnable()
     {
         Health.OnDeath += Begoned;
+        GameManager.StartOccurred += Initialize;
     }
 
     protected virtual void OnDisable()
     {
         Health.OnDeath -= Begoned;
+        GameManager.StartOccurred -= Initialize;
     }
     protected void Awake()
     {

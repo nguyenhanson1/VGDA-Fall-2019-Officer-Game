@@ -32,7 +32,7 @@ public class EnemyChicken : Enemy
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationalDamp * Time.deltaTime);
     }
 
-    protected override void Attack()
+    protected override void EnemyAttack()
     {
         
 

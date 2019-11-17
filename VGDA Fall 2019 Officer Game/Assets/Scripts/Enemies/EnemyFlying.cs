@@ -4,95 +4,123 @@ using UnityEngine;
 
 public class EnemyFlying : Enemy
 {
-    protected enum PathOptions {
-        BackForth,
-        Circular,
-        Random,
-        FollowPlayer
-    }
+    [Header("Flying Enemy")]
+    [SerializeField] private Transform target = null;
+    [SerializeField] private ObjectPooler bulletPool = null;
+    private Attack attack = new Attack();
+    [Header("Range")]
+    [SerializeField] private float attackDelay = 2f;
+    [Header("Movement Speed")]
+    [Tooltip("Speed when Enemy goes out of range")]
+    [SerializeField] private float rotateSpeed;
+    [Tooltip("Speed when Enemy goes out of range")]
+    [SerializeField] private float uTurnRotate;
+    [Tooltip("Speed when Enemy is turning around to the Player")]
+    [SerializeField] private float uTurnSpeed;
+    [Tooltip("Speed when Enemy is flying away from the Player")]
+    [SerializeField] private float boostSpeed;
+    [Header("Range")]
+    [SerializeField] private float aiDelay = 2f;
+    [SerializeField] private float tooFar = 400f;
+    [SerializeField] private float tooClose = 100f;
+    [Header("Movement")]
+    [SerializeField] private Rigidbody targetRB = null;
+    private Vector3 prevPos = Vector3.zero;
+    private Vector3 currentPos = Vector3.zero;
+    private Vector3 calcVel = Vector3.zero;
 
-    [SerializeField]protected PathOptions Path;
 
-    [Tooltip("The furthest distance the enemy flies (Linear) or the radius of the path (Circular)")]
-    [SerializeField] protected float xDistanceFromOrigin = 10f;
-    private bool backForthTurned = false;
-    private Vector3 backForthEdge;
-    private float backForthJourneyLength;
-    private float startTime;
-    private Transform reference;
+    [SerializeField] private AI path;
 
-    [SerializeField] private float hp;
-
-    protected virtual void OnEnable()
+    private enum AI
     {
-        Health.OnDeath += Begoned;
-        GameManager.StartOccurred += Initialize;
+        OpenFire = -2,
+        Bail = -1,
+        OutofBounds = 0,
+        Strike = 1
+    }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        GameManager.UpdateOccurred += EyesOnTarget;
         GameManager.UpdateOccurred += Move;
+        GameManager.StartOccurred += EnemyAttack;
     }
 
-    protected virtual void OnDisable()
+    protected override void OnDisable()
     {
-        Health.OnDeath -= Begoned;
-        GameManager.StartOccurred -= Initialize;
+        base.OnDisable();
+        GameManager.UpdateOccurred -= EyesOnTarget;
         GameManager.UpdateOccurred -= Move;
+        GameManager.StartOccurred -= EnemyAttack;
     }
-    protected override void Attack()
+
+    protected override void Initialize()
     {
-        // Do nothing
+        base.Initialize();
+        StartCoroutine(AIManager());
+    }
+
+    private IEnumerator AIManager()
+    {
+        if (path == AI.Strike)
+        {
+            yield return new WaitUntil(() => (target.position - transform.position).magnitude <= tooClose);
+        }
+        path = AI.OpenFire;
+        yield return new WaitForSeconds(aiDelay);
+        path = AI.Bail;
+        yield return new WaitUntil(() => (target.position - transform.position).magnitude >= tooFar);
+        path = AI.OutofBounds;
+        yield return new WaitForSeconds(aiDelay);
+        path = AI.Strike;
+        StartCoroutine(AIManager());
+    }
+
+    private void EyesOnTarget()
+    {
+        if (path == AI.OutofBounds)
+        {
+            Vector3 targetDir = target.position - transform.position;
+            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, uTurnRotate, 0.0f);
+            gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
+        }
+        else if(path == AI.Strike || path == AI.OpenFire)
+        {
+            Vector3 targetVelocity = targetRB.velocity;
+            Vector3 targetFuturePos = Attack.leadShotPos(transform.position, bulletPool.bullet.Speed, target.position, targetVelocity);
+
+            Vector3 targetDir = targetFuturePos - transform.position;
+            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, rotateSpeed, 0.0f);
+
+            gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
+        }
+    }
+
+    protected override void EnemyAttack()
+    {
+        StartCoroutine(Fire());
+    }
+
+    private IEnumerator Fire()
+    {
+
+        yield return new WaitForSeconds(attackDelay);
+        if (path == AI.OpenFire)
+        {
+            
+            attack.Shoot(gameObject, bulletPool);
+        }
+        StartCoroutine(Fire());
     }
 
     protected override void Move()
     {
-        hp = totalHealth.HealthTotal;
-        pathOptionBackForth();
-    }
-    
-    protected void pathOptionBackForth() {
-        float travelled = (Time.time - startTime) * moveSpeed;
-        float fractionTravelled = travelled / backForthJourneyLength;
-        if (!backForthTurned)
-        {
-            smoothLookAt(backForthEdge);
-            transform.position = Vector3.Lerp(gameSpawnPoint, backForthEdge, fractionTravelled);
-            if (transform.position.Equals(backForthEdge))
-            {
-                startTime = Time.time;
-                backForthTurned = true;
-            }
-        }
-        else {
-            smoothLookAt(gameSpawnPoint);
-            transform.position = Vector3.Lerp(backForthEdge, gameSpawnPoint, fractionTravelled);
-            if (transform.position.Equals(gameSpawnPoint))
-            {
-                startTime = Time.time;
-                backForthTurned = false;
-            }
-        }
-        
-    }
-    
-    protected override void Initialize()
-    {
-        Player = GameObject.FindGameObjectWithTag("Player");
-        anim = this.GetComponent<Animator>();
-        rb = this.GetComponent<Rigidbody>();
-        totalHealth.HealthTotal = maxHealth;
-        transform.position = gameSpawnPoint;
-
-        if (Path == PathOptions.BackForth)
-        {
-            backForthEdge = new Vector3(gameSpawnPoint.x + xDistanceFromOrigin, gameSpawnPoint.y, gameSpawnPoint.z);
-            transform.LookAt(backForthEdge);
-            startTime = Time.time;
-            backForthJourneyLength = Vector3.Distance(gameSpawnPoint, backForthEdge);
-        }
-        else if (Path == PathOptions.Circular) {
-        }
-    }
-
-    protected void smoothLookAt(Vector3 target) {
-        Quaternion tRotation = Quaternion.LookRotation(target - transform.position);
-        transform.rotation = Quaternion.Slerp(transform.rotation, tRotation, moveSpeed * Time.deltaTime/3);
+        if (path == AI.Bail)
+            rb.velocity = transform.forward * boostSpeed;
+        else if (path == AI.OutofBounds)
+            rb.velocity = transform.forward * uTurnSpeed;
+        else if (path == AI.Strike)
+            rb.velocity = transform.forward * moveSpeed;
     }
 }
