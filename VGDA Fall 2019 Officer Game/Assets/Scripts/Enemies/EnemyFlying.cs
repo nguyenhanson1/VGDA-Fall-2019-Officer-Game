@@ -28,8 +28,14 @@ public class EnemyFlying : Enemy
     private Vector3 prevPos = Vector3.zero;
     private Vector3 currentPos = Vector3.zero;
     private Vector3 calcVel = Vector3.zero;
-
-
+    [Header("Eyes on Target")]
+    [Tooltip("Whether or not obstacle is in front of Enemy")]
+    [SerializeField] private bool lineOfSight = true;
+    [SerializeField] private LayerMask obstacleLayers = new LayerMask();
+    [SerializeField] private float fieldOfView = 100f;
+    [SerializeField] private bool eyesOnPlayer = false;
+    [SerializeField] private LayerMask targetLayer = new LayerMask();
+    [Header("AI")]
     [SerializeField] private AI path;
 
     private enum AI
@@ -45,6 +51,7 @@ public class EnemyFlying : Enemy
         GameManager.UpdateOccurred += EyesOnTarget;
         GameManager.UpdateOccurred += Move;
         GameManager.StartOccurred += EnemyAttack;
+        GameManager.UpdateOccurred += LineOfSight;
     }
 
     protected override void OnDisable()
@@ -53,6 +60,7 @@ public class EnemyFlying : Enemy
         GameManager.UpdateOccurred -= EyesOnTarget;
         GameManager.UpdateOccurred -= Move;
         GameManager.StartOccurred -= EnemyAttack;
+        GameManager.UpdateOccurred -= LineOfSight;
     }
 
     protected override void Initialize()
@@ -65,7 +73,7 @@ public class EnemyFlying : Enemy
     {
         if (path == AI.Strike)
         {
-            yield return new WaitUntil(() => (target.position - transform.position).magnitude <= tooClose);
+            yield return new WaitUntil(() => eyesOnPlayer && (target.position - transform.position).magnitude <= tooClose);
         }
         path = AI.OpenFire;
         yield return new WaitForSeconds(aiDelay);
@@ -79,22 +87,62 @@ public class EnemyFlying : Enemy
 
     private void EyesOnTarget()
     {
-        if (path == AI.OutofBounds)
+        if (!lineOfSight)
         {
-            Vector3 targetDir = target.position - transform.position;
-            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, uTurnRotate, 0.0f);
+            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, transform.up, rotateSpeed * Time.deltaTime, 0.0f);
             gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
         }
-        else if(path == AI.Strike || path == AI.OpenFire)
+        else if (path == AI.OutofBounds)
+        {
+            Vector3 targetDir = target.position - transform.position;
+            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, uTurnRotate *Time.deltaTime, 0.0f);
+            gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
+        }
+        else if(path == AI.Strike || path == AI.OpenFire && lineOfSight)
         {
             Vector3 targetVelocity = targetRB.velocity;
             Vector3 targetFuturePos = Attack.leadShotPos(transform.position, bulletPool.bullet.Speed, target.position, targetVelocity);
 
             Vector3 targetDir = targetFuturePos - transform.position;
-            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, rotateSpeed, 0.0f);
+            Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, rotateSpeed * Time.deltaTime, 0.0f);
+            if(!Physics.Raycast(transform.position, rotateTo, fieldOfView, obstacleLayers, QueryTriggerInteraction.Collide))
+                gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
 
-            gameObject.transform.rotation = Quaternion.LookRotation(rotateTo);
+            Debug.DrawLine(transform.position, transform.position + rotateTo * fieldOfView);
         }
+    }
+
+    private Quaternion LeadShotRotation()
+    {
+        Vector3 targetDir = TargetDirection();
+        Vector3 rotateTo = Vector3.RotateTowards(transform.forward, targetDir, 100f, 0.0f);
+
+        return Quaternion.LookRotation(rotateTo);
+    }
+    private Vector3 TargetDirection()
+    {
+        Vector3 targetVelocity = targetRB.velocity;
+        Vector3 targetFuturePos = Attack.leadShotPos(transform.position, bulletPool.bullet.Speed, target.position, targetVelocity);
+        return targetFuturePos - transform.position;
+    }
+
+    private void LineOfSight()
+    {
+        Debug.Log("Running");
+
+        lineOfSight = (Physics.Raycast(transform.position, transform.forward, fieldOfView, obstacleLayers, QueryTriggerInteraction.Collide)) ? false : true;
+
+        if ((Physics.Raycast(transform.position, TargetDirection(), out RaycastHit frontalTarget, fieldOfView, targetLayer + obstacleLayers, QueryTriggerInteraction.Collide)))
+        {
+            if (targetLayer == (targetLayer | 1 <<frontalTarget.collider.gameObject.layer))
+            {
+                eyesOnPlayer = true;
+            }
+            else
+                eyesOnPlayer = false;
+        }
+        else
+            eyesOnPlayer = false;
     }
 
     protected override void EnemyAttack()
@@ -109,7 +157,7 @@ public class EnemyFlying : Enemy
         if (path == AI.OpenFire)
         {
             
-            attack.Shoot(gameObject, bulletPool);
+            attack.Shoot(gameObject, bulletPool, LeadShotRotation());
         }
         StartCoroutine(Fire());
     }

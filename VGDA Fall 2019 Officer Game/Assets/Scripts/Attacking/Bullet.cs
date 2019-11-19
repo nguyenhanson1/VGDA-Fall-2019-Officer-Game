@@ -96,11 +96,23 @@ public class Bullet : MonoBehaviour
     {
         //Check if the gameObject's layer is in the Owner's Faction
         if (col.gameObject.GetComponent<IDamagable>() != null)
+        {
             if (col.gameObject.GetComponent<IDamagable>().myFaction == factionTarget)
             {
                 Debug.Log("Hit");
                 col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
                 gameObject.SetActive(false);
             }
+            else if (col.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+            {
+                gameObject.SetActive(false);
+            }
+        }
+        else if (col.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
+        {
+            Debug.Log("Something hit");
+            gameObject.SetActive(false);
+        }
+
     }
 }
