@@ -25,6 +25,16 @@ public class Attack
         return bullet;
     }
 
+    public GameObject ScatterShoot(GameObject parent, ObjectPooler bulletPool, float scatterMagnitude, Quaternion? rotation = null, Vector3? position = null)
+    {
+        Quaternion randRotation = (rotation != null) ? parent.transform.rotation : rotation.Value;
+
+        
+        randRotation = Quaternion.RotateTowards(randRotation, Random.rotation, Random.Range(0f, scatterMagnitude));
+
+        return Shoot(parent, bulletPool, randRotation, position);
+    }
+
     public static Vector3 leadShotPos(Vector3 selfPos, float bulletSpeed, Vector3 targetPos, Vector3 targetVel)
     {
         //Get relative position

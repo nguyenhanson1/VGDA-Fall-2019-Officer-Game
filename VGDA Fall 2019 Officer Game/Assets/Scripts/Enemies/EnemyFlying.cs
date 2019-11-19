@@ -8,20 +8,26 @@ public class EnemyFlying : Enemy
     [SerializeField] private Transform target = null;
     [SerializeField] private ObjectPooler bulletPool = null;
     private Attack attack = new Attack();
-    [Header("Range")]
+    [Header("Attack")]
+    [Tooltip("Seconds between bullets")]
     [SerializeField] private float attackDelay = 2f;
+    [Tooltip("Magnitude that bullets fly away from target")]
+    [SerializeField] private float scatterMagnitude = 3f;
     [Header("Movement Speed")]
     [Tooltip("Speed when Enemy goes out of range")]
     [SerializeField] private float rotateSpeed;
     [Tooltip("Speed when Enemy goes out of range")]
     [SerializeField] private float uTurnRotate;
-    [Tooltip("Speed when Enemy is turning around to the Player")]
+    [Tooltip("Speed when Enemy is turning around to target")]
     [SerializeField] private float uTurnSpeed;
-    [Tooltip("Speed when Enemy is flying away from the Player")]
+    [Tooltip("Speed when Enemy is flying away from target")]
     [SerializeField] private float boostSpeed;
     [Header("Range")]
+    [Tooltip("Time Enemy has to shoot at target and make a U-turn")]
     [SerializeField] private float aiDelay = 2f;
+    [Tooltip("Distance from target before Enemy makes a U-turn")]
     [SerializeField] private float tooFar = 400f;
+    [Tooltip("Distance from target before Enemy starts shooting")]
     [SerializeField] private float tooClose = 100f;
     [Header("Movement")]
     [SerializeField] private Rigidbody targetRB = null;
@@ -31,9 +37,13 @@ public class EnemyFlying : Enemy
     [Header("Eyes on Target")]
     [Tooltip("Whether or not obstacle is in front of Enemy")]
     [SerializeField] private bool lineOfSight = true;
+    [Tooltip("Layers that Enemy will avoid")]
     [SerializeField] private LayerMask obstacleLayers = new LayerMask();
-    [SerializeField] private float fieldOfView = 100f;
-    [SerializeField] private bool eyesOnPlayer = false;
+    [Tooltip("How far Enemy can detect Layers")]
+    [SerializeField] private float fieldOfView = 200f;
+    [Tooltip("Whether or not Enemy has line of sight on Target")]
+    [SerializeField] private bool eyesOnTarget = false;
+    [Tooltip("Layer of the Target")]
     [SerializeField] private LayerMask targetLayer = new LayerMask();
     [Header("AI")]
     [SerializeField] private AI path;
@@ -73,7 +83,7 @@ public class EnemyFlying : Enemy
     {
         if (path == AI.Strike)
         {
-            yield return new WaitUntil(() => eyesOnPlayer && (target.position - transform.position).magnitude <= tooClose);
+            yield return new WaitUntil(() => eyesOnTarget && (target.position - transform.position).magnitude <= tooClose);
         }
         path = AI.OpenFire;
         yield return new WaitForSeconds(aiDelay);
@@ -136,13 +146,13 @@ public class EnemyFlying : Enemy
         {
             if (targetLayer == (targetLayer | 1 <<frontalTarget.collider.gameObject.layer))
             {
-                eyesOnPlayer = true;
+                eyesOnTarget = true;
             }
             else
-                eyesOnPlayer = false;
+                eyesOnTarget = false;
         }
         else
-            eyesOnPlayer = false;
+            eyesOnTarget = false;
     }
 
     protected override void EnemyAttack()
@@ -157,7 +167,7 @@ public class EnemyFlying : Enemy
         if (path == AI.OpenFire)
         {
             
-            attack.Shoot(gameObject, bulletPool, LeadShotRotation());
+            attack.ScatterShoot(gameObject, bulletPool, scatterMagnitude, LeadShotRotation());
         }
         StartCoroutine(Fire());
     }
