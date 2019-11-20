@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class OldEnemy_Flying : Enemy
 {
+    /*
     protected enum PathOptions {
         BackForth,
         Circular,
@@ -36,6 +37,7 @@ public class OldEnemy_Flying : Enemy
         GameManager.StartOccurred -= Initialize;
         GameManager.UpdateOccurred -= Move;
     }
+    */
     protected override void EnemyAttack()
     {
         // Do nothing
@@ -43,10 +45,12 @@ public class OldEnemy_Flying : Enemy
 
     protected override void Move()
     {
+        /*
         hp = totalHealth.HealthTotal;
         pathOptionBackForth();
+        */
     }
-    
+    /*
     protected void pathOptionBackForth() {
         float travelled = (Time.time - startTime) * moveSpeed;
         float fractionTravelled = travelled / backForthJourneyLength;
@@ -95,4 +99,5 @@ public class OldEnemy_Flying : Enemy
         Quaternion tRotation = Quaternion.LookRotation(target - transform.position);
         transform.rotation = Quaternion.Slerp(transform.rotation, tRotation, moveSpeed * Time.deltaTime/3);
     }
+    */
 }
