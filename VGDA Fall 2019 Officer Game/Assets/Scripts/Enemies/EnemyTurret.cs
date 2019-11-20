@@ -4,24 +4,19 @@ using UnityEngine;
 
 public class EnemyTurret : Enemy
 {
+    [Header("Turret Enemy")]
     [SerializeField] private GameObject player;
     [SerializeField] private ObjectPooler bulletPool;
-    [SerializeField] private Addforce addForce;
+    [Header("Movement")]
+    [Tooltip("Speed that Turret rotates")]
     [SerializeField] private float rotateSpeed = 50f;
-    [SerializeField] private float time = 0.1f;
-    [SerializeField] private float offSpeed = 0f;
-    public int health;
+    [Header("Attack")]
+    [SerializeField] Rigidbody targetRB = null;
+    [Tooltip("Time between Turret shots")]
+    [SerializeField] private float fireDelay = 0.1f;
+    [Tooltip("Magnitude bullets miss target")]
+    [SerializeField] private float scatterMagnitude = 1f;
     private Attack attack = new Attack();
-
-    [Header("Position and Velocity Test")]
-    [SerializeField] private Vector3 prevPos;
-    [SerializeField] private Vector3 currentPos;
-    [SerializeField] private Vector3 calcVel;
-
-    private void Update()
-    {
-        health = totalHealth.HealthTotal;
-    }
 
     protected override void OnEnable()
     {
@@ -45,19 +40,14 @@ public class EnemyTurret : Enemy
 
     private IEnumerator Fire()
     {
-        yield return new WaitForSeconds(time);
-        attack.Shoot(gameObject, bulletPool);
+        yield return new WaitForSeconds(fireDelay);
+        attack.ScatterShoot(gameObject, bulletPool, scatterMagnitude);
         StartCoroutine(Fire());
     }
 
     protected override void Move()
     {
-        prevPos = currentPos;
-        currentPos = player.transform.position;
-        calcVel = (currentPos - prevPos) / Time.deltaTime;
-
-        Vector3 playerVelocity = player.transform.forward * ((addForce.speed- offSpeed) / Time.deltaTime);
-        Vector3 playerFuturePos = Attack.leadShotPos(transform.position, bulletPool.bullet.Speed, player.transform.position, calcVel);
+        Vector3 playerFuturePos = Attack.leadShotPos(transform.position, bulletPool.bullet.Speed, player.transform.position, targetRB.velocity);
         transform.LookAt(playerFuturePos);
     }
 }

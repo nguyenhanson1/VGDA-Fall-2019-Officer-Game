@@ -27,8 +27,7 @@ public class Attack
 
     public GameObject ScatterShoot(GameObject parent, ObjectPooler bulletPool, float scatterMagnitude, Quaternion? rotation = null, Vector3? position = null)
     {
-        Quaternion randRotation = (rotation != null) ? parent.transform.rotation : rotation.Value;
-
+        Quaternion randRotation = (rotation != null) ? rotation.Value : parent.transform.rotation;
         
         randRotation = Quaternion.RotateTowards(randRotation, Random.rotation, Random.Range(0f, scatterMagnitude));
 

@@ -9,6 +9,7 @@ public class EnemyFlying : Enemy
     [SerializeField] private ObjectPooler bulletPool = null;
     private Attack attack = new Attack();
     [Header("Attack")]
+    [SerializeField] private Rigidbody targetRB = null;
     [Tooltip("Seconds between bullets")]
     [SerializeField] private float attackDelay = 2f;
     [Tooltip("Magnitude that bullets fly away from target")]
@@ -30,7 +31,6 @@ public class EnemyFlying : Enemy
     [Tooltip("Distance from target before Enemy starts shooting")]
     [SerializeField] private float tooClose = 100f;
     [Header("Movement")]
-    [SerializeField] private Rigidbody targetRB = null;
     private Vector3 prevPos = Vector3.zero;
     private Vector3 currentPos = Vector3.zero;
     private Vector3 calcVel = Vector3.zero;
@@ -167,7 +167,7 @@ public class EnemyFlying : Enemy
         if (path == AI.OpenFire)
         {
             
-            attack.ScatterShoot(gameObject, bulletPool, scatterMagnitude, LeadShotRotation());
+            attack.Shoot(gameObject, bulletPool, LeadShotRotation());
         }
         StartCoroutine(Fire());
     }

@@ -12,16 +12,16 @@ public abstract class Enemy : MonoBehaviour, IDamagable
 
     public Health totalHealth = new Health();
     [SerializeField] protected int maxHealth = 15;
-    [SerializeField] protected float damage;
-    [SerializeField] protected float attackFrequency;
+    //[SerializeField] protected float damage;
+    //[SerializeField] protected float attackFrequency;
     [SerializeField] protected float moveSpeed;
 
     [HideInInspector] protected GameObject Player;
     [HideInInspector] protected Animator anim;
     [HideInInspector] protected Rigidbody rb;
 
-    [SerializeField] protected Vector3 standbySpawn;
-    [SerializeField] protected Vector3 gameSpawnPoint;
+    //[SerializeField] protected Vector3 standbySpawn;
+    //[SerializeField] protected Vector3 gameSpawnPoint;
     protected bool inited = false;
 
     protected abstract void EnemyAttack();
@@ -36,7 +36,7 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     }
     protected virtual void SpawnEnemyInGame()
     {
-        transform.position = gameSpawnPoint;
+        //transform.position = gameSpawnPoint;
         inited = true;
     }
     protected virtual void OnEnable()
@@ -60,7 +60,7 @@ public abstract class Enemy : MonoBehaviour, IDamagable
         anim = this.GetComponent<Animator>();
         rb = this.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = maxHealth;
-        transform.position = standbySpawn;
+        //transform.position = standbySpawn;
     }
 }
     
