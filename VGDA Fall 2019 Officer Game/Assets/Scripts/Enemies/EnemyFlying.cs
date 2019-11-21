@@ -166,7 +166,8 @@ public class EnemyFlying : Enemy
         yield return new WaitForSeconds(attackDelay);
         if (path == AI.OpenFire)
         {
-            
+            if (FindObjectOfType<AudioManager>() != null)
+                FindObjectOfType<AudioManager>().PlaySound("EnemyShoot");
             attack.Shoot(gameObject, bulletPool, LeadShotRotation());
         }
         StartCoroutine(Fire());
