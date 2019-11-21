@@ -11228,10 +11228,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa81e3806ec58a4a8bb4d4b25d12350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
-  spawnSpread: 0
-  spawnTime: 0
-  objectPool: {fileID: 0}
+  spawnPoints:
+  - {x: 350, y: 150, z: 350}
+  - {x: 0, y: 150, z: 350}
+  - {x: -350, y: 150, z: 350}
+  - {x: 350, y: 150, z: 0}
+  - {x: 0, y: 150, z: 0}
+  - {x: -350, y: 150, z: 0}
+  - {x: 350, y: 150, z: -350}
+  - {x: 0, y: 150, z: -350}
+  - {x: -350, y: 150, z: -350}
+  spawnSpread: 150
+  spawnTime: 20
+  objectPool: {fileID: 1198523434}
   numPerSpawn: 0
   difficulty: 1
   spawnDelay: 0.5
@@ -16584,186 +16593,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.size
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[2].name
-      value: PlayerShoot1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[2].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a6ac7b436d7b2d742b866d33555336e8, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[2].volume
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[2].tempo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].name
-      value: EnemyShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a6ac7b436d7b2d742b866d33555336e8, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].volume
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].tempo
-      value: 0.49
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].name
-      value: EnemyHurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d71adbc05566c1444a21dcb165b4260c, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].tempo
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].RandomTempo
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[3].RandomVolume
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].RandomVolume
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].RandomTempo
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[4].mute
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].name
-      value: PlayerHurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d71adbc05566c1444a21dcb165b4260c, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].tempo
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].RandomVolume
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[5].RandomTempo
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].name
-      value: EnemyHurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: d71adbc05566c1444a21dcb165b4260c, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].tempo
-      value: 0.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].RandomVolume
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[6].RandomTempo
-      value: -0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].name
-      value: PlayerShoot
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 555314dde6a280e41ac44733d7a64ada, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].tempo
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].RandomVolume
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[7].RandomTempo
-      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e9a7caad87ce234981abef89d5a4354, type: 3}
@@ -22384,12 +22213,22 @@ PrefabInstance:
         type: 3}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1560821420}
     - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
         type: 3}
       propertyPath: targetRB
       value: 
       objectReference: {fileID: 7194018}
+    - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 466671075}
+    - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 750278567}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67fb48085db3e254dab6dbc1f61845a4, type: 3}
 --- !u!4 &466671072 stripped
@@ -22401,6 +22240,12 @@ Transform:
 --- !u!1 &466671073 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4356134463856311343, guid: 67fb48085db3e254dab6dbc1f61845a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 466671071}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &466671075 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 4356134463856311341, guid: 67fb48085db3e254dab6dbc1f61845a4,
     type: 3}
   m_PrefabInstance: {fileID: 466671071}
   m_PrefabAsset: {fileID: 0}
@@ -23624,11 +23469,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa81e3806ec58a4a8bb4d4b25d12350, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPoints: []
-  spawnSpread: 0
-  spawnTime: 0
-  objectPool: {fileID: 0}
-  numPerSpawn: 0
+  spawnPoints:
+  - {x: 350, y: 150, z: 350}
+  - {x: 0, y: 150, z: 350}
+  - {x: -350, y: 150, z: 350}
+  - {x: 350, y: 150, z: 0}
+  - {x: 0, y: 150, z: 0}
+  - {x: -350, y: 150, z: 0}
+  - {x: 350, y: 150, z: -350}
+  - {x: 0, y: 150, z: -350}
+  - {x: -350, y: 150, z: -350}
+  spawnSpread: 1
+  spawnTime: 20
+  objectPool: {fileID: 2023203626}
+  numPerSpawn: 1
   difficulty: 1
   spawnDelay: 0.5
 --- !u!4 &497136101
@@ -34557,6 +34411,12 @@ Transform:
 --- !u!1 &736964321 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7002941086034988271, guid: 75528e938bee33146a9fd0539de55df0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2035571269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &736964323 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7002941086034988261, guid: 75528e938bee33146a9fd0539de55df0,
     type: 3}
   m_PrefabInstance: {fileID: 2035571269}
   m_PrefabAsset: {fileID: 0}
@@ -67176,6 +67036,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1169210298}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1560821420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8695146829261838415, guid: 51c128499b96ae74fae2b2d2c4d788b5,
+    type: 3}
+  m_PrefabInstance: {fileID: 8209509285623310508}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b2a48b2c33034478dc71d8d49402d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1561615857
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -87976,6 +87848,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2975990025313751530}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2023203626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2975990026514019008, guid: 23f87c551fe06f645aa4bcf0cf2c99bb,
+    type: 3}
+  m_PrefabInstance: {fileID: 2975990025313751530}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b2a48b2c33034478dc71d8d49402d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2024925543
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88548,12 +88432,22 @@ PrefabInstance:
         type: 3}
       propertyPath: bulletPool
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2147403035}
     - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
         type: 3}
       propertyPath: targetRB
       value: 
       objectReference: {fileID: 7194018}
+    - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
+        type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 736964323}
+    - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 750278567}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75528e938bee33146a9fd0539de55df0, type: 3}
 --- !u!4 &2035571270 stripped
@@ -93484,6 +93378,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1607496078}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2147403035 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8832787501416695456, guid: 8f289a45ce87a3d42a2637a3aa87e3e3,
+    type: 3}
+  m_PrefabInstance: {fileID: 2638894795114061708}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06b2a48b2c33034478dc71d8d49402d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1765278975340283111
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93714,6 +93620,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Henicopter
       objectReference: {fileID: 0}
+    - target: {fileID: 6538571145806556613, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798328, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: m_Layer
@@ -93838,6 +93749,11 @@ PrefabInstance:
       propertyPath: pause
       value: 
       objectReference: {fileID: 1753232125}
+    - target: {fileID: 7800176996077190227, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
 --- !u!4 &6538571144656062434 stripped

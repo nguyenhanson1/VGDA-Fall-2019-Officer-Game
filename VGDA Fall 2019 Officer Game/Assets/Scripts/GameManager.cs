@@ -23,7 +23,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         if (StartOccurred != null)
+        {
             StartOccurred();
+            Debug.Log("Over here");
+        }
+            
     }
 
     // Update is called once per frame

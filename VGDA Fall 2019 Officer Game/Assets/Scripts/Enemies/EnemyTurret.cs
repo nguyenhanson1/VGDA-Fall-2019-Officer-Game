@@ -22,14 +22,14 @@ public class EnemyTurret : Enemy
     {
         GameManager.StartOccurred += Initialize;
         GameManager.UpdateOccurred += Move;
-        GameManager.StartOccurred += EnemyAttack;
+        EnemyAttack();
         Health.OnDeath += Begoned;
     }
     protected override void OnDisable()
     {
         GameManager.StartOccurred -= Initialize;
         GameManager.UpdateOccurred -= Move;
-        GameManager.StartOccurred -= EnemyAttack;
+        EnemyAttack();
         Health.OnDeath -= Begoned;
     }
 
