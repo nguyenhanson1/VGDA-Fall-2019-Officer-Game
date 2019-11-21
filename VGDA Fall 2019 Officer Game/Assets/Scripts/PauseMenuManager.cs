@@ -56,7 +56,7 @@ public class PauseMenuManager : MonoBehaviour
     }
     public void Restart()
     {
-        Application.LoadLevel(Application.loadedLevel);
         Time.timeScale = 1f;
+        Application.LoadLevel("MVP"); 
     }
 }
