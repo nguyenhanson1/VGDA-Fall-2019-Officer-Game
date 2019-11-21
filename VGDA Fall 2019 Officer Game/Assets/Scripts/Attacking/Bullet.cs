@@ -102,6 +102,17 @@ public class Bullet : MonoBehaviour
                 Debug.Log("Hit");
                 col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
                 gameObject.SetActive(false);
+
+                if (FindObjectOfType<AudioManager>() != null)
+                {
+                    if(col.GetComponent<IDamagable>().health.HealthTotal <= 0)
+                        FindObjectOfType<AudioManager>().PlaySound("ChickenDeath");
+                    else if(col.GetComponent<IDamagable>().myFaction == Factions.Faction.Evil)
+                        FindObjectOfType<AudioManager>().PlaySound("EnemyHurt");
+                    else if(col.GetComponent<IDamagable>().myFaction == Factions.Faction.Good)
+                        FindObjectOfType<AudioManager>().PlaySound("PlayerHurt");
+                }
+                    
             }
             else if (col.gameObject.layer == LayerMask.NameToLayer("Obstacle"))
             {

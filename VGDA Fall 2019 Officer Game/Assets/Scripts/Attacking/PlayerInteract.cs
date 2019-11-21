@@ -72,6 +72,9 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         if (Input.GetButton("Fire1") && !pause.gamePaused)
             if (!shotDelayed)
             {
+                if(FindObjectOfType<AudioManager>() != null)
+                    FindObjectOfType<AudioManager>().PlaySound("PlayerShoot");
+
                 attack.Shoot(gameObject, bulletPool);
 
 
