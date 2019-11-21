@@ -16,9 +16,9 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     //[SerializeField] protected float attackFrequency;
     [SerializeField] protected float moveSpeed;
 
-    [HideInInspector] protected GameObject Player;
-    [HideInInspector] protected Animator anim;
-    [HideInInspector] protected Rigidbody rb;
+    [SerializeField] protected GameObject Player;
+    [SerializeField] protected Animator anim;
+    [SerializeField] protected Rigidbody rb;
 
     //[SerializeField] protected Vector3 standbySpawn;
     //[SerializeField] protected Vector3 gameSpawnPoint;
@@ -42,7 +42,7 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     protected virtual void OnEnable()
     {
         Health.OnDeath += Begoned;
-        GameManager.StartOccurred += Initialize;
+        Initialize();
     }
 
     protected virtual void OnDisable()
@@ -56,9 +56,10 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     }
 
     protected virtual void Initialize() {
+        Debug.Log("We good?");
         Player = GameObject.FindGameObjectWithTag("Player");
-        anim = this.GetComponent<Animator>();
-        rb = this.GetComponent<Rigidbody>();
+        anim = gameObject.GetComponent<Animator>();
+        rb = gameObject.GetComponent<Rigidbody>();
         totalHealth.HealthTotal = maxHealth;
         //transform.position = standbySpawn;
     }

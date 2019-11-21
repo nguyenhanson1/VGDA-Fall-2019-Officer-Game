@@ -57,35 +57,35 @@ public class EnemyFlying : Enemy
     }
     protected override void OnEnable()
     {
+        Debug.Log("Something's Happening1");
         base.OnEnable();
         GameManager.UpdateOccurred += EyesOnTarget;
         GameManager.UpdateOccurred += Move;
-        GameManager.StartOccurred += EnemyAttack;
         GameManager.UpdateOccurred += LineOfSight;
+
+        EnemyAttack();
+        StartCoroutine(AIManager());
     }
 
     protected override void OnDisable()
     {
+        Debug.Log("That's not good");
         base.OnDisable();
         GameManager.UpdateOccurred -= EyesOnTarget;
         GameManager.UpdateOccurred -= Move;
-        GameManager.StartOccurred -= EnemyAttack;
         GameManager.UpdateOccurred -= LineOfSight;
-    }
 
-    protected override void Initialize()
-    {
-        base.Initialize();
-        StartCoroutine(AIManager());
+        StopCoroutine(AIManager());
     }
 
     private IEnumerator AIManager()
     {
         if (path == AI.Strike)
         {
-            yield return new WaitUntil(() => eyesOnTarget && (target.position - transform.position).magnitude <= tooClose);
+            yield return new WaitUntil(() => eyesOnTarget);
         }
         path = AI.OpenFire;
+        Debug.Log("pt 4)");
         yield return new WaitForSeconds(aiDelay);
         path = AI.Bail;
         yield return new WaitUntil(() => (target.position - transform.position).magnitude >= tooFar);
@@ -97,6 +97,7 @@ public class EnemyFlying : Enemy
 
     private void EyesOnTarget()
     {
+
         if (!lineOfSight)
         {
             Vector3 rotateTo = Vector3.RotateTowards(transform.forward, transform.up, rotateSpeed * Time.deltaTime, 0.0f);

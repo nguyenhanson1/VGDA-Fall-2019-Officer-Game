@@ -54,7 +54,7 @@ public class Addforce : MonoBehaviour
         if (cursor.position.x  <= Screen.width && cursor.position.x > (Screen.width/2))
         {
             turnPercentH = Mathf.Clamp(turnPercentH + 0.5f, 0, 1);
-            Debug.Log("We on da Rite");
+            //Debug.Log("We on da Rite");
             if (cursor.position.x >= (Screen.width * (1 - padding)))
                 turnForceY = turn * ratio * turnPercentH;
             else
@@ -64,7 +64,7 @@ public class Addforce : MonoBehaviour
         else if (cursor.position.x >= 0 && cursor.position.x < (Screen.width/2))
         {
             turnPercentH = Mathf.Clamp(turnPercentH + 0.05f, 0, 1);
-            Debug.Log("We on da Leff");
+            //Debug.Log("We on da Leff");
             if (cursor.position.x <= (Screen.width*padding) +0.01f)
                 turnForceY = -turn* (1 - ratio) * turnPercentH;
             else            
