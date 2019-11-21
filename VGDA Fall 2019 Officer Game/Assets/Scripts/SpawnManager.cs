@@ -16,6 +16,11 @@ public class SpawnManager : MonoBehaviour
     private int waveNumber = 0; //the number of waves that have been spawned
     private bool isSpawning = false; //whether the manager is currently spawning
 
+    private void Start()
+    {
+        StartCoroutine("SpawnWave");
+    }
+
     // Update is called once per frame
     void Update()
     {
