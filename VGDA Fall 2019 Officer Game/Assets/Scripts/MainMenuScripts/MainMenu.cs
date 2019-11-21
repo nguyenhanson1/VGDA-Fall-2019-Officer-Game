@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class MainMenu : MonoBehaviour
         Camera.SetBool("Cam_Scroll", true);
         Main_Menu.GetComponent<Canvas>().enabled = false;
         StartCoroutine(ChangeMenu());
-        StopCoroutine(ChangeMenu());
+        
 
     }
 
@@ -29,6 +30,8 @@ public class MainMenu : MonoBehaviour
 
         yield return new WaitForSeconds(4);
         Debug.Log("Changing Menu");
+        StopCoroutine(ChangeMenu());
+        SceneManager.LoadScene("MVP");
 
     }
 }
