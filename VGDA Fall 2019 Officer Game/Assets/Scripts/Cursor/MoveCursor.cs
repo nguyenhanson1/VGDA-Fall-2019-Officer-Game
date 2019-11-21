@@ -105,7 +105,7 @@ public class MoveCursor : MonoBehaviour
 
         if(timer >= delayTime)
         {
-            Debug.Log("Going");
+            //Debug.Log("Going");
             Vector3 centerSceen = new Vector3(Screen.width/2, Screen.height/2, rectTrans.position.z);
             rectTrans.position = Vector3.Lerp(rectTrans.position, centerSceen, centerSpeed * Time.deltaTime);
         }
