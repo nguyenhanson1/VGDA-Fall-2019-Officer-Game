@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         if (StartOccurred != null)
         {
             StartOccurred();
-            Debug.Log("Over here");
         }
             
     }

@@ -57,7 +57,6 @@ public class EnemyFlying : Enemy
     }
     protected override void OnEnable()
     {
-        Debug.Log("Something's Happening1");
         base.OnEnable();
         GameManager.UpdateOccurred += EyesOnTarget;
         GameManager.UpdateOccurred += Move;
@@ -69,7 +68,6 @@ public class EnemyFlying : Enemy
 
     protected override void OnDisable()
     {
-        Debug.Log("That's not good");
         base.OnDisable();
         GameManager.UpdateOccurred -= EyesOnTarget;
         GameManager.UpdateOccurred -= Move;
@@ -85,7 +83,6 @@ public class EnemyFlying : Enemy
             yield return new WaitUntil(() => eyesOnTarget);
         }
         path = AI.OpenFire;
-        Debug.Log("pt 4)");
         yield return new WaitForSeconds(aiDelay);
         path = AI.Bail;
         yield return new WaitUntil(() => (target.position - transform.position).magnitude >= tooFar);

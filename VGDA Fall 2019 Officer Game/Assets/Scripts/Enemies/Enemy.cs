@@ -56,7 +56,6 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     }
 
     protected virtual void Initialize() {
-        Debug.Log("We good?");
         Player = GameObject.FindGameObjectWithTag("Player");
         anim = gameObject.GetComponent<Animator>();
         rb = gameObject.GetComponent<Rigidbody>();
