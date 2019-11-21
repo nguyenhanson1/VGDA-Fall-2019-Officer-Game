@@ -97,9 +97,10 @@ public class Bullet : MonoBehaviour
         //Check if the gameObject's layer is in the Owner's Faction
         if (col.gameObject.GetComponent<IDamagable>() != null)
         {
+            Debug.Log("Hit");
             if (col.gameObject.GetComponent<IDamagable>().myFaction == factionTarget)
             {
-                Debug.Log("Hit");
+                Debug.Log("Damage");
                 col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
                 gameObject.SetActive(false);
 
