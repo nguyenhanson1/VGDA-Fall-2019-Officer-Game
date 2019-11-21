@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -90667,8 +90667,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -113.8, y: 119.5}
-  m_SizeDelta: {x: 300, y: 47}
+  m_AnchoredPosition: {x: -100.8, y: 119.5}
+  m_SizeDelta: {x: 300, y: 78.24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2103666093
 MonoBehaviour:
@@ -90691,7 +90691,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: b450db8bb1091aa41b7482426c679f9d, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
