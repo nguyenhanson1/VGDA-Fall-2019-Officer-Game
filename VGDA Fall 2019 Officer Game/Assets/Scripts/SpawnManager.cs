@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private float spawnSpread; //the maximum distance from a spawn point a character can spawn
     private float timeSinceSpawn = 0; //the amount of time that has passed since the last spawn
     [SerializeField] private float spawnTime; //the time between spawns
-    [SerializeField] private GameObject spawn; //the object spawned
+    [SerializeField] private ObjectPooler objectPool; // ObjectPool of the enemy
     [SerializeField] private int numPerSpawn; //how many objects to spawn every wave
     [SerializeField] private float difficulty = 1; //used to modify number of spawns as wave number increases
     [SerializeField] private float spawnDelay = 0.5f; //the delay between spawning groups when spawning more objects than spawn points
@@ -92,11 +92,11 @@ public class SpawnManager : MonoBehaviour
             randz--;
         }
 
-        Object.Instantiate(spawn,
-            new Vector3(spawnPos.x + Random.Range(0, spawnSpread) * randx,
-                        spawnPos.y + Random.Range(0, spawnSpread) * randy,
-                        spawnPos.z + Random.Range(0, spawnSpread) * randz), 
-            new Quaternion());
+        GameObject enemy = objectPool.GetGenericBullet();
+        enemy.SetActive(true);
+        enemy.transform.position = new Vector3(spawnPos.x + Random.Range(0, spawnSpread) * randx,
+                                                spawnPos.y + Random.Range(0, spawnSpread) * randy,
+                                                spawnPos.z + Random.Range(0, spawnSpread) * randz);
     }
 
     private void OnDrawGizmos() //draws waypoints and spawn area
