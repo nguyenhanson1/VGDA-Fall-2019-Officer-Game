@@ -34,24 +34,18 @@ public class Addforce : MonoBehaviour
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         float turn = turnSpeed;
-        float padding;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            rigid.velocity = chickenLook.transform.forward * movementSpeed /2;
-            turn = turnSpeed * 2;
-            padding =  0;
-        }
-        else
-        {
-            rigid.velocity = chickenLook.transform.forward * movementSpeed;
-            turn = turnSpeed;
-            padding = activePadding;
-        }
-        
+        float padding = activePadding; ;
+
+        rigid.velocity = chickenLook.transform.forward * movementSpeed;
         float ratio = (cursor.position.x + 0.001f) / Screen.width;
 
         //Check cursor on right
-        if (cursor.position.x  <= Screen.width && cursor.position.x > (Screen.width/2))
+        if (Input.GetButton("Maneuver"))
+        {
+            turnPercentH = Mathf.Clamp(turnPercentH + 0.05f, 0, 1);
+            turnForceY = turn * Input.GetAxis("Horizontal") * turnPercentH;
+        }
+        else if (cursor.position.x  <= Screen.width && cursor.position.x > (Screen.width/2))
         {
             turnPercentH = Mathf.Clamp(turnPercentH + 0.5f, 0, 1);
             //Debug.Log("We on da Rite");
@@ -69,7 +63,7 @@ public class Addforce : MonoBehaviour
                 turnForceY = -turn* (1 - ratio) * turnPercentH;
             else            
                 turnForceY = 0;
-        }  
+        }
         else
         {
             turnForceY = 0;
