@@ -14,21 +14,23 @@ public class passBorder : MonoBehaviour
             if (!outside)
             {
                 warning.SetActive(true);
-                StartCoroutine("TakeDamage");
+                StartCoroutine(TakeDamage());
                 outside = true;
             }
             else
             {
                 warning.SetActive(false);
-                StopCoroutine("TakeDamage");
+                StopCoroutine(TakeDamage());
                 outside = false;
             }
         }
             
     }
-    private IEnumerable TakeDamage()
+    private IEnumerator TakeDamage()
     {
-        health.takeDamage(1);
         yield return new WaitForSeconds(2);
+        if(outside)
+            health.takeDamage(1);
+        StartCoroutine(TakeDamage());
     }
 }

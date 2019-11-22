@@ -59,6 +59,7 @@ public class PlayerInteract : MonoBehaviour, IDamagable
     public void takeDamage(int damage)
     {
         totalHealth.subtractHealth(damage);
+        FindObjectOfType<AudioManager>().PlaySound("PlayerHurt");
         DisplayHealth();
     }
     
