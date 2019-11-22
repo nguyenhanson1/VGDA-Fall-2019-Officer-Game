@@ -130,7 +130,7 @@ public class AudioManager : MonoBehaviour
     }
 
     public void PlaySound(string _name)
-    {
+    {   
         for (int i = 0; i < Sounds.Length; i++)     // any audible sound of increasing order
         {
             if (Sounds[i].name == _name)

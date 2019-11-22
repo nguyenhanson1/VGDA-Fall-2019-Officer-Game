@@ -14,13 +14,13 @@ public class passBorder : MonoBehaviour
             if (!outside)
             {
                 warning.SetActive(true);
-                //StartCoroutine("TakeDamage");
+                StartCoroutine("TakeDamage");
                 outside = true;
             }
             else
             {
                 warning.SetActive(false);
-                //StopCoroutine("TakeDamage");
+                StopCoroutine("TakeDamage");
                 outside = false;
             }
         }

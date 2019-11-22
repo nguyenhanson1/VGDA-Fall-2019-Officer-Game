@@ -2173,7 +2173,7 @@ PrefabInstance:
     - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
         type: 3}
       propertyPath: fireDelay
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
         type: 3}
