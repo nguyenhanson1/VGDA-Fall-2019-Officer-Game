@@ -5,9 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-   
     public GameObject Main_Menu;
     public GameObject Tutorial_Menu;
+    public GameObject Credit_Menu;
     public static bool MainM = true;
     public static bool CamPan;
     public static bool Static;
@@ -38,6 +38,16 @@ public class MainMenu : MonoBehaviour
     }
     public void TutorialReturn() {
         Tutorial_Menu.GetComponent<Canvas>().enabled = false;
+        Main_Menu.GetComponent<Canvas>().enabled = true;
+    }
+    public void Credits()
+    {
+        Main_Menu.GetComponent<Canvas>().enabled = false;
+        Credit_Menu.GetComponent<Canvas>().enabled = true;
+    }
+    public void CreditsReturn()
+    {
+        Credit_Menu.GetComponent<Canvas>().enabled = false;
         Main_Menu.GetComponent<Canvas>().enabled = true;
     }
     IEnumerator ChangeMenu()
