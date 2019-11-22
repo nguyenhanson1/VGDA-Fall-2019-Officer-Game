@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     [Tooltip("Velocity of the Bullet")]
     [SerializeField] private float speed = 1f;
     [Tooltip("Damage dealt by the Bullet")]
-    [SerializeField] protected float damage = 5;
+    [SerializeField] protected int damage = 5;
     [Tooltip("How many units Bullet travels before disappearing")]
     [SerializeField] private float distance = 5f;
     [Tooltip("Rigidbody of Bullet")]
