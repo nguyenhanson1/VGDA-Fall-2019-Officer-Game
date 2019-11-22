@@ -57,6 +57,8 @@ public class PauseMenuManager : MonoBehaviour
     public void Restart()
     {
         Time.timeScale = 1f;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         Application.LoadLevel("MVP"); 
     }
 }
