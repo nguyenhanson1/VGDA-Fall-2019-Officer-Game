@@ -27,7 +27,6 @@ public class MainMenu : MonoBehaviour
 
     IEnumerator ChangeMenu()
     {
-
         yield return new WaitForSeconds(4);
         Debug.Log("Changing Menu");
         StopCoroutine(ChangeMenu());
