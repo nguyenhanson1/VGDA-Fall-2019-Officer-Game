@@ -63,6 +63,8 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         { // totalHealth == h
             // Play Death Animation
             SceneManager.LoadScene("EndMenu");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 
