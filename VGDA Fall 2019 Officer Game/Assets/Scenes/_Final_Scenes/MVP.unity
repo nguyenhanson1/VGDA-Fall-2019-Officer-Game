@@ -120,12 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &7194016 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6538571145806556613, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-    type: 3}
-  m_PrefabInstance: {fileID: 6538571144656062433}
-  m_PrefabAsset: {fileID: 0}
 --- !u!54 &7194018 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 446502010, guid: 881dd39b4627b1445aa7296cdabc3ed8,
@@ -1710,6 +1704,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &750278569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 750278567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ab0ec78f77810249bbbb40e93a08484, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &859160217
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,8 +2320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dea08cb03d29c8c439d11df1a6712c87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 7194016}
-  healthToSet: 100
+  player: {fileID: 750278569}
 --- !u!1001 &2035571269
 PrefabInstance:
   m_ObjectHideFlags: 0

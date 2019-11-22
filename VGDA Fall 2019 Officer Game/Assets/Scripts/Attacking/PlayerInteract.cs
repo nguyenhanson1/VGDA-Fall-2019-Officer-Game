@@ -10,8 +10,8 @@ public class PlayerInteract : MonoBehaviour, IDamagable
     private Health totalHealth = new Health();
 
     [Header("Health")]
-    [SerializeField] private int displayHealth = 0;
-    [SerializeField] private int maxHealth = 5;
+    public int displayHealth = 0;
+    public int maxHealth = 5;
 
     [Header("Attacking")]
     [SerializeField] private PauseMenuManager pause;
@@ -61,7 +61,6 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         if (totalHealth.HealthTotal <= 0)
         { // totalHealth == h
             // Play Death Animation
-            Destroy(gameObject);
         }
     }
 
