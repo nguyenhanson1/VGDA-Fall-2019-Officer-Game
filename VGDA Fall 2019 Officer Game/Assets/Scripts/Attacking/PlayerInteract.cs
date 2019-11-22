@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerInteract : MonoBehaviour, IDamagable
 {
@@ -61,6 +62,7 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         if (totalHealth.HealthTotal <= 0)
         { // totalHealth == h
             // Play Death Animation
+            SceneManager.LoadScene("EndMenu");
         }
     }
 
