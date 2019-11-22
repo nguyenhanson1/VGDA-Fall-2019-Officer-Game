@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -24020,7 +24020,6 @@ GameObject:
   - component: {fileID: 637079428}
   - component: {fileID: 637079427}
   - component: {fileID: 637079426}
-  - component: {fileID: 637079429}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -24093,102 +24092,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &637079429
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 637079425}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5337b8ad601fcd64d8fe7448a0256325, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.25
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 60
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &637784935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25356,6 +25259,7 @@ GameObject:
   - component: {fileID: 655446424}
   - component: {fileID: 655446423}
   - component: {fileID: 655446422}
+  - component: {fileID: 655446425}
   m_Layer: 5
   m_Name: Quit Button
   m_TagString: Untagged
@@ -25437,6 +25341,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &655446423
@@ -25477,6 +25393,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655446420}
   m_CullTransparentMesh: 0
+--- !u!114 &655446425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655446420}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
+            type: 3}
+          m_MethodName: PlaySound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ButtonHover
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &657013641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26209,6 +26156,7 @@ GameObject:
   - component: {fileID: 668643342}
   - component: {fileID: 668643341}
   - component: {fileID: 668643340}
+  - component: {fileID: 668643343}
   m_Layer: 5
   m_Name: Restart Button
   m_TagString: Untagged
@@ -26290,6 +26238,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
+          type: 3}
+        m_MethodName: PlaySound
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &668643341
@@ -26330,6 +26290,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 668643338}
   m_CullTransparentMesh: 0
+--- !u!114 &668643343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668643338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
+            type: 3}
+          m_MethodName: PlaySound
+          m_Mode: 5
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: ButtonHover
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1001 &676257247
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69500,66 +69491,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.size
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[0].tempo
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[1].name
-      value: Title_BGM
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[1].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 52aa7eb731601034b881f36a3aaa91fe, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[1].volume
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[1].tempo
-      value: 0.55
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Music.Array.data[1].loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[9].name
-      value: SadTrombone
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[9].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5337b8ad601fcd64d8fe7448a0256325, type: 3}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[9].volume
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
-        type: 3}
-      propertyPath: Sounds.Array.data[9].tempo
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e9a7caad87ce234981abef89d5a4354, type: 3}

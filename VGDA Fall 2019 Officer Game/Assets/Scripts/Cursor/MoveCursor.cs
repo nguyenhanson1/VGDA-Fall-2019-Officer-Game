@@ -93,6 +93,7 @@ public class MoveCursor : MonoBehaviour
             rectTrans.position = ChangePosition(input);
             CenterCursor();
         }
+
         
     }
 
