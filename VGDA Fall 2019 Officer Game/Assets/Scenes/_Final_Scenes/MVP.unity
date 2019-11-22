@@ -562,6 +562,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6364164477571695988, guid: 3e9a7caad87ce234981abef89d5a4354,
+        type: 3}
+      propertyPath: Music.Array.data[0].tempo
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e9a7caad87ce234981abef89d5a4354, type: 3}
 --- !u!1001 &442675067
@@ -944,6 +949,11 @@ PrefabInstance:
         type: 3}
       propertyPath: maxHealth
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
+        type: 3}
+      propertyPath: attackDelay
+      value: 0.4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67fb48085db3e254dab6dbc1f61845a4, type: 3}
@@ -2159,6 +2169,16 @@ PrefabInstance:
         type: 3}
       propertyPath: scatterMagnitude
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
+        type: 3}
+      propertyPath: fireDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7002941086034988270, guid: 75528e938bee33146a9fd0539de55df0,
+        type: 3}
+      propertyPath: rotateSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75528e938bee33146a9fd0539de55df0, type: 3}

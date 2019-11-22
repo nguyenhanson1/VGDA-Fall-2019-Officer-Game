@@ -76,15 +76,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 15
-  damage: 0
-  attackFrequency: 0
   moveSpeed: 15
-  standbySpawn: {x: 472, y: 227.7, z: 405}
-  gameSpawnPoint: {x: 472, y: 227.7, z: 405}
+  Player: {fileID: 0}
+  anim: {fileID: 0}
+  rb: {fileID: 0}
   target: {fileID: 0}
   bulletPool: {fileID: 0}
   targetRB: {fileID: 0}
-  attackDelay: 0.1
+  attackDelay: 1
   scatterMagnitude: 3
   rotateSpeed: 0.75
   uTurnRotate: 2
