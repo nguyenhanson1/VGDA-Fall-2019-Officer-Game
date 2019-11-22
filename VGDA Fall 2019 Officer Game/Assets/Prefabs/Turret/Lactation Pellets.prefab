@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lerp: 1
   speed: 200
-  damage: 5
+  damage: 1
   distance: 300
   rb: {fileID: -353503682165753034}
   factionTarget: 1
