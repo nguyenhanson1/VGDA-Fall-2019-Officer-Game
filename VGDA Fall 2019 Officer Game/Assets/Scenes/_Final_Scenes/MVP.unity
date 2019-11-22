@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -355,16 +355,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
-  - {x: 400, y: 0, z: 320}
-  - {x: 400, y: 0, z: 0}
-  - {x: 400, y: 0, z: -320}
-  - {x: 150, y: 0, z: 320}
-  - {x: 150, y: 0, z: 0}
-  - {x: 150, y: 0, z: -320}
-  - {x: -100, y: 0, z: 320}
-  - {x: -100, y: 0, z: 0}
-  - {x: -100, y: 0, z: -320}
-  spawnSpread: 100
+  - {x: 440, y: -45, z: -360}
+  - {x: 280, y: -45, z: -360}
+  - {x: 170, y: -45, z: -360}
+  - {x: -160, y: -45, z: -360}
+  - {x: 440, y: -45, z: -250}
+  - {x: 280, y: -45, z: -250}
+  - {x: 170, y: -45, z: -250}
+  - {x: -160, y: -45, z: -250}
+  - {x: 440, y: -45, z: -140}
+  - {x: 280, y: -45, z: -140}
+  - {x: 170, y: -45, z: -140}
+  - {x: 60, y: -45, z: -140}
+  - {x: 130, y: -45, z: -30}
+  - {x: -165, y: -45, z: -30}
+  - {x: 440, y: -15, z: 80}
+  - {x: 155, y: -45, z: 80}
+  - {x: 155, y: -45, z: 190}
+  - {x: -100, y: -45, z: 140}
+  - {x: 440, y: -45, z: 350}
+  - {x: 292.5, y: -45, z: 350}
+  - {x: 145, y: -45, z: 350}
+  - {x: -2.5, y: -45, z: 350}
+  - {x: -150, y: -45, z: 350}
+  spawnSpread: 50
   spawnTime: 30
   objectPool: {fileID: 1198523434}
   numPerSpawn: 1
@@ -1019,7 +1033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &497136100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1033,15 +1047,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoints:
-  - {x: 400, y: 0, z: 320}
-  - {x: 400, y: 0, z: 0}
-  - {x: 400, y: 0, z: -320}
-  - {x: 150, y: 0, z: 320}
-  - {x: 150, y: 0, z: 0}
-  - {x: 150, y: 0, z: -320}
-  - {x: -100, y: 0, z: 320}
-  - {x: -100, y: 0, z: 0}
-  - {x: -100, y: 0, z: -320}
+  - {x: 400, y: 150, z: 320}
+  - {x: 400, y: 150, z: 0}
+  - {x: 400, y: 150, z: -320}
+  - {x: 150, y: 150, z: 320}
+  - {x: 150, y: 150, z: 0}
+  - {x: 150, y: 150, z: -320}
+  - {x: -100, y: 150, z: 320}
+  - {x: -100, y: 150, z: 0}
+  - {x: -100, y: 150, z: -320}
   spawnSpread: 100
   spawnTime: 20
   objectPool: {fileID: 2975990025313751531}
@@ -1344,7 +1358,7 @@ GameObject:
   - component: {fileID: 695416505}
   - component: {fileID: 695416508}
   m_Layer: 0
-  m_Name: Collider (1)
+  m_Name: Collider (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
