@@ -112,16 +112,16 @@ MonoBehaviour:
   - name: ChickenDeath
     clip: {fileID: 8300000, guid: 3b59af8de5fe8364da81589ef804dd45, type: 3}
     volume: 0.1
-    tempo: 0.8
+    tempo: 0.7
     RandomVolume: -0.5
     RandomTempo: -0.1
     loop: 0
     mute: 0
-  - name: ChickenDeath
-    clip: {fileID: 8300000, guid: 555314dde6a280e41ac44733d7a64ada, type: 3}
-    volume: 0.1
-    tempo: 0.8
-    RandomVolume: -0.5
-    RandomTempo: -0.1
+  - name: ButtonHover
+    clip: {fileID: 8300000, guid: ec92517f4d9e94f43ae1ef7a350dc73e, type: 3}
+    volume: 0.2
+    tempo: 2.5
+    RandomVolume: 0
+    RandomTempo: 0
     loop: 0
     mute: 0
