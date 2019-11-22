@@ -16,9 +16,9 @@ public abstract class Enemy : MonoBehaviour, IDamagable
     //[SerializeField] protected float attackFrequency;
     [SerializeField] protected float moveSpeed;
 
-    [SerializeField] protected GameObject Player;
-    [SerializeField] protected Animator anim;
-    [SerializeField] protected Rigidbody rb;
+    protected GameObject Player;
+    protected Animator anim;
+    protected Rigidbody rb;
 
     //[SerializeField] protected Vector3 standbySpawn;
     //[SerializeField] protected Vector3 gameSpawnPoint;

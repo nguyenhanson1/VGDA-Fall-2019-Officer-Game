@@ -41,9 +41,12 @@ public class EnemyTurret : Enemy
     private IEnumerator Fire()
     {
         yield return new WaitForSeconds(fireDelay);
-        if (FindObjectOfType<AudioManager>() != null)
-            FindObjectOfType<AudioManager>().PlaySound("EnemyShoot");
-        attack.ScatterShoot(gameObject, bulletPool, scatterMagnitude);
+        if (Vector3.Distance(gameObject.transform.position, player.transform.position) <= bulletPool.bullet.Distance)
+        {
+            if (FindObjectOfType<AudioManager>() != null)
+                FindObjectOfType<AudioManager>().PlaySound("EnemyShoot");
+            attack.ScatterShoot(gameObject, bulletPool, scatterMagnitude);
+        }
         StartCoroutine(Fire());
     }
 
