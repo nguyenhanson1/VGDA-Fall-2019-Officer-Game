@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MoveCursor : MonoBehaviour
 {
@@ -19,8 +20,18 @@ public class MoveCursor : MonoBehaviour
     [Tooltip("Speed that cursor moves.")]
     [SerializeField] private float speed = 700f;
 
+    [Header("Center Cursor")]
+    [Tooltip("Speed that cursor moves to the center.")]
     [SerializeField] private float centerSpeed = 1f;
+    [Tooltip("Time that cursor needs to be still for centerCursor to activate.")]
     [SerializeField] private float delayTime = 1f;
+
+    [Header("Maneuver Ability")]
+    [SerializeField] private Image cursorSprite = null;
+    [SerializeField] private MeshRenderer laserSight = null;
+
+    [Header("Aiming")]
+    [SerializeField] private MeshRenderer player = null;
 
     public Vector2 CursorPosition
     {
@@ -62,9 +73,21 @@ public class MoveCursor : MonoBehaviour
     }
     private void FunctionHandler()
     {
-        Vector3 input = GetInput();
-        rectTrans.position = ChangePosition(input);
-        CenterCursor();
+        if (Input.GetButton("Maneuver"))
+        {
+            rectTrans.position = ChangePosition(Vector3.zero);
+            cursorSprite.enabled = false;
+            laserSight.enabled = false;
+        }
+        else
+        {
+            cursorSprite.enabled = true;
+            laserSight.enabled = true;
+            Vector3 input = GetInput();
+            rectTrans.position = ChangePosition(input);
+            CenterCursor();
+        }
+        
     }
 
     private Vector3 GetInput()

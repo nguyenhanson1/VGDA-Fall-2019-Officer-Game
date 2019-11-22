@@ -1238,6 +1238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 982864448363612252, guid: 4c60bc362cfae244ea5cf25f092150b9, type: 3}
+    - {fileID: 649337874, guid: 4c60bc362cfae244ea5cf25f092150b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4c60bc362cfae244ea5cf25f092150b9, type: 3}
 --- !u!224 &649337872 stripped
 RectTransform:
@@ -1276,6 +1277,8 @@ MonoBehaviour:
   speed: 800
   centerSpeed: 0.5
   delayTime: 1
+  cursorSprite: {fileID: 649337877}
+  laserSight: {fileID: 1395462877}
   timer: 0
 --- !u!224 &649337875 stripped
 RectTransform:
@@ -1283,6 +1286,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 649337871}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &649337877 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 982864448363612253, guid: 4c60bc362cfae244ea5cf25f092150b9,
+    type: 3}
+  m_PrefabInstance: {fileID: 649337871}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 649337873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &669422002
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1889,12 @@ PrefabInstance:
 --- !u!20 &1268642583 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 6538571145535681782, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1395462877 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2096543275104106414, guid: 881dd39b4627b1445aa7296cdabc3ed8,
     type: 3}
   m_PrefabInstance: {fileID: 6538571144656062433}
   m_PrefabAsset: {fileID: 0}
@@ -2672,29 +2693,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Henicopter
       objectReference: {fileID: 0}
-    - target: {fileID: 446502010, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
-      propertyPath: m_Constraints
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6538571144145798328, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: pause
-      value: 
-      objectReference: {fileID: 1753232125}
-    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: dps
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: maxHealth
-      value: 20
+    - target: {fileID: 446502010, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
+      propertyPath: m_Constraints
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6538571145535681782, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
@@ -2815,6 +2821,26 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 9f91892e2877c8547a436f5a43f113fa, type: 2}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 1753232125}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: dps
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: maxHealth
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7750542454943463771, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: m_Name
+      value: LaserSight
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 881dd39b4627b1445aa7296cdabc3ed8, type: 3}
 --- !u!4 &6538571144656062434 stripped
