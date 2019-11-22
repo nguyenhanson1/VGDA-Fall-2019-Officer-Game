@@ -25,13 +25,21 @@ public class MoveCursor : MonoBehaviour
     [SerializeField] private float centerSpeed = 1f;
     [Tooltip("Time that cursor needs to be still for centerCursor to activate.")]
     [SerializeField] private float delayTime = 1f;
+    private float timer = 0f;
 
     [Header("Maneuver Ability")]
     [SerializeField] private Image cursorSprite = null;
     [SerializeField] private MeshRenderer laserSight = null;
 
     [Header("Aiming")]
-    [SerializeField] private MeshRenderer player = null;
+    [SerializeField] private MeshRenderer playerMesh = null;
+    [SerializeField] private Transform playerTrans = null;
+    [Tooltip("How close cursor can be to center screen before mading player transparent")]
+    [SerializeField] private float fadeDistance = 0.4f;
+    [SerializeField] private Material opaquePlayer = null;
+    [SerializeField] private Material transPlayer = null;
+    [SerializeField] private Material opaqueLaserSight = null;
+    [SerializeField] private Material transLaserSight = null;
 
     public Vector2 CursorPosition
     {
@@ -44,8 +52,6 @@ public class MoveCursor : MonoBehaviour
             return screenPos;
         }
     }
-
-    [SerializeField]private float timer = 0f;
 
     private void OnEnable()
     {
@@ -126,11 +132,25 @@ public class MoveCursor : MonoBehaviour
         else
             timer = 0f;
 
-        if(timer >= delayTime)
+        Vector3 centerSceen = new Vector3(Screen.width / 2, Screen.height / 2, rectTrans.position.z);
+
+        if (timer >= delayTime)
         {
             //Debug.Log("Going");
-            Vector3 centerSceen = new Vector3(Screen.width/2, Screen.height/2, rectTrans.position.z);
             rectTrans.position = Vector3.Lerp(rectTrans.position, centerSceen, centerSpeed * Time.deltaTime);
+        }
+
+
+        Debug.Log("Distance from Cursor: " + Vector2.Distance(centerSceen, rectTrans.position));
+        if (Vector2.Distance(persCam.WorldToScreenPoint(playerTrans.position), rectTrans.position) <= fadeDistance)
+        {
+            playerMesh.material = transPlayer;
+            laserSight.material = opaqueLaserSight;
+        }
+        else
+        {
+            playerMesh.material = opaquePlayer;
+            laserSight.material = transLaserSight;
         }
     }
 }

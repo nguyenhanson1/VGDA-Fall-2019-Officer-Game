@@ -1279,7 +1279,13 @@ MonoBehaviour:
   delayTime: 1
   cursorSprite: {fileID: 649337877}
   laserSight: {fileID: 1395462877}
-  timer: 0
+  playerMesh: {fileID: 1461045446}
+  playerTrans: {fileID: 1461045445}
+  fadeDistance: 100
+  opaquePlayer: {fileID: 2100000, guid: 9f91892e2877c8547a436f5a43f113fa, type: 2}
+  transPlayer: {fileID: 2100000, guid: 6d07868c1bef0a942a7c8e90dd39fafe, type: 2}
+  opaqueLaserSight: {fileID: 2100000, guid: 25a9479b7c956944e8c4fe0c6a91fc14, type: 2}
+  transLaserSight: {fileID: 2100000, guid: 2b38ed926ea07a24fa817350be85a4d1, type: 2}
 --- !u!224 &649337875 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 982864449006078517, guid: 4c60bc362cfae244ea5cf25f092150b9,
@@ -1895,6 +1901,18 @@ Camera:
 --- !u!23 &1395462877 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2096543275104106414, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1461045445 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6513492032890883648, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+    type: 3}
+  m_PrefabInstance: {fileID: 6538571144656062433}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1461045446 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 8359557950012426383, guid: 881dd39b4627b1445aa7296cdabc3ed8,
     type: 3}
   m_PrefabInstance: {fileID: 6538571144656062433}
   m_PrefabAsset: {fileID: 0}
