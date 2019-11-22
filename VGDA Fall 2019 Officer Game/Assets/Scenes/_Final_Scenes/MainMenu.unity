@@ -590,8 +590,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.4, y: 65}
-  m_SizeDelta: {x: 613.1, y: 89.58}
+  m_AnchoredPosition: {x: -62.4, y: 50}
+  m_SizeDelta: {x: 613.1, y: 130.09}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &55585358
 MonoBehaviour:
@@ -628,7 +628,8 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: "Proceed with caution in the forest of poul-tree. Navigate through the skies
     with the W, A, S, D keys. \r\n\t\tFly upwards/downwards with W and S.\r\n\t\tBank
-    left/right with A and D.\r\n\n\n"
+    left/right with A and D.\r\n\t\t*NOTE: This will move your cursor and the chicken
+    will follow it.\n\n\n"
 --- !u!222 &55585359
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -819,6 +820,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
+      propertyPath: m_Name
+      value: barrel (3)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 613.1
@@ -874,10 +879,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalScale.z
       value: 15.282626
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
-      propertyPath: m_Name
-      value: barrel (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
@@ -995,7 +996,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.025002, y: -93.600006}
+  m_AnchoredPosition: {x: 0.025002, y: -100}
   m_SizeDelta: {x: 738.05, y: 71.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &204469205
@@ -1980,6 +1981,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
+      propertyPath: m_Name
+      value: barrel (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 595.1
@@ -2035,10 +2040,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalScale.z
       value: 15.282626
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
-      propertyPath: m_Name
-      value: barrel (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
@@ -2155,7 +2156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15, y: 110.499985}
+  m_AnchoredPosition: {x: -15, y: 115.75499}
   m_SizeDelta: {x: 738.1, y: 48.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1031809959
@@ -2507,6 +2508,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
+      propertyPath: m_Name
+      value: barrel
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 615.53015
@@ -2562,10 +2567,6 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalScale.z
       value: 15.282626
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
-      propertyPath: m_Name
-      value: barrel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
@@ -2760,7 +2761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.4, y: 2.6400042}
+  m_AnchoredPosition: {x: -62.4, y: -9.7599945}
   m_SizeDelta: {x: 613.1, y: 75.73}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1166033758
@@ -2797,8 +2798,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "Steady your aim, bawker. You are equipped with egg-cellent artillery\u2026
-    yourself and your eggs.\r\n\t\tAim with your mouse and shoot by clicking the left
-    mouse button.\r"
+    yourself and your eggs.\r\n\t\tClick the left mouse button to shoot your eggs."
 --- !u!222 &1166033759
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3939,7 +3939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -158}
+  m_AnchoredPosition: {x: 0, y: -164.4}
   m_SizeDelta: {x: 738.1, y: 62.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777467296
@@ -4190,13 +4190,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1898247308}
-    characterCount: 6
+    characterCount: 0
     spriteCount: 0
     spaceCount: 0
-    wordCount: 1
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -4385,6 +4385,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
+      propertyPath: m_Name
+      value: barrel (2)
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 604.1
@@ -4441,10 +4445,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 15.282626
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
-      propertyPath: m_Name
-      value: barrel (2)
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9702fbaad11045f429bda028a97393f4, type: 3}
 --- !u!1 &1996883920
@@ -4481,7 +4481,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.000061, y: -44.600014}
+  m_AnchoredPosition: {x: -15.000061, y: -51.000015}
   m_SizeDelta: {x: 738.1, y: 48.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1996883922
