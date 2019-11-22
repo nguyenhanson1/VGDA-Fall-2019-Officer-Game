@@ -52,6 +52,14 @@ MonoBehaviour:
     RandomTempo: 0
     loop: 1
     mute: 0
+  - name: Lose_BGM
+    clip: {fileID: 8300000, guid: 52aa7eb731601034b881f36a3aaa91fe, type: 3}
+    volume: 0.1
+    tempo: 0.7
+    RandomVolume: 0
+    RandomTempo: 0
+    loop: 1
+    mute: 0
   Sounds:
   - name: BaCack
     clip: {fileID: 8300000, guid: 000d633f9a96b994680776e81fde1e25, type: 3}
@@ -121,6 +129,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ec92517f4d9e94f43ae1ef7a350dc73e, type: 3}
     volume: 0.2
     tempo: 2.5
+    RandomVolume: 0
+    RandomTempo: 0
+    loop: 0
+    mute: 0
+  - name: SadTrombone
+    clip: {fileID: 8300000, guid: 5337b8ad601fcd64d8fe7448a0256325, type: 3}
+    volume: 0.2
+    tempo: 1
     RandomVolume: 0
     RandomTempo: 0
     loop: 0

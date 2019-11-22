@@ -81,7 +81,7 @@ public class PlayerInteract : MonoBehaviour, IDamagable
     //Check if Fire button was pressed.
     private void checkforShot()
     {
-        if (Input.GetButton("Fire1") && !pause.gamePaused)
+        if (Input.GetButton("Fire1") && !pause.gamePaused && !Input.GetButton("Maneuver"))
             if (!shotDelayed)
             {
                 if(FindObjectOfType<AudioManager>() != null)

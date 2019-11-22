@@ -1,5 +1,6 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [ExecuteInEditMode]
 [System.Serializable]
@@ -125,8 +126,34 @@ public class AudioManager : MonoBehaviour
             _go.transform.SetParent(this.transform);                                    // as a child
             Music[i].SetSource(_go.AddComponent<AudioSource>());                        // and of specific music file played
         }
+        if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
+        {
+            PlaySound("SadTrombone");
+            PlaySound("Lose_BGM");
+            StopSound("Title_BGM");
+        }
+        else
+        {
+            PlaySound("Title_BGM");
+            StopSound("Lose_BGM");
+        }
 
-        PlaySound("Title_BGM");                     // plays this on start of play
+        // plays this on start of play
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (SceneManager.GetActiveScene().name.Equals("EndMenu"))
+        {
+            PlaySound("SadTrombone");
+            PlaySound("Lose_BGM");
+            StopSound("Title_BGM");
+        }
+        else
+        {
+            PlaySound("Title_BGM");
+            StopSound("Lose_BGM");
+        }
     }
 
     public void PlaySound(string _name)

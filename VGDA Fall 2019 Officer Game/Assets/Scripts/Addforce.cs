@@ -42,6 +42,8 @@ public class Addforce : MonoBehaviour
         //Check cursor on right
         if (Input.GetButton("Maneuver"))
         {
+            rigid.velocity = chickenLook.transform.forward * (movementSpeed * 2f);
+
             turnPercentH = Mathf.Clamp(turnPercentH + 0.05f, 0, 1);
             turnForceY = turn * Input.GetAxis("Horizontal") * turnPercentH;
         }
@@ -129,11 +131,21 @@ public class Addforce : MonoBehaviour
     {
         float vertical = Input.GetAxis("Vertical");
 
-        if (vertical > 0)
+        if (Input.GetButton("Maneuver"))
+        {
+            if (vertical != 0)
+                if (turnPercentV < 1)
+                {
+                    turnPercentV += 0.02f;
+                }
+                turnForceX = vertical * turnSpeed * turnPercentV;
+        }
+        /*
+        else if (vertical > 0)
         {
             if (turnPercentV < 1)
             {
-                turnPercentV += 0.01f;
+                turnPercentV += 0.02f;
             }
             turnForceX = vertical * turnSpeed * turnPercentV;
         }
@@ -141,24 +153,18 @@ public class Addforce : MonoBehaviour
         {
             if (turnPercentV < 1)
             {
-                turnPercentV += 0.01f;
+                turnPercentV += 0.02f;
             }
             turnForceX = vertical * turnSpeed * turnPercentV;
         }
+        */
         else
         {
             turnPercentV = 0;
             turnForceX = 0;
         }
 
-        if (turnForceX != 0)
-        {
-            rigid.angularVelocity = new Vector3(-turnSpeed *Time.deltaTime, rigid.angularVelocity.y, 0f);
-        }
-        else
-        {
-            rigid.angularVelocity = new Vector3(0f, rigid.angularVelocity.y, 0f);
-        }
+        rigid.angularVelocity = new Vector3(rigid.angularVelocity.x, rigid.angularVelocity.y, 0f);
     }
     
     //Rotates whole ass player object to the cursor
