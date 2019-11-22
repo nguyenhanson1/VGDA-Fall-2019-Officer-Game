@@ -1054,6 +1054,16 @@ PrefabInstance:
       propertyPath: scatterMagnitude
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356134463856311342, guid: 67fb48085db3e254dab6dbc1f61845a4,
+        type: 3}
+      propertyPath: maxHealth
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67fb48085db3e254dab6dbc1f61845a4, type: 3}
 --- !u!4 &466671072 stripped
@@ -2681,11 +2691,6 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
-        type: 3}
-      propertyPath: pause
-      value: 
-      objectReference: {fileID: 1753232125}
     - target: {fileID: 6538571145535681782, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: far clip plane
@@ -2795,6 +2800,16 @@ PrefabInstance:
       propertyPath: rigid
       value: 
       objectReference: {fileID: 7194018}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: pause
+      value: 
+      objectReference: {fileID: 1753232125}
+    - target: {fileID: 6538571144145798330, guid: 881dd39b4627b1445aa7296cdabc3ed8,
+        type: 3}
+      propertyPath: dps
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 8359557950012426383, guid: 881dd39b4627b1445aa7296cdabc3ed8,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

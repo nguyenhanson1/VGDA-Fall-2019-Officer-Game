@@ -106,4 +106,8 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         yield return new WaitForSeconds(shotDelay);
         shotDelayed = false;
     }
+    private IEnumerator Wait(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+    }
 }
