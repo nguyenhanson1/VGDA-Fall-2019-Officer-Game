@@ -56,12 +56,20 @@ public class PlayerInteract : MonoBehaviour, IDamagable
         displayHealth = totalHealth.HealthTotal;
     }
 
+    public void takeDamage(int damage)
+    {
+        totalHealth.subtractHealth(damage);
+        DisplayHealth();
+    }
+    
+    
     //Destroys Player when its health goes to 0
     private void Begoned(Health h)
     {
         if (totalHealth.HealthTotal <= 0)
         { // totalHealth == h
             // Play Death Animation
+            Wait(2);
             SceneManager.LoadScene("EndMenu");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
