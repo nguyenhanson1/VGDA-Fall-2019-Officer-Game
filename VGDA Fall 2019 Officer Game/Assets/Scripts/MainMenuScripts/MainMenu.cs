@@ -29,7 +29,10 @@ public class MainMenu : MonoBehaviour
         
 
     }
-
+    public void Quit()
+    {
+        Application.Quit();
+    }
     IEnumerator ChangeMenu()
     {
         yield return new WaitForSeconds(4);
