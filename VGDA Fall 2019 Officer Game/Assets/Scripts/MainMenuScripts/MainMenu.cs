@@ -8,17 +8,22 @@ public class MainMenu : MonoBehaviour
    
     public GameObject Main_Menu;
     public static bool MainM = true;
+    public static bool CamPan;
+    public static bool Static;
     private Animator Camera;
     public GameObject Cam;
     private void Start()
     {
-        
+        CamPan = false;
+        Static = true;
         Camera = Cam.GetComponent<Animator>();
     }
     public void Play()
     {
-        Camera.SetBool("Static", false);
-        Camera.SetBool("Cam_Scroll", true);
+        CamPan = true;
+        Static = false;
+        Camera.SetBool("Static", Static);
+        Camera.SetBool("Cam_Scroll", CamPan);
         Main_Menu.GetComponent<Canvas>().enabled = false;
         StartCoroutine(ChangeMenu());
         
