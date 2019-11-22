@@ -61,4 +61,10 @@ public class PauseMenuManager : MonoBehaviour
         Cursor.visible = false;
         Application.LoadLevel("MVP"); 
     }
+    public void Menu()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Application.LoadLevel("MainMenu");
+    }
 }
