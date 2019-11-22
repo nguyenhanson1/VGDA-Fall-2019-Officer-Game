@@ -101,7 +101,7 @@ public class Bullet : MonoBehaviour
             if (col.gameObject.GetComponent<IDamagable>().myFaction == factionTarget)
             {
                 Debug.Log("Damage");
-                col.gameObject.GetComponent<IDamagable>().health.subtractHealth(1);
+                col.gameObject.GetComponent<IDamagable>().health.subtractHealth(damage);
                 gameObject.SetActive(false);
 
                 if (FindObjectOfType<AudioManager>() != null)
